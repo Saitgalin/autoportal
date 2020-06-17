@@ -1,0 +1,9 @@
+
+database:
+  image: postgres
+  volumes:
+    - /data/db/mongo
+  environment:
+    POSTGRES_USER: mainuser
+    POSTGRES_PASSWORD: ​verysecurepassword
+    POSTGRES_DB: ​autoservice
