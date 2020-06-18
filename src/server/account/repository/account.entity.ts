@@ -1,5 +1,6 @@
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Token} from "../../jwt-token/repository/token.entity";
+import {StatusEnum} from "../../../common/enum/account/status.enum";
 
 @Entity()
 export class Account {
@@ -24,5 +25,9 @@ export class Account {
 
     @OneToMany(type => Token, token => token.account)
     jwtToken: string
+
+    //TODO: change to phonePending
+    @Column({enum: StatusEnum, default: StatusEnum.emailPending})
+    status: StatusEnum
 
 }

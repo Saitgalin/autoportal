@@ -1,23 +1,19 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { ConfigModule } from '@nestjs/config';
-import { AccountModule } from './account/account.module';
-import { AuthModule } from './auth/auth.module';
-import { JwtTokenModule } from './jwt-token/jwt-token.module';
-import * as path from 'path';
+import {Module} from '@nestjs/common';
+import {AppController} from './app.controller';
+import {AccountModule} from './account/account.module';
+import {AuthModule} from './auth/auth.module';
+import {JwtTokenModule} from './jwt-token/jwt-token.module';
+import {configModule} from "./configure.root";
+import { MailModule } from './mail/mail.module';
 
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      load: [() => ({
-        dataPath: path.resolve(__dirname, '..', '..', 'data')
-      })],
-      isGlobal: true
-    }),
+    configModule,
     AccountModule,
     AuthModule,
-    JwtTokenModule
+    JwtTokenModule,
+    MailModule
   ],
   controllers: [AppController],
   providers: [],

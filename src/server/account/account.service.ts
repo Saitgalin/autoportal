@@ -21,12 +21,22 @@ export class AccountService {
 
     async findByEmail(email: string): Promise<Account> {
         return await this.accountRepository.findOne(
-            { where: { email: email }}
+            { where: {
+                email: email
+            }}
         );
     }
 
     private async hashPassword(password: string): Promise<string> {
         const salt = await bcrypt.genSalt(this.saltRounds)
         return await bcrypt.hash(password, salt)
+    }
+
+    async findById(id: number): Promise<Account> {
+        return await this.accountRepository.findOne({id: id})
+    }
+
+    async update(account: Account) {
+        return await this.accountRepository.update({id: account.id}, account)
     }
 }

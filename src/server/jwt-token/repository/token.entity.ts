@@ -13,4 +13,7 @@ export class Token {
     @Column({type: "date"})
     expiresAt: Date
 
+    @Column()
+    token: string
+
 }
