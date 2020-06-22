@@ -1,20 +1,20 @@
 import {BadRequestException, Injectable, Logger, UnauthorizedException} from '@nestjs/common';
-import {CreateAccountDto} from "../../common/dto/auth/create-account.dto";
+import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";
 import {AccountService} from "../account/account.service";
-import {SignInDto} from "../../common/dto/auth/sign-in.dto";
-import {IReadableAccount} from "../../common/readable/account/IReadableAccount";
+import {SignInDto} from "../../../common/dto/auth/sign-in.dto";
+import {IReadableAccount} from "../../../common/readable/account/IReadableAccount";
 import {SignOptions} from 'jsonwebtoken';
 import {JwtService} from '@nestjs/jwt';
 import * as _ from "lodash";
 import * as bcrypt from 'bcrypt'
-import {CreateAccountTokenDto} from "../../common/dto/auth/create-account-token.dto";
+import {CreateAccountTokenDto} from "../../../common/dto/auth/create-account-token.dto";
 import {JwtTokenService} from "../jwt-token/jwt-token.service";
 import moment = require("moment");
 import {ConfigService} from "@nestjs/config";
 import {Account} from "../account/repository/account.entity";
 import {MailService} from "../mail/mail.service";
 import {ITokenPayload} from "./interfaces/token-payload.interface";
-import {StatusEnum} from "../../common/enum/account/status.enum";
+import {StatusEnum} from "../../../common/enum/account/status.enum";
 import {UpdateResult} from "typeorm";
 
 

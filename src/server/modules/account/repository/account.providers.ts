@@ -1,5 +1,5 @@
-import {Connection} from "typeorm";
 import {AccountRepository} from "./account.repository";
+import {Connection} from "typeorm";
 
 export const accountProviders = [
         {

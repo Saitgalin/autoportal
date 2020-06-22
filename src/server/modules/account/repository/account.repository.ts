@@ -1,6 +1,6 @@
 import {EntityRepository, Repository} from "typeorm";
 import {Account} from "./account.entity";
-import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";
+import {CreateAccountDto} from "../../../../common/dto/auth/create-account.dto";
 import * as _ from "lodash";
 
 @EntityRepository(Account)

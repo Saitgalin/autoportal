@@ -1,6 +1,7 @@
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Token} from "../../jwt-token/repository/token.entity";
-import {StatusEnum} from "../../../common/enum/account/status.enum";
+import {StatusEnum} from "../../../../common/enum/account/status.enum";
+import {SubAccount} from "../../subaccount/repository/subaccount.entity";
 
 @Entity()
 export class Account {
@@ -11,10 +12,10 @@ export class Account {
     fio: string
 
     //TODO: Временно string, поменять (проблема с Postgres)
-    @Column()
+    @Column({unique: true})
     phone: string
 
-    @Column()
+    @Column({unique: true})
     email: string
 
     @Column()
@@ -30,4 +31,9 @@ export class Account {
     @Column({enum: StatusEnum, default: StatusEnum.emailPending})
     status: StatusEnum
 
+    @Column({default: false})
+    hasSubAccounts: boolean
+
+    @OneToMany(type => SubAccount, subaccount => subaccount.account)
+    subAccounts: SubAccount
 }

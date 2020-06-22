@@ -1,10 +1,10 @@
 import {Body, Controller, Get, Post, Query, ValidationPipe} from '@nestjs/common';
 import {ApiTags} from "@nestjs/swagger";
 import {AuthService} from "./auth.service";
-import {CreateAccountDto} from "../../common/dto/auth/create-account.dto";
-import {SignInDto} from "../../common/dto/auth/sign-in.dto";
-import {IReadableAccount} from "../../common/readable/account/IReadableAccount";
-import {ConfirmAccountDto} from "../../common/dto/auth/confirm-account.dto";
+import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";
+import {SignInDto} from "../../../common/dto/auth/sign-in.dto";
+import {IReadableAccount} from "../../../common/readable/account/IReadableAccount";
+import {ConfirmAccountDto} from "../../../common/dto/auth/confirm-account.dto";
 
 @ApiTags('auth')
 @Controller('auth')
@@ -18,7 +18,7 @@ export class AuthController {
     }
 
     @Get('/confirm')
-    async confirm(@Query(new ValidationPipe()) query: ConfirmAccountDto): Promise<any> {
+    async emailConfirm(@Query(new ValidationPipe()) query: ConfirmAccountDto): Promise<any> {
         return await this.authService.emailConfirm(query.token)
     }
 

@@ -1,5 +1,5 @@
 import {IsDate, IsString} from "class-validator";
-import {Account} from "../../../server/account/repository/account.entity";
+import {Account} from "../../../server/modules/account/repository/account.entity";
 
 export class CreateAccountTokenDto {
     @IsString()

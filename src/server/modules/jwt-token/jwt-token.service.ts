@@ -1,15 +1,17 @@
 import {Inject, Injectable} from '@nestjs/common';
-import {CreateAccountTokenDto} from "../../common/dto/auth/create-account-token.dto";
+import {CreateAccountTokenDto} from "../../../common/dto/auth/create-account-token.dto";
 import {Token} from "./repository/token.entity";
 import {TokenRepository} from "./repository/token.repository";
 import {Account} from "../account/repository/account.entity";
+import {AccountService} from "../account/account.service";
 
 
 @Injectable()
 export class JwtTokenService {
     constructor(
         @Inject('TOKEN_REPOSITORY')
-        private readonly tokenRepository: TokenRepository
+        private readonly tokenRepository: TokenRepository,
+        private readonly accountService: AccountService
     ) {}
 
     async create(createAccountTokenDto: CreateAccountTokenDto): Promise<Token> {
@@ -32,6 +34,12 @@ export class JwtTokenService {
 
     async exists(account: Account, token: string) {
         const findedToken = await this.find(account, token)
-        return findedToken !== null && findedToken !== undefined;
+        return findedToken !== undefined && findedToken !== null
+    }
+
+    async existsById(accountId: number, token: string) {
+        const account = await this.accountService.findById(accountId)
+        const findedToken = await this.find(account, token)
+        return findedToken !== undefined && findedToken !== null
     }
 }
