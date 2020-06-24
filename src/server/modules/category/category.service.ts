@@ -2,6 +2,7 @@ import {Inject, Injectable} from '@nestjs/common';
 import {Category} from "./repository/category.entity";
 import {Repository} from "typeorm";
 import {IReadableCategory} from "../../../common/readable/category/IReadableCategory";
+import {SubAccountCategoryEnum} from "../../../common/enum/subaccount/subaccount-category.enum";
 
 @Injectable()
 export class CategoryService {
@@ -14,6 +15,10 @@ export class CategoryService {
 
     async all(): Promise<Category[]> {
         return await this.categoryRepository.find()
+    }
+
+    async findByName(title: SubAccountCategoryEnum): Promise<Category> {
+        return await this.categoryRepository.findOne({where: {title: title}})
     }
 
     async findById(id: number): Promise<Category> {

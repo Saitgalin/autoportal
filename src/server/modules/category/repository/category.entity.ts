@@ -13,8 +13,8 @@ export class Category {
     title: SubAccountCategoryEnum
 
     @OneToMany(type => SubAccount, subAccount => subAccount.category)
-    subAccounts: SubAccount
+    subAccounts: SubAccount[]
 
-    @OneToMany(type => Services, services => services.category)
-    services: Services
+    @OneToMany(type => Services, services => services.category, {cascade: true})
+    services: Services[]
 }

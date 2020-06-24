@@ -3,6 +3,7 @@ import {Account} from "./repository/account.entity";
 import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";
 import {AccountRepository} from "./repository/account.repository";
 import * as bcrypt from 'bcrypt'
+import {JwtTokenService} from "../jwt-token/jwt-token.service";
 
 
 @Injectable()
@@ -10,7 +11,7 @@ export class AccountService {
     private readonly saltRounds = 10;
     constructor(
         @Inject('ACCOUNT_REPOSITORY')
-        private readonly accountRepository: AccountRepository
+        private readonly accountRepository: AccountRepository,
     ) {
     }
 

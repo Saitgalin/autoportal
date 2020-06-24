@@ -1,26 +1,33 @@
 import * as React from 'react';
-import {render} from 'react-dom';
-import {BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
+import {SignIn} from './components/Auth/SignIn';
+import {SignUp} from "./components/Registration/SignUp";
+import {Header} from "./components/Header/Header";
+import {useEffect} from "react";
 
+export const App = () => {
 
-const App = () => {
+	useEffect(() => {
+		this.props.getProfileFetch()
+	}, []);
+
 	return (
 		<Router>
-			<h2><a href="/">init</a></h2>
-			<nav>
-				<ul>
-					<li>
-						<Link to='/'>react init</Link>
-					</li>
-				</ul>
-			</nav>
-
+			<Header />
 			<Switch>
-				<Route path='/'>
+				<Route path='/signUp'>
+					<SignUp />
+				</Route>
+				<Route path='/signIn'>
+					<SignIn />
 				</Route>
 			</Switch>
 		</Router>
 	)
 }
 
-render(<App />, document.getElementById('app'));
+
+const mapDispatchToProps = dispatch => ({
+	getProfileFetch: () => dispatch()
+})
+

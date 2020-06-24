@@ -17,4 +17,8 @@ export class CityService {
         return await this.cityRepository.find()
     }
 
+    async find(title: string): Promise<City> {
+        return await this.cityRepository.findOne({where: {title: title}})
+    }
+
 }

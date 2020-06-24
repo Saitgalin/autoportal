@@ -9,6 +9,9 @@ import { SubAccountModule } from './modules/subaccount/subaccount.module';
 import { CityModule } from './modules/city/city.module';
 import { CategoryModule } from './modules/category/category.module';
 import { ServicesModule } from './modules/services/services.module';
+import { ContactsModule } from './modules/contacts/contacts.module';
+import { AddressModule } from './modules/address/address.module';
+import { SocialModule } from './modules/social/social.module';
 
 
 @Module({
@@ -22,6 +25,9 @@ import { ServicesModule } from './modules/services/services.module';
     CityModule,
     CategoryModule,
     ServicesModule,
+    ContactsModule,
+    AddressModule,
+    SocialModule,
   ],
   controllers: [AppController],
   providers: [],

@@ -1,7 +1,6 @@
 import {Inject, Injectable} from '@nestjs/common';
 import {Services} from "./repository/services.entity";
 import {Repository} from "typeorm";
-import {IReadableServices} from "../../../common/readable/services/IReadableServices";
 import {CategoryService} from "../category/category.service";
 
 @Injectable()
@@ -23,6 +22,10 @@ export class ServicesService {
         return await this.servicesRepository.find(
             {where: {category: category}}
         )
+    }
+
+    async findByIds(serviceIds: number[]): Promise<Services[]> {
+        return await this.servicesRepository.findByIds(serviceIds)
     }
 
 }

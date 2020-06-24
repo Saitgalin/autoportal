@@ -32,6 +32,16 @@ export class JwtTokenService {
         })
     }
 
+    async accountByToken(token: string): Promise<Account> {
+        const findedToken = await this.tokenRepository.findOne({
+            where: {
+                token: token
+            }
+        })
+
+        return findedToken.account
+    }
+
     async exists(account: Account, token: string) {
         const findedToken = await this.find(account, token)
         return findedToken !== undefined && findedToken !== null

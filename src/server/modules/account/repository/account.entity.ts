@@ -35,5 +35,5 @@ export class Account {
     hasSubAccounts: boolean
 
     @OneToMany(type => SubAccount, subaccount => subaccount.account)
-    subAccounts: SubAccount
+    subAccounts: SubAccount[]
 }

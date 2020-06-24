@@ -1,4 +1,4 @@
-import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Category} from "../../category/repository/category.entity";
 import {SubAccount} from "../../subaccount/repository/subaccount.entity";
 
@@ -14,7 +14,7 @@ export class Services {
     @ManyToOne(type => Category, category => category.services)
     category: Category
 
-    @OneToMany(type => SubAccount, subAccount => subAccount.services)
-    subAccount: SubAccount
+    @ManyToMany(type => SubAccount, subAccount => subAccount.services)
+    subAccount: SubAccount[]
 
 }

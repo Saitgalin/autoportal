@@ -1,5 +1,5 @@
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
-import {SubAccount} from "../../subaccount/repository/subaccount.entity";
+import {Address} from "../../address/repository/address.entity";
 
 @Entity()
 export class City {
@@ -10,7 +10,7 @@ export class City {
     @Column()
     title: string
 
-    @OneToMany(type => SubAccount, subaccount => subaccount.city)
-    subAccounts: SubAccount
+    @OneToMany(type => Address, address => address.city)
+    addresses: Address
 
 }

@@ -10,6 +10,9 @@ import { CityController } from './city.controller';
       CityService,
       ...cityProviders
   ],
-  controllers: [CityController]
+  exports: [
+     CityService
+  ],
+  controllers: [CityController],
 })
 export class CityModule {}
