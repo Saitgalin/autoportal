@@ -13,7 +13,9 @@ export const databaseProviders = [
             entities: [
                 __dirname + '/../**/*.entity{.ts,.js}',
             ],
-            synchronize: true,
+            logging: 'all',
+            logger: 'advanced-console',
+            synchronize: true
         }),
     }
 ]

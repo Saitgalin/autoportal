@@ -1,8 +1,9 @@
-import {createParamDecorator, ExecutionContext} from "@nestjs/common";
+import {createParamDecorator, ExecutionContext, Logger} from "@nestjs/common";
+import {JwtTokenService} from "../../jwt-token/jwt-token.service";
+import {ExecutionContextHost} from "@nestjs/core/helpers/execution-context-host";
 
 export const AuthAccount = createParamDecorator(
-    (data: unknown, ctx: ExecutionContext) => {
-        const request = ctx.switchToHttp().getRequest()
-        return request.account
+    (data: string, req: ExecutionContextHost) => {
+        return req.switchToHttp().getRequest().user
     }
 )

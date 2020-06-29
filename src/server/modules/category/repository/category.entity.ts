@@ -15,6 +15,6 @@ export class Category {
     @OneToMany(type => SubAccount, subAccount => subAccount.category)
     subAccounts: SubAccount[]
 
-    @OneToMany(type => Services, services => services.category, {cascade: true})
+    @OneToMany(type => Services, services => services.category)
     services: Services[]
 }

@@ -9,20 +9,20 @@ export class Contacts {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column({nullable: true})
+    @Column({nullable: true, type: "bigint"})
     phoneNumber?: number
 
     @Column({nullable: true})
     website?: string
 
-    @OneToOne(type => SubAccount, subaccount => subaccount.contacts, {cascade: true})
+    @OneToOne(type => SubAccount, subaccount => subaccount.contacts)
     subAccount: SubAccount
 
     @OneToMany(type => Address, address => address.contacts, {cascade: true})
     addresses: Address[]
 
-    @OneToOne(type => Social, social => social.contacts, {nullable: true, cascade: true})
-    social?: Social
+    @OneToOne(type => Social, social => social.contacts, {cascade: true})
+    social: Social
 
     @Column({enum: WeekDayEnum})
     workScheduleFrom: WeekDayEnum

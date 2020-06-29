@@ -1,21 +1,27 @@
-import {Controller, Post, UseGuards} from '@nestjs/common';
+import {Body, Controller, Delete, Logger, Post, Request, UseGuards, ValidationPipe} from '@nestjs/common';
 import {SubAccountService} from "./subaccount.service";
 import {CreateSubAccountDto} from "../../../common/dto/subaccount/create-subaccount.dto";
-import {AuthGuard} from "@nestjs/passport";
 import {AuthAccount} from "../account/decorators/account.decorator";
 import {Account} from "../account/repository/account.entity";
-import {ApiTags} from "@nestjs/swagger";
+import {ApiBearerAuth, ApiTags} from "@nestjs/swagger";
+import {SubAccount} from "./repository/subaccount.entity";
+import {AuthenticationGuard} from "../jwt-token/authorization.guard";
 
-@UseGuards(AuthGuard('jwt'))
 @ApiTags('subAccount')
+@ApiBearerAuth()
 @Controller('subAccount')
 export class SubAccountController {
 
     constructor(private readonly subAccountService: SubAccountService) {
     }
 
-    @Post()
-    async create(@AuthAccount() account: Account, createSubAccountDto: CreateSubAccountDto) {
-        await this.subAccountService.create(account, createSubAccountDto)
+    @UseGuards(AuthenticationGuard)
+    @Post('/create')
+    async create(
+        @AuthAccount() account: Account,
+        @Body(new ValidationPipe()) createSubAccountDto: CreateSubAccountDto
+    ): Promise<SubAccount> {
+        return await this.subAccountService.create(account, createSubAccountDto)
     }
+
 }

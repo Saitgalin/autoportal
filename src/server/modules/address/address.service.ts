@@ -4,6 +4,7 @@ import {Address} from "./repository/address.entity";
 import {CreateAddressDto} from "../../../common/dto/address/create-address.dto";
 import {City} from "../city/repository/city.entity";
 import {CityService} from "../city/city.service";
+import {Contacts} from "../contacts/repository/contacts.entity";
 
 @Injectable()
 export class AddressService {
@@ -22,7 +23,8 @@ export class AddressService {
 
         address.city = city
         address.houseNumber = createAddress.houseNumber
+        address.street = createAddress.street
 
-        return address
+        return address;
     }
 }

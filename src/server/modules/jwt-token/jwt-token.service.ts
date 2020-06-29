@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@nestjs/common';
+import {Inject, Injectable, Logger} from '@nestjs/common';
 import {CreateAccountTokenDto} from "../../../common/dto/auth/create-account-token.dto";
 import {Token} from "./repository/token.entity";
 import {TokenRepository} from "./repository/token.repository";
@@ -18,6 +18,12 @@ export class JwtTokenService {
         return this.tokenRepository.createToken(createAccountTokenDto)
     }
 
+    async accountByToken(token: string): Promise<Account> {
+        const query = `SELECT "accountId" FROM token WHERE "jwtToken" = '${token}'`
+        const accountId = await this.tokenRepository.query(query)
+        return await this.accountService.findById(accountId[0].accountId)
+    }
+
     async delete(account: Account, token: string) {
         const findedToken = await this.find(account, token)
         return await this.tokenRepository.delete(findedToken)
@@ -27,20 +33,11 @@ export class JwtTokenService {
         return await this.tokenRepository.findOne({
             where: {
                 account: account,
-                token: token
+                jwtToken: token
             }
         })
     }
 
-    async accountByToken(token: string): Promise<Account> {
-        const findedToken = await this.tokenRepository.findOne({
-            where: {
-                token: token
-            }
-        })
-
-        return findedToken.account
-    }
 
     async exists(account: Account, token: string) {
         const findedToken = await this.find(account, token)

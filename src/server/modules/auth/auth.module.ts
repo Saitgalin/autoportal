@@ -8,6 +8,8 @@ import {JwtTokenModule} from "../jwt-token/jwt-token.module";
 import {configModule} from "../../configure.root";
 import {MailModule} from "../mail/mail.module";
 import {JwtStrategy} from "./jwt.strategy";
+import {JwtTokenService} from "../jwt-token/jwt-token.service";
+import {AuthenticationGuard} from "../jwt-token/authorization.guard";
 
 @Module({
   imports: [
@@ -21,7 +23,11 @@ import {JwtStrategy} from "./jwt.strategy";
       configModule,
       MailModule
   ],
-  providers: [AuthService, JwtStrategy],
+  providers: [
+      AuthService,
+      JwtStrategy,
+      AuthenticationGuard
+  ],
   controllers: [AuthController]
 })
 export class AuthModule {

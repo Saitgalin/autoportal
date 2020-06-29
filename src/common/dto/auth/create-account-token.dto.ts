@@ -3,7 +3,7 @@ import {Account} from "../../../server/modules/account/repository/account.entity
 
 export class CreateAccountTokenDto {
     @IsString()
-    token: string
+    jwtToken: string
 
     account: Account
 

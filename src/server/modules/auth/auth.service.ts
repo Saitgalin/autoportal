@@ -53,7 +53,7 @@ export class AuthService {
                 .toDate()
 
             await this.saveToken({
-                token: token,
+                jwtToken: token,
                 expiresAt: expiresAt,
                 account: account
             })
@@ -82,7 +82,7 @@ export class AuthService {
         const token = await this.generateToken(tokenPayload, {expiresIn})
         const confirmLink = `${this.clientAppUrl}/auth/confirm?token=${token}`
 
-        await this.saveToken({token: token, account: account, expiresAt: expiresAt})
+        await this.saveToken({jwtToken: token, account: account, expiresAt: expiresAt})
         const response = await this.mailService.send({
             from: this.configService.get<string>('JS_CODE_MAIL'),
             to: account.email,

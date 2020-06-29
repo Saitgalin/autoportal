@@ -14,7 +14,4 @@ export class Services {
     @ManyToOne(type => Category, category => category.services)
     category: Category
 
-    @ManyToMany(type => SubAccount, subAccount => subAccount.services)
-    subAccount: SubAccount[]
-
 }

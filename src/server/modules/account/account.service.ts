@@ -3,7 +3,7 @@ import {Account} from "./repository/account.entity";
 import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";
 import {AccountRepository} from "./repository/account.repository";
 import * as bcrypt from 'bcrypt'
-import {JwtTokenService} from "../jwt-token/jwt-token.service";
+import {Token} from "../jwt-token/repository/token.entity";
 
 
 @Injectable()
@@ -28,13 +28,20 @@ export class AccountService {
         );
     }
 
+    async findByToken(token: Token): Promise<Account> {
+        return await this.accountRepository.findOneOrFail(
+            {where: {jwtToken: token}}
+        )
+    }
+
+
     private async hashPassword(password: string): Promise<string> {
         const salt = await bcrypt.genSalt(this.saltRounds)
         return await bcrypt.hash(password, salt)
     }
 
     async findById(id: number): Promise<Account> {
-        return await this.accountRepository.findOne({id: id})
+        return await this.accountRepository.findOneOrFail({where: {id: id}})
     }
 
     async update(account: Account) {

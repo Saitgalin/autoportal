@@ -14,6 +14,6 @@ export class Token {
     expiresAt: Date
 
     @Column()
-    token: string
+    jwtToken: string
 
 }

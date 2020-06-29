@@ -8,6 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
 
   const options = new DocumentBuilder()
+      .addBearerAuth()
       .setTitle('Автопортал')
       .setDescription('API Документация')
       .setVersion('1.0')

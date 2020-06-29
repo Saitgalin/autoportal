@@ -1,4 +1,4 @@
-import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Token} from "../../jwt-token/repository/token.entity";
 import {StatusEnum} from "../../../../common/enum/account/status.enum";
 import {SubAccount} from "../../subaccount/repository/subaccount.entity";
@@ -25,7 +25,7 @@ export class Account {
     createdAt: Date
 
     @OneToMany(type => Token, token => token.account)
-    jwtToken: string
+    jwtToken: Token[]
 
     //TODO: change to phonePending
     @Column({enum: StatusEnum, default: StatusEnum.emailPending})
@@ -34,6 +34,6 @@ export class Account {
     @Column({default: false})
     hasSubAccounts: boolean
 
-    @OneToMany(type => SubAccount, subaccount => subaccount.account)
+    @OneToMany(type => SubAccount, subaccount => subaccount.account, {cascade: true})
     subAccounts: SubAccount[]
 }

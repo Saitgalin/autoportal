@@ -8,7 +8,7 @@ export class Address {
     @PrimaryGeneratedColumn()
     id: number
 
-    @ManyToOne(type => City, city => city.addresses, {cascade: true})
+    @ManyToOne(type => City, city => city.addresses)
     city: City
 
     @Column()
@@ -17,6 +17,6 @@ export class Address {
     @Column()
     houseNumber: string
 
-    @ManyToOne(type => Contacts, contacts => contacts)
+    @ManyToOne(type => Contacts, contacts => contacts.addresses)
     contacts: Contacts
 }

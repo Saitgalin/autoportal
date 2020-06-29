@@ -6,6 +6,8 @@ import {Account} from "../account/repository/account.entity";
 import {ContactsService} from "../contacts/contacts.service";
 import {CategoryService} from "../category/category.service";
 import {ServicesService} from "../services/services.service";
+import {Category} from "../category/repository/category.entity";
+import {SubAccountCategoryEnum} from "../../../common/enum/subaccount/subaccount-category.enum";
 
 @Injectable()
 export class SubAccountService {
@@ -15,23 +17,31 @@ export class SubAccountService {
         private readonly subAccountRepository: Repository<SubAccount>,
         private readonly contactsService: ContactsService,
         private readonly categoryService: CategoryService,
-        private readonly servicesService: ServicesService
+        private readonly servicesService: ServicesService,
     ) {
     }
 
     async create(account: Account, createSubAccountDto: CreateSubAccountDto): Promise<SubAccount> {
         let subAccount = new SubAccount()
+
         subAccount.account = account
-        subAccount.contacts = await this.contactsService.create(createSubAccountDto, subAccount)
+        if (subAccount.account === undefined)
+            throw new NotFoundException('Такого аккаунта не существует')
+
         subAccount.title = createSubAccountDto.title
         subAccount.description = createSubAccountDto.description
+        subAccount.category = await this.getCategory(createSubAccountDto.category)
+        subAccount.services = await this.servicesService.findByIds(createSubAccountDto.services)
+        subAccount.contacts = await this.contactsService.create(createSubAccountDto)
 
-        const category = await this.categoryService.findByName(createSubAccountDto.category)
+        return this.subAccountRepository.save(subAccount);
+    }
+
+    private async getCategory(categoryFromDto: SubAccountCategoryEnum): Promise<Category> {
+        const category = await this.categoryService.findByName(categoryFromDto)
         if (category === undefined)
             throw new NotFoundException('Не найдена категория магазина')
-        subAccount.category = category
 
-        subAccount.services = await this.servicesService.findByIds(createSubAccountDto.services)
-        return this.subAccountRepository.create(subAccount);
+        return category
     }
 }
