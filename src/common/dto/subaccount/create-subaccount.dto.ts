@@ -4,6 +4,7 @@ import {WeekDayEnum} from "./weekday.enum";
 import {SocialDto} from "../social/social.dto";
 import {CreateAddressDto} from "../address/create-address.dto";
 import {ApiProperty} from "@nestjs/swagger";
+import {CreateAutopartDto} from "../request/create-autopart.dto";
 
 export class CreateSubAccountDto {
     @ApiProperty()
@@ -26,13 +27,12 @@ export class CreateSubAccountDto {
     @IsNotEmpty()
     readonly services: number[]
 
-    @ApiProperty()
-    readonly address: CreateAddressDto
+    @ApiProperty({ type: () => [CreateAddressDto] })
+    readonly address: CreateAddressDto[]
 
     @ApiProperty()
-    @IsNumber()
-    //@IsPhoneNumber('RU')
-    readonly phoneNumber: number
+    @IsPhoneNumber('RU')
+    readonly phoneNumber: string
 
     @ApiProperty()
     @IsString()

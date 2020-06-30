@@ -12,6 +12,9 @@ import { ServicesModule } from './modules/services/services.module';
 import { ContactsModule } from './modules/contacts/contacts.module';
 import { AddressModule } from './modules/address/address.module';
 import { SocialModule } from './modules/social/social.module';
+import { AutoModule } from './modules/auto/auto.module';
+import { RequestModule } from './modules/request/request.module';
+import { AutopartModule } from './modules/autopart/autopart.module';
 
 
 @Module({
@@ -28,6 +31,9 @@ import { SocialModule } from './modules/social/social.module';
     ContactsModule,
     AddressModule,
     SocialModule,
+    AutoModule,
+    RequestModule,
+    AutopartModule,
   ],
   controllers: [AppController],
   providers: [],

@@ -1,4 +1,14 @@
-import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {
+    Column,
+    Entity,
+    JoinColumn,
+    JoinTable,
+    ManyToMany,
+    ManyToOne,
+    OneToMany,
+    OneToOne,
+    PrimaryGeneratedColumn
+} from "typeorm";
 import {Account} from "../../account/repository/account.entity";
 import {City} from "../../city/repository/city.entity";
 import {Category} from "../../category/repository/category.entity";
@@ -28,6 +38,7 @@ export class SubAccount {
     services: Services[]
 
     @OneToOne(type => Contacts, contacts => contacts.subAccount, {cascade: true})
+    @JoinColumn()
     contacts: Contacts
 
 }

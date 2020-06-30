@@ -1,4 +1,4 @@
-import {Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 import {SubAccount} from "../../subaccount/repository/subaccount.entity";
 import {Address} from "../../address/repository/address.entity";
 import {Social} from "../../social/repository/social.entity";
@@ -22,6 +22,7 @@ export class Contacts {
     addresses: Address[]
 
     @OneToOne(type => Social, social => social.contacts, {cascade: true})
+    @JoinColumn()
     social: Social
 
     @Column({enum: WeekDayEnum})

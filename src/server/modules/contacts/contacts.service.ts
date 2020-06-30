@@ -1,14 +1,11 @@
-import {BadRequestException, Inject, Injectable, Logger} from '@nestjs/common';
+import {BadRequestException, Inject, Injectable} from '@nestjs/common';
 import {Repository} from "typeorm";
 import {Contacts} from "./repository/contacts.entity";
-import {ICreateContacts} from "../../../common/dto/contacts/i-create.contacts";
+import {IReadableCreateContacts} from "../../../common/readable/subaccount/i-readable-create.contacts";
 import {AddressService} from "../address/address.service";
 import {Address} from "../address/repository/address.entity";
 import {SocialService} from "../social/social.service";
 import {CreateAddressDto} from "../../../common/dto/address/create-address.dto";
-import {SubAccount} from "../subaccount/repository/subaccount.entity";
-import {Social} from "../social/repository/social.entity";
-import {tryCatch} from "rxjs/internal-compatibility";
 
 @Injectable()
 export class ContactsService {
@@ -20,17 +17,18 @@ export class ContactsService {
     ) {
     }
 
-    async create(createContacts: ICreateContacts) {
+    async create(createContacts: IReadableCreateContacts) {
         let contacts = new Contacts()
 
-        contacts.phoneNumber = createContacts.phoneNumber
+        contacts.phoneNumber = parseInt(createContacts.phoneNumber)
         contacts.website = createContacts.website
         contacts.workScheduleFrom = createContacts.workScheduleFrom
         contacts.workScheduleTo = createContacts.workScheduleTo
 
         contacts.social = await this.socialService.create(createContacts.socials)
 
-        contacts.addresses = await this.getAddresses(createContacts.address)
+        //TODO: реализовать несколько адресов
+        contacts.addresses = await this.getAddresses(createContacts.address[0])
 
         return contacts;
     }
