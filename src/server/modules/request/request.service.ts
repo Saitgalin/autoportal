@@ -35,13 +35,13 @@ export class RequestService {
         return await this.requestRepository.save(request);
     }
 
-    async uploadRequestImage(requestFileUploadDto: RequestFileUploadDto)  {
-        const request = await this.requestRepository.findOne({id: requestFileUploadDto.requestId});
+    async uploadRequestImage(file: any, requestId: number): Promise<boolean>  {
+        const request = await this.requestRepository.findOne({id: requestId});
         if (request === undefined)
             throw new NotFoundException('При загрузке изображения не была найдена заявка')
 
-        request.vinpic = requestFileUploadDto.file.originalname
-
+        request.vinpic = file.filename
+        await this.requestRepository.save(request)
         return true
     }
 

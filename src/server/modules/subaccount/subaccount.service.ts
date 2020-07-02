@@ -1,4 +1,4 @@
-import {Inject, Injectable, NotFoundException} from '@nestjs/common';
+import {BadRequestException, ForbiddenException, Inject, Injectable, Logger, NotFoundException} from '@nestjs/common';
 import {SubAccount} from "./repository/subaccount.entity";
 import {Repository} from "typeorm";
 import {CreateSubAccountDto} from "../../../common/dto/subaccount/create-subaccount.dto";
@@ -8,6 +8,8 @@ import {CategoryService} from "../category/category.service";
 import {ServicesService} from "../services/services.service";
 import {Category} from "../category/repository/category.entity";
 import {SubAccountCategoryEnum} from "../../../common/enum/subaccount/subaccount-category.enum";
+import {SubAccountPhotoService} from "../subaccount-photo/subaccount-photo.service";
+import {SubAccountPhoto} from "../subaccount-photo/repository/subaccount-photo.entity";
 
 @Injectable()
 export class SubAccountService {
@@ -18,8 +20,45 @@ export class SubAccountService {
         private readonly contactsService: ContactsService,
         private readonly categoryService: CategoryService,
         private readonly servicesService: ServicesService,
+        private readonly subAccountPhotoService: SubAccountPhotoService
     ) {
     }
+
+    async all(): Promise<SubAccount[]> {
+        return await this.subAccountRepository.find()
+    }
+
+    async uploadPhoto(account: Account, file, subAccountId: number): Promise<SubAccountPhoto> {
+        const subAccounts = await this.subAccountRepository.find({
+            where: {
+                account: account
+            }
+        })
+        const subAccount: SubAccount = subAccounts.find(
+            subAccount => subAccount.id === subAccountId
+        )
+
+        if (subAccount === undefined) {
+            throw new BadRequestException(`У аккаунта нет магазина с id ${subAccountId}`)
+        }
+
+        return await this.subAccountPhotoService.addPhoto(subAccount, file)
+    }
+
+    async findByCities(city: string) {
+        return await this.subAccountRepository.query(
+            `SELECT 
+            sub_account.id, c."phoneNumber",
+            a.street, a."houseNumber", 
+            sub_account.title, sub_account.description
+            FROM sub_account 
+            LEFT JOIN contacts c on sub_account."contactsId" = c.id 
+            LEFT JOIN address a on c.id = a."contactsId"
+            LEFT JOIN city c2 on a."cityId" = c2.id 
+            WHERE c2.title = '${city}'`
+        )
+    }
+
 
     async create(account: Account, createSubAccountDto: CreateSubAccountDto): Promise<SubAccount> {
         let subAccount = new SubAccount()

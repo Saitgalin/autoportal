@@ -20,7 +20,7 @@ export class ContactsService {
     async create(createContacts: IReadableCreateContacts) {
         let contacts = new Contacts()
 
-        contacts.phoneNumber = parseInt(createContacts.phoneNumber)
+        contacts.phoneNumber = createContacts.phoneNumber
         contacts.website = createContacts.website
         contacts.workScheduleFrom = createContacts.workScheduleFrom
         contacts.workScheduleTo = createContacts.workScheduleTo
@@ -43,5 +43,9 @@ export class ContactsService {
             throw new BadRequestException(e)
         }
         return addresses
+    }
+
+    async getContactsByCity(city: string) {
+        const contacts = this.contactsRepository.find()
     }
 }

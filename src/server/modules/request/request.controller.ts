@@ -24,15 +24,19 @@ export class RequestController {
         return this.requestService.create(createRequestDto)
     }
 
+    //Закрыть роут
     @Post('/uploadRequestImage')
-    @UseInterceptors(FileInterceptor('image'))
+    @UseInterceptors(FileInterceptor('file'))
     @ApiConsumes('multipart/form-data')
     @ApiBody({
-        description: 'Vin image',
+        description: 'Vin номер',
         type: RequestFileUploadDto,
     })
-    async uploadRequestImage(@Body(new ValidationPipe()) requestFileUploadDto: RequestFileUploadDto): Promise<Boolean> {
-        return this.requestService.uploadRequestImage(requestFileUploadDto)
+    async uploadRequestImage(
+        @UploadedFile() file,
+        @Body() request
+    ): Promise<Boolean> {
+        return this.requestService.uploadRequestImage(file, parseInt(request.requestId))
     }
 
 }

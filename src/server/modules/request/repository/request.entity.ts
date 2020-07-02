@@ -28,5 +28,8 @@ export class Request {
 
     @Column({nullable: true})
     email: string
+
+    @Column({type: "date", default: new Date()})
+    createdAt: Date
     
 }

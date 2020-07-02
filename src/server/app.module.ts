@@ -15,6 +15,8 @@ import { SocialModule } from './modules/social/social.module';
 import { AutoModule } from './modules/auto/auto.module';
 import { RequestModule } from './modules/request/request.module';
 import { AutopartModule } from './modules/autopart/autopart.module';
+import { SubAccountRequestModule } from './modules/subaccount-request/subaccount-request.module';
+import { SubaccountPhotoModule } from './modules/subaccount-photo/subaccount-photo.module';
 
 
 @Module({
@@ -34,6 +36,8 @@ import { AutopartModule } from './modules/autopart/autopart.module';
     AutoModule,
     RequestModule,
     AutopartModule,
+    SubAccountRequestModule,
+    SubaccountPhotoModule,
   ],
   controllers: [AppController],
   providers: [],
