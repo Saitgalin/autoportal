@@ -24,7 +24,6 @@ export class AuthenticationGuard implements CanActivate {
             return null
         }
 
-
         return request.user !== undefined && request.user !== null;
     }
 }

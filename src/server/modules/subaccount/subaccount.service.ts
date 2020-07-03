@@ -12,6 +12,7 @@ import {SubAccountPhotoService} from "../subaccount-photo/subaccount-photo.servi
 import {SubAccountPhoto} from "../subaccount-photo/repository/subaccount-photo.entity";
 import {PriceList} from "../price-list/repository/price-list.entity";
 import {PriceListService} from "../price-list/price-list.service";
+import {IPaginationOptions, paginate, Pagination} from "nestjs-typeorm-paginate/index";
 
 @Injectable()
 export class SubAccountService {
@@ -29,6 +30,10 @@ export class SubAccountService {
 
     async all(): Promise<SubAccount[]> {
         return await this.subAccountRepository.find()
+    }
+
+    async paginate(paginationOptions: IPaginationOptions): Promise<Pagination<SubAccount>> {
+        return paginate<SubAccount>(this.subAccountRepository, paginationOptions)
     }
 
     async uploadPhoto(account: Account, file, subAccountId: number): Promise<SubAccountPhoto> {
@@ -56,7 +61,6 @@ export class SubAccountService {
             WHERE c2.title = '${city}'`
         )
     }
-
 
     async create(account: Account, createSubAccountDto: CreateSubAccountDto): Promise<SubAccount> {
         let subAccount = new SubAccount()

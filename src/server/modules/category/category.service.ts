@@ -25,4 +25,5 @@ export class CategoryService {
         return await this.categoryRepository.findOne({ where: { id: id }})
     }
 
+
 }

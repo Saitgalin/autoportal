@@ -20,14 +20,21 @@ import {FileInterceptor} from "@nestjs/platform-express";
 import {SubAccountFileUploadDto} from "../../../common/dto/subaccount/subaccount-file-upload.dto";
 import {SubAccountPhoto} from "../subaccount-photo/repository/subaccount-photo.entity";
 import {LoadPriceListDto} from "../../../common/dto/subaccount/load-price-list.dto";
+import {Pagination} from "nestjs-typeorm-paginate/index";
+import {ConfigService} from "@nestjs/config";
 
 
 @ApiTags('subAccount')
 @ApiBearerAuth()
 @Controller('subAccount')
 export class SubAccountController {
+    private readonly clientAppUrl: string
 
-    constructor(private readonly subAccountService: SubAccountService) {
+    constructor(
+        private readonly subAccountService: SubAccountService,
+        private readonly configService: ConfigService,
+    ) {
+        this.clientAppUrl = configService.get<string>('CLIENT_APP_URL')
     }
 
     @UseGuards(AuthenticationGuard)
@@ -42,6 +49,19 @@ export class SubAccountController {
     @Get('/all')
     async all() {
         return await this.subAccountService.all()
+    }
+
+    @Get('')
+    async index(
+        @Query('page') page: number = 1,
+        @Query('limit') limit: number = 10
+    ): Promise<Pagination<SubAccount>> {
+        limit = limit > 100 ? 100 : limit
+        return this.subAccountService.paginate({
+            page,
+            limit,
+            route: `${this.clientAppUrl}/subAccount`
+        })
     }
 
     @Get('/byCity')

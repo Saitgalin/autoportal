@@ -2,6 +2,7 @@ import {Inject, Injectable} from '@nestjs/common';
 import {Services} from "./repository/services.entity";
 import {Repository} from "typeorm";
 import {CategoryService} from "../category/category.service";
+import {SubAccountCategoryEnum} from "../../../common/enum/subaccount/subaccount-category.enum";
 
 @Injectable()
 export class ServicesService {
@@ -26,6 +27,14 @@ export class ServicesService {
 
     async findByIds(serviceIds: number[]): Promise<Services[]> {
         return await this.servicesRepository.findByIds(serviceIds)
+    }
+
+    async createService(title: string, category: SubAccountCategoryEnum): Promise<Services> {
+        const service = new Services()
+        service.category = await this.categoryService.findByName(category)
+        service.title = title
+
+        return await this.servicesRepository.save(service)
     }
 
 }
