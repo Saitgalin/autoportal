@@ -15,6 +15,7 @@ import {Category} from "../../category/repository/category.entity";
 import {Services} from "../../services/repository/services.entity";
 import {Contacts} from "../../contacts/repository/contacts.entity";
 import {SubAccountPhoto} from "../../subaccount-photo/repository/subaccount-photo.entity";
+import {PriceList} from "../../price-list/repository/price-list.entity";
 
 @Entity()
 export class SubAccount {
@@ -45,6 +46,10 @@ export class SubAccount {
     @OneToMany(type => SubAccountPhoto, photo => photo.subAccount, {nullable: true})
     @JoinColumn()
     photos: SubAccountPhoto[]
+
+    @OneToOne(type => PriceList, priceList => priceList.subAccount, {nullable: true})
+    @JoinColumn()
+    priceList: PriceList
 
 
 }

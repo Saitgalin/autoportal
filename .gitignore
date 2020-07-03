@@ -3,5 +3,5 @@
 /.idea/
 /public/
 /yarn.lock
-/images/requestImages/
-/images/subAccountImages/
+/files/requestImages/
+/files/subAccountFiles/

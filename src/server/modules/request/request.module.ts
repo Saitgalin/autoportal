@@ -11,7 +11,7 @@ import {MulterModule} from "@nestjs/platform-express";
         DatabaseModule,
         AutoModule,
         MulterModule.register({
-            dest: './images/requestImages'
+            dest: './files/requestImages'
         })
     ],
     providers: [

@@ -8,7 +8,7 @@ import {MulterModule} from "@nestjs/platform-express";
     imports: [
         DatabaseModule,
         MulterModule.register({
-            dest: './images/subAccountImages'
+            dest: './files/subAccountFiles'
         })
     ],
     providers: [

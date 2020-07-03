@@ -10,6 +10,8 @@ import {Category} from "../category/repository/category.entity";
 import {SubAccountCategoryEnum} from "../../../common/enum/subaccount/subaccount-category.enum";
 import {SubAccountPhotoService} from "../subaccount-photo/subaccount-photo.service";
 import {SubAccountPhoto} from "../subaccount-photo/repository/subaccount-photo.entity";
+import {PriceList} from "../price-list/repository/price-list.entity";
+import {PriceListService} from "../price-list/price-list.service";
 
 @Injectable()
 export class SubAccountService {
@@ -20,7 +22,8 @@ export class SubAccountService {
         private readonly contactsService: ContactsService,
         private readonly categoryService: CategoryService,
         private readonly servicesService: ServicesService,
-        private readonly subAccountPhotoService: SubAccountPhotoService
+        private readonly subAccountPhotoService: SubAccountPhotoService,
+        private readonly priceListService: PriceListService
     ) {
     }
 
@@ -29,20 +32,15 @@ export class SubAccountService {
     }
 
     async uploadPhoto(account: Account, file, subAccountId: number): Promise<SubAccountPhoto> {
-        const subAccounts = await this.subAccountRepository.find({
-            where: {
-                account: account
-            }
-        })
-        const subAccount: SubAccount = subAccounts.find(
-            subAccount => subAccount.id === subAccountId
-        )
-
-        if (subAccount === undefined) {
-            throw new BadRequestException(`У аккаунта нет магазина с id ${subAccountId}`)
-        }
+        const subAccount = await this.getSubAccount(account, subAccountId)
 
         return await this.subAccountPhotoService.addPhoto(subAccount, file)
+    }
+
+    async uploadPriceList(account: Account, file, subAccountId: number): Promise<PriceList> {
+        const subAccount = await this.getSubAccount(account, subAccountId)
+
+        return await this.priceListService.addPriceList(subAccount, file)
     }
 
     async findByCities(city: string) {
@@ -82,5 +80,23 @@ export class SubAccountService {
             throw new NotFoundException('Не найдена категория магазина')
 
         return category
+    }
+
+    private async getSubAccount(account: Account, subAccountId: number): Promise<SubAccount>{
+        const subAccounts = await this.subAccountRepository.find({
+            where: {
+                account: account
+            }
+        })
+
+        const subAccount = subAccounts.find(
+            subAccount => subAccount.id === subAccountId
+        )
+
+        if (subAccount === undefined) {
+            throw new BadRequestException(`У аккаунта нет магазина с id ${subAccountId}`)
+        }
+
+        return subAccount
     }
 }

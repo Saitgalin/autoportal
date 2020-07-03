@@ -19,6 +19,8 @@ import {AuthenticationGuard} from "../jwt-token/authorization.guard";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {SubAccountFileUploadDto} from "../../../common/dto/subaccount/subaccount-file-upload.dto";
 import {SubAccountPhoto} from "../subaccount-photo/repository/subaccount-photo.entity";
+import {LoadPriceListDto} from "../../../common/dto/subaccount/load-price-list.dto";
+
 
 @ApiTags('subAccount')
 @ApiBearerAuth()
@@ -35,6 +37,16 @@ export class SubAccountController {
         @Body(new ValidationPipe()) createSubAccountDto: CreateSubAccountDto
     ): Promise<SubAccount> {
         return await this.subAccountService.create(account, createSubAccountDto)
+    }
+
+    @Get('/all')
+    async all() {
+        return await this.subAccountService.all()
+    }
+
+    @Get('/byCity')
+    async byCity(@Query('city') city: string) {
+        return await this.subAccountService.findByCities(city)
     }
 
     @UseGuards(AuthenticationGuard)
@@ -55,14 +67,22 @@ export class SubAccountController {
         )
     }
 
-    @Get('/all')
-    async all() {
-        return await this.subAccountService.all()
-    }
-
-    @Get('/byCity')
-    async byCity(@Query('city') city: string) {
-        return await this.subAccountService.findByCities(city)
+    @UseGuards(AuthenticationGuard)
+    @Post('/loadPriceList')
+    @UseInterceptors(FileInterceptor('file'))
+    @ApiConsumes('multipart/form-data')
+    @ApiBody({
+        description: 'Загрузить прайс-лист магазина',
+        type: LoadPriceListDto,
+    })
+    async loadPriceList(
+        @AuthAccount() account: Account,
+        @UploadedFile() file,
+        @Body() request
+    ): Promise<SubAccountPhoto> {
+        return this.subAccountService.uploadPriceList(
+            account, file, parseInt(request.subAccountId)
+        )
     }
 
 
