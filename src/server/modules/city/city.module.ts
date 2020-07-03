@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import {HttpModule, Module} from '@nestjs/common';
 import { CityService } from './city.service';
 import {DatabaseModule} from "../db/database.module";
 import {cityProviders} from "./repository/city.providers";

@@ -1,4 +1,4 @@
-import {Module} from '@nestjs/common';
+import {HttpModule, Module} from '@nestjs/common';
 import {AuthService} from './auth.service';
 import {AuthController} from './auth.controller';
 import {PassportModule} from '@nestjs/passport';
@@ -21,7 +21,13 @@ import {AuthenticationGuard} from "../jwt-token/authorization.guard";
       AccountModule,
       JwtTokenModule,
       configModule,
-      MailModule
+      MailModule,
+      HttpModule.register({
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Token e7cbf2b216a036fa53fc48f642455e7a3e5896ec'
+        }
+      })
   ],
   providers: [
       AuthService,

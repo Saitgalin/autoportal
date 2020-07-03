@@ -14,11 +14,19 @@ export class CityService {
     }
 
     async all(): Promise<IReadableCity[]> {
-        return await this.cityRepository.find()
+        return await this.cityRepository.find({
+            order: {
+                title: "ASC"
+            }
+        })
     }
 
     async find(title: string): Promise<City> {
-        return await this.cityRepository.findOne({where: {title: title}})
+        return await this.cityRepository.findOneOrFail({
+            where: {
+                title: title
+            }
+        })
     }
 
 
