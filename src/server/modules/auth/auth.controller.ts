@@ -1,4 +1,16 @@
-import {Body, Controller, Get, Logger, Post, Query, Req, ValidationPipe} from '@nestjs/common';
+import {
+    BadGatewayException,
+    Body,
+    Controller, ForbiddenException,
+    Get,
+    HttpException, InternalServerErrorException,
+    Logger,
+    NotFoundException,
+    Post,
+    Query,
+    Req,
+    ValidationPipe
+} from '@nestjs/common';
 import {ApiTags} from "@nestjs/swagger";
 import {AuthService} from "./auth.service";
 import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";
@@ -38,6 +50,10 @@ export class AuthController {
     async getCityByIp(@Req() req) {
         const ip = this.authService.getIp(req)
         const response = await this.authService.cityByIp(ip)
-        return response.data.location.data.city
+        const location = response.data.location
+        if (location === null || location === undefined || location.data === undefined)
+            throw new InternalServerErrorException('Не был определен город по IP')
+
+        return location.data.city
     }
 }

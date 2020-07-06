@@ -26,7 +26,6 @@ import {configModule} from "../../configure.root";
     MulterModule.register({
       dest: './files/subAccountFiles'
     }),
-    MulterModule,
     PriceListModule,
     configModule,
   ],

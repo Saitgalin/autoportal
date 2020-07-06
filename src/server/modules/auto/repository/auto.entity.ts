@@ -16,4 +16,7 @@ export class Auto {
     @OneToMany(type => Request, request => request.auto)
     request: Request[]
 
+    @Column({nullable: true})
+    imagePath?: string
+
 }
