@@ -1,6 +1,7 @@
-import {Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Autopart} from "../../autopart/repository/autopart.entity";
 import {Auto} from "../../auto/repository/auto.entity";
+import {SubAccountRequest} from "../../subaccount-request/repository/subaccount-request.entity";
 
 @Entity()
 export class Request {
@@ -31,5 +32,8 @@ export class Request {
 
     @Column({type: "date", default: new Date()})
     createdAt: Date
+
+    @OneToMany(type => SubAccountRequest, subAccountRequest => subAccountRequest.request)
+    subAccountRequest: SubAccountRequest
     
 }

@@ -1,4 +1,4 @@
-import {CanActivate, ExecutionContext, Inject, Injectable, Logger} from "@nestjs/common";
+import {CanActivate, ExecutionContext, Injectable} from "@nestjs/common";
 import {JwtTokenService} from "./jwt-token.service";
 
 @Injectable()

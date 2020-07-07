@@ -9,15 +9,12 @@ import * as _ from "lodash";
 import * as bcrypt from 'bcrypt'
 import {CreateAccountTokenDto} from "../../../common/dto/auth/create-account-token.dto";
 import {JwtTokenService} from "../jwt-token/jwt-token.service";
-import moment = require("moment");
 import {ConfigService} from "@nestjs/config";
 import {Account} from "../account/repository/account.entity";
 import {MailService} from "../mail/mail.service";
 import {ITokenPayload} from "./interfaces/token-payload.interface";
 import {StatusEnum} from "../../../common/enum/account/status.enum";
-import {UpdateResult} from "typeorm";
-import {Observable} from "rxjs";
-import {AxiosResponse} from "axios";
+import moment = require("moment");
 
 
 @Injectable()

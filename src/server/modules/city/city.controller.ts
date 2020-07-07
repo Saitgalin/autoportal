@@ -1,4 +1,4 @@
-import {Controller, Get, Post} from '@nestjs/common';
+import {Controller, Get} from '@nestjs/common';
 import {ApiTags} from "@nestjs/swagger";
 import {IReadableCity} from "../../../common/readable/city/IReadableCity";
 import {CityService} from "./city.service";

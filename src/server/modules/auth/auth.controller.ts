@@ -1,16 +1,4 @@
-import {
-    BadGatewayException,
-    Body,
-    Controller, ForbiddenException,
-    Get,
-    HttpException, InternalServerErrorException,
-    Logger,
-    NotFoundException,
-    Post,
-    Query,
-    Req,
-    ValidationPipe
-} from '@nestjs/common';
+import {Body, Controller, Get, InternalServerErrorException, Post, Query, Req, ValidationPipe} from '@nestjs/common';
 import {ApiTags} from "@nestjs/swagger";
 import {AuthService} from "./auth.service";
 import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";

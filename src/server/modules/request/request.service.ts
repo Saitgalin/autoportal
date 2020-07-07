@@ -5,7 +5,6 @@ import {CreateRequestDto} from "../../../common/dto/request/create-request.dto";
 import {AutoService} from "../auto/auto.service";
 import {Autopart} from "../autopart/repository/autopart.entity";
 import {CreateAutopartDto} from "../../../common/dto/request/create-autopart.dto";
-import {RequestFileUploadDto} from "../../../common/dto/request/request-file-upload.dto";
 
 @Injectable()
 export class RequestService {

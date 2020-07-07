@@ -3,7 +3,7 @@ import {
     Controller,
     Get,
     Post,
-    Query, Res,
+    Query,
     UploadedFile,
     UseGuards,
     UseInterceptors,
@@ -17,12 +17,10 @@ import {ApiBearerAuth, ApiBody, ApiConsumes, ApiTags} from "@nestjs/swagger";
 import {SubAccount} from "./repository/subaccount.entity";
 import {AuthenticationGuard} from "../jwt-token/authorization.guard";
 import {FileInterceptor} from "@nestjs/platform-express";
-import {SubAccountFileUploadDto} from "../../../common/dto/subaccount/subaccount-file-upload.dto";
 import {SubAccountPhoto} from "../subaccount-photo/repository/subaccount-photo.entity";
 import {LoadPriceListDto} from "../../../common/dto/subaccount/load-price-list.dto";
 import {Pagination} from "nestjs-typeorm-paginate/index";
 import {ConfigService} from "@nestjs/config";
-import {GetSubAccountPhotos} from "../../../common/dto/subaccount/get-subaccount-photos";
 
 
 @ApiTags('subAccount')

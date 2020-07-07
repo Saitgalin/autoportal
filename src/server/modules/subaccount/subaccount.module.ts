@@ -7,7 +7,6 @@ import {ContactsModule} from "../contacts/contacts.module";
 import {CategoryModule} from "../category/category.module";
 import {ServicesModule} from "../services/services.module";
 import {AccountModule} from "../account/account.module";
-import {AuthenticationGuard} from "../jwt-token/authorization.guard";
 import {JwtTokenModule} from "../jwt-token/jwt-token.module";
 import {MulterModule} from "@nestjs/platform-express";
 import {PriceListModule} from "../price-list/price-list.module";

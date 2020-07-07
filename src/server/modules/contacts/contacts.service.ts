@@ -42,7 +42,5 @@ export class ContactsService {
         }
     }
 
-    async getContactsByCity(city: string) {
-        const contacts = this.contactsRepository.find()
-    }
+
 }

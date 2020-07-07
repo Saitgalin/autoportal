@@ -1,4 +1,4 @@
-import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {City} from "../../city/repository/city.entity";
 import {Contacts} from "../../contacts/repository/contacts.entity";
 

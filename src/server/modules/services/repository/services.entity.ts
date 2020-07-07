@@ -1,6 +1,5 @@
-import {Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {Category} from "../../category/repository/category.entity";
-import {SubAccount} from "../../subaccount/repository/subaccount.entity";
 
 @Entity()
 export class Services {

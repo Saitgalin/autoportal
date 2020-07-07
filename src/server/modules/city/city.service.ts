@@ -1,5 +1,4 @@
 import {Inject, Injectable} from '@nestjs/common';
-import {AccountRepository} from "../account/repository/account.repository";
 import {City} from "./repository/city.entity";
 import {Repository} from "typeorm";
 import {IReadableCity} from "../../../common/readable/city/IReadableCity";

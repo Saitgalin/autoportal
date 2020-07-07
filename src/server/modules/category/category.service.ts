@@ -1,7 +1,6 @@
 import {Inject, Injectable} from '@nestjs/common';
 import {Category} from "./repository/category.entity";
 import {Repository} from "typeorm";
-import {IReadableCategory} from "../../../common/readable/category/IReadableCategory";
 import {SubAccountCategoryEnum} from "../../../common/enum/subaccount/subaccount-category.enum";
 
 @Injectable()

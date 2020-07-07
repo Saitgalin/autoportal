@@ -4,7 +4,6 @@ import {AutoService} from "./auto.service";
 import {ApiBody, ApiConsumes, ApiTags} from "@nestjs/swagger";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {LoadAutoImageDto} from "../../../common/dto/auto/load-auto-image.dto";
-import {Response} from "express";
 import {GetAutoIconDto} from "../../../common/dto/auto/get-auto-icon.dto";
 
 @ApiTags('auto')

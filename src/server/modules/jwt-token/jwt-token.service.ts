@@ -1,4 +1,4 @@
-import {Inject, Injectable, Logger} from '@nestjs/common';
+import {Inject, Injectable} from '@nestjs/common';
 import {CreateAccountTokenDto} from "../../../common/dto/auth/create-account-token.dto";
 import {Token} from "./repository/token.entity";
 import {TokenRepository} from "./repository/token.repository";
