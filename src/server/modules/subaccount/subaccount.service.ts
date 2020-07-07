@@ -1,4 +1,4 @@
-import {BadRequestException, ForbiddenException, Inject, Injectable, Logger, NotFoundException} from '@nestjs/common';
+import {BadRequestException, Inject, Injectable, NotFoundException} from '@nestjs/common';
 import {SubAccount} from "./repository/subaccount.entity";
 import {Repository} from "typeorm";
 import {CreateSubAccountDto} from "../../../common/dto/subaccount/create-subaccount.dto";
@@ -8,8 +8,6 @@ import {CategoryService} from "../category/category.service";
 import {ServicesService} from "../services/services.service";
 import {Category} from "../category/repository/category.entity";
 import {SubAccountCategoryEnum} from "../../../common/enum/subaccount/subaccount-category.enum";
-import {SubAccountPhotoService} from "../subaccount-photo/subaccount-photo.service";
-import {SubAccountPhoto} from "../subaccount-photo/repository/subaccount-photo.entity";
 import {PriceList} from "../price-list/repository/price-list.entity";
 import {PriceListService} from "../price-list/price-list.service";
 import {IPaginationOptions, paginate, Pagination} from "nestjs-typeorm-paginate/index";
@@ -23,8 +21,7 @@ export class SubAccountService {
         private readonly contactsService: ContactsService,
         private readonly categoryService: CategoryService,
         private readonly servicesService: ServicesService,
-        private readonly subAccountPhotoService: SubAccountPhotoService,
-        private readonly priceListService: PriceListService
+        private readonly priceListService: PriceListService,
     ) {
     }
 
@@ -36,14 +33,8 @@ export class SubAccountService {
         return paginate<SubAccount>(this.subAccountRepository, paginationOptions)
     }
 
-    async uploadPhoto(account: Account, file, subAccountId: number): Promise<SubAccountPhoto> {
-        const subAccount = await this.getSubAccount(account, subAccountId)
-
-        return await this.subAccountPhotoService.addPhoto(subAccount, file)
-    }
-
     async uploadPriceList(account: Account, file, subAccountId: number): Promise<PriceList> {
-        const subAccount = await this.getSubAccount(account, subAccountId)
+        const subAccount = await this.subAccountOfTheOwner(account, subAccountId)
 
         return await this.priceListService.addPriceList(subAccount, file)
     }
@@ -78,15 +69,15 @@ export class SubAccountService {
         return this.subAccountRepository.save(subAccount);
     }
 
-    private async getCategory(categoryFromDto: SubAccountCategoryEnum): Promise<Category> {
-        const category = await this.categoryService.findByName(categoryFromDto)
-        if (category === undefined)
-            throw new NotFoundException('Не найдена категория магазина')
-
-        return category
+    async subAccount(subAccountId: number): Promise<SubAccount> {
+        const subAccount = await this.subAccountRepository.findOne(subAccountId)
+        if (subAccount === undefined) {
+            throw new NotFoundException(`Субаккаунт с id ${subAccountId} не был найден`)
+        }
+        return subAccount
     }
 
-    private async getSubAccount(account: Account, subAccountId: number): Promise<SubAccount>{
+    async subAccountOfTheOwner(account: Account, subAccountId: number): Promise<SubAccount>{
         const subAccounts = await this.subAccountRepository.find({
             where: {
                 account: account
@@ -102,5 +93,13 @@ export class SubAccountService {
         }
 
         return subAccount
+    }
+
+    private async getCategory(categoryFromDto: SubAccountCategoryEnum): Promise<Category> {
+        const category = await this.categoryService.findByName(categoryFromDto)
+        if (category === undefined)
+            throw new NotFoundException('Не найдена категория магазина')
+
+        return category
     }
 }

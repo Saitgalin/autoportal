@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Autopart} from "../../autopart/repository/autopart.entity";
 
 @Entity()
 export class SubAccountRequest {
@@ -9,5 +10,7 @@ export class SubAccountRequest {
     @Column()
     viewed: boolean
 
+    @Column({type: "date"})
+    createdAt: Date
 
 }

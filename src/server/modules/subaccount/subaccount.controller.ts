@@ -3,7 +3,7 @@ import {
     Controller,
     Get,
     Post,
-    Query,
+    Query, Res,
     UploadedFile,
     UseGuards,
     UseInterceptors,
@@ -22,6 +22,7 @@ import {SubAccountPhoto} from "../subaccount-photo/repository/subaccount-photo.e
 import {LoadPriceListDto} from "../../../common/dto/subaccount/load-price-list.dto";
 import {Pagination} from "nestjs-typeorm-paginate/index";
 import {ConfigService} from "@nestjs/config";
+import {GetSubAccountPhotos} from "../../../common/dto/subaccount/get-subaccount-photos";
 
 
 @ApiTags('subAccount')
@@ -69,23 +70,7 @@ export class SubAccountController {
         return await this.subAccountService.findByCities(city)
     }
 
-    @UseGuards(AuthenticationGuard)
-    @Post('/loadPhoto')
-    @UseInterceptors(FileInterceptor('file'))
-    @ApiConsumes('multipart/form-data')
-    @ApiBody({
-        description: 'Загрузить фотографию магазина',
-        type: SubAccountFileUploadDto,
-    })
-    async loadPhoto(
-        @AuthAccount() account: Account,
-        @UploadedFile() file,
-        @Body() request
-    ): Promise<SubAccountPhoto> {
-        return this.subAccountService.uploadPhoto(
-            account, file, parseInt(request.subAccountId)
-        )
-    }
+
 
     @UseGuards(AuthenticationGuard)
     @Post('/loadPriceList')

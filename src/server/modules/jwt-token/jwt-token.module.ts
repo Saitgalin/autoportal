@@ -5,19 +5,18 @@ import {tokenProviders} from "./repository/token.providers";
 import {AccountModule} from "../account/account.module";
 import {AuthenticationGuard} from "./authorization.guard";
 
+@Global()
 @Module({
     imports: [
         DatabaseModule,
-        forwardRef(() => AccountModule)
+        forwardRef(() => AccountModule),
     ],
     providers: [
         ...tokenProviders,
-        JwtTokenService,
-        AuthenticationGuard
+        JwtTokenService
     ],
     exports: [
-        JwtTokenService,
-        AuthenticationGuard
+        JwtTokenService
     ]
 })
 export class JwtTokenModule {}

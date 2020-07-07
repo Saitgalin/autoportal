@@ -10,7 +10,6 @@ import {
     PrimaryGeneratedColumn
 } from "typeorm";
 import {Account} from "../../account/repository/account.entity";
-import {City} from "../../city/repository/city.entity";
 import {Category} from "../../category/repository/category.entity";
 import {Services} from "../../services/repository/services.entity";
 import {Contacts} from "../../contacts/repository/contacts.entity";

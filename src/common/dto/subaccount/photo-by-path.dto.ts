@@ -1,12 +1,9 @@
-import {FileUploadDto} from "../file/file-upload.dto";
 import {ApiProperty} from "@nestjs/swagger";
 import {IsNotEmpty, IsString} from "class-validator";
 
-export class LoadAutoImageDto extends FileUploadDto{
-
+export class PhotoByPathDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  autoId: string
-
+  path: string
 }

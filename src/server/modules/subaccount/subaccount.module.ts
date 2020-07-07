@@ -9,7 +9,6 @@ import {ServicesModule} from "../services/services.module";
 import {AccountModule} from "../account/account.module";
 import {AuthenticationGuard} from "../jwt-token/authorization.guard";
 import {JwtTokenModule} from "../jwt-token/jwt-token.module";
-import {SubaccountPhotoModule} from "../subaccount-photo/subaccount-photo.module";
 import {MulterModule} from "@nestjs/platform-express";
 import {PriceListModule} from "../price-list/price-list.module";
 import {configModule} from "../../configure.root";
@@ -22,7 +21,6 @@ import {configModule} from "../../configure.root";
     ServicesModule,
     AccountModule,
     JwtTokenModule,
-    SubaccountPhotoModule,
     MulterModule.register({
       dest: './files/subAccountFiles'
     }),
@@ -31,11 +29,11 @@ import {configModule} from "../../configure.root";
   ],
   providers: [
     SubAccountService,
-    ...subAccountProviders,
-    AuthenticationGuard
+    ...subAccountProviders
   ],
-  controllers: [SubAccountController]
+  controllers: [SubAccountController],
+  exports: [
+      SubAccountService
+  ]
 })
-export class SubAccountModule {
-
-}
+export class SubAccountModule {}
