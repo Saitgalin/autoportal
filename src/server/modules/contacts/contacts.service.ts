@@ -20,28 +20,27 @@ export class ContactsService {
     async create(createContacts: IReadableCreateContacts) {
         let contacts = new Contacts()
 
-        contacts.phoneNumber = parseInt(createContacts.phoneNumber)
+        contacts.phoneNumber = createContacts.phoneNumber
         contacts.website = createContacts.website
         contacts.workScheduleFrom = createContacts.workScheduleFrom
         contacts.workScheduleTo = createContacts.workScheduleTo
 
         contacts.social = await this.socialService.create(createContacts.socials)
+        contacts.addresses = []
 
-        //TODO: реализовать несколько адресов
-        contacts.addresses = await this.getAddresses(createContacts.address[0])
-
+        for (const address of createContacts.address) {
+            contacts.addresses.push(await this.getAddress(address));
+        }
         return contacts;
     }
 
-    async getAddresses(createAddressDto: CreateAddressDto): Promise<Address[]> {
-        //TODO: реализовать несколько адресов
-        const addresses: Address[] = []
+    async getAddress(createAddressDto: CreateAddressDto): Promise<Address> {
         try {
-            const address = await this.addressService.create(createAddressDto)
-            addresses.push(address)
+            return await this.addressService.create(createAddressDto)
         } catch (e) {
             throw new BadRequestException(e)
         }
-        return addresses
     }
+
+
 }

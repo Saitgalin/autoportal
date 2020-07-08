@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post, Query, ValidationPipe} from '@nestjs/common';
+import {Body, Controller, Get, InternalServerErrorException, Post, Query, Req, ValidationPipe} from '@nestjs/common';
 import {ApiTags} from "@nestjs/swagger";
 import {AuthService} from "./auth.service";
 import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";
@@ -10,7 +10,9 @@ import {ConfirmAccountDto} from "../../../common/dto/auth/confirm-account.dto";
 @Controller('auth')
 export class AuthController {
 
-    constructor(private readonly authService: AuthService) {}
+    constructor(
+        private readonly authService: AuthService
+    ) {}
 
     @Post('/signUp')
     async signUp(@Body(new ValidationPipe()) createUserDto: CreateAccountDto): Promise<boolean> {
@@ -25,5 +27,21 @@ export class AuthController {
     @Post('/signIn')
     async signIn(@Body(new ValidationPipe()) signInDto: SignInDto): Promise<IReadableAccount> {
         return await this.authService.signIn(signInDto)
+    }
+
+    @Get('/getIp')
+    async getIp(@Req() req) {
+        return this.authService.getIp(req)
+    }
+
+    @Get('getCityByIp')
+    async getCityByIp(@Req() req) {
+        const ip = this.authService.getIp(req)
+        const response = await this.authService.cityByIp(ip)
+        const location = response.data.location
+        if (location === null || location === undefined || location.data === undefined)
+            throw new InternalServerErrorException('Не был определен город по IP')
+
+        return location.data.city
     }
 }

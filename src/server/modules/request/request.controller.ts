@@ -4,10 +4,6 @@ import {CreateRequestDto} from "../../../common/dto/request/create-request.dto";
 import {RequestService} from "./request.service";
 import {ApiBody, ApiConsumes, ApiTags} from "@nestjs/swagger";
 import {FileInterceptor} from "@nestjs/platform-express";
-import {ApiImplicitBody} from "@nestjs/swagger/dist/decorators/api-implicit-body.decorator";
-import {ApiImplicitQuery} from "@nestjs/swagger/dist/decorators/api-implicit-query.decorator";
-import {ApiImplicitParam} from "@nestjs/swagger/dist/decorators/api-implicit-param.decorator";
-import {FileUploadDto} from "../../../common/dto/file/file-upload.dto";
 import {RequestFileUploadDto} from "../../../common/dto/request/request-file-upload.dto";
 
 @ApiTags('request')
@@ -24,15 +20,19 @@ export class RequestController {
         return this.requestService.create(createRequestDto)
     }
 
+    //Закрыть роут
     @Post('/uploadRequestImage')
-    @UseInterceptors(FileInterceptor('image'))
+    @UseInterceptors(FileInterceptor('file'))
     @ApiConsumes('multipart/form-data')
     @ApiBody({
-        description: 'Vin image',
+        description: 'Vin номер',
         type: RequestFileUploadDto,
     })
-    async uploadRequestImage(@Body(new ValidationPipe()) requestFileUploadDto: RequestFileUploadDto): Promise<Boolean> {
-        return this.requestService.uploadRequestImage(requestFileUploadDto)
+    async uploadRequestImage(
+        @UploadedFile() file,
+        @Body() request
+    ): Promise<Boolean> {
+        return this.requestService.uploadRequestImage(file, parseInt(request.requestId))
     }
 
 }

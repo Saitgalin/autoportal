@@ -1,12 +1,12 @@
-import {IsArray, IsEnum, IsNotEmpty, IsNumber, IsPhoneNumber, IsString} from "class-validator";
+import {IsArray, IsEnum, IsNotEmpty, IsPhoneNumber, IsString} from "class-validator";
 import {SubAccountCategoryEnum} from "../../enum/subaccount/subaccount-category.enum";
 import {WeekDayEnum} from "./weekday.enum";
 import {SocialDto} from "../social/social.dto";
 import {CreateAddressDto} from "../address/create-address.dto";
 import {ApiProperty} from "@nestjs/swagger";
-import {CreateAutopartDto} from "../request/create-autopart.dto";
 
 export class CreateSubAccountDto {
+
     @ApiProperty()
     @IsString()
     @IsNotEmpty()

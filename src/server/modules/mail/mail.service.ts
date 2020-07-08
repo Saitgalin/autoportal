@@ -1,4 +1,4 @@
-import {Injectable, Logger} from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import * as Mailgun from 'mailgun-js';
 import {ConfigService} from "@nestjs/config";
 import {IMailGunData} from "./interfaces/mail.interface";

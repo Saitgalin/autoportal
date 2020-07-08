@@ -1,5 +1,4 @@
 import {Inject, Injectable} from '@nestjs/common';
-import {AccountRepository} from "../account/repository/account.repository";
 import {City} from "./repository/city.entity";
 import {Repository} from "typeorm";
 import {IReadableCity} from "../../../common/readable/city/IReadableCity";
@@ -14,11 +13,20 @@ export class CityService {
     }
 
     async all(): Promise<IReadableCity[]> {
-        return await this.cityRepository.find()
+        return await this.cityRepository.find({
+            order: {
+                title: "ASC"
+            }
+        })
     }
 
     async find(title: string): Promise<City> {
-        return await this.cityRepository.findOne({where: {title: title}})
+        return await this.cityRepository.findOneOrFail({
+            where: {
+                title: title
+            }
+        })
     }
+
 
 }

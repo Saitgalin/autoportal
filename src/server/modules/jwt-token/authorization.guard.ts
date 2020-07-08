@@ -1,11 +1,11 @@
-import {CanActivate, ExecutionContext, Injectable, Logger} from "@nestjs/common";
+import {CanActivate, ExecutionContext, Injectable} from "@nestjs/common";
 import {JwtTokenService} from "./jwt-token.service";
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
 
     constructor(
-        private jwtTokenService: JwtTokenService
+        private readonly jwtTokenService: JwtTokenService
     ) {
     }
 
@@ -23,7 +23,6 @@ export class AuthenticationGuard implements CanActivate {
         } catch (e) {
             return null
         }
-
 
         return request.user !== undefined && request.user !== null;
     }

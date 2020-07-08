@@ -1,4 +1,4 @@
-import {Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Request} from "../../request/repository/request.entity";
 
 @Entity()
@@ -15,5 +15,8 @@ export class Auto {
 
     @OneToMany(type => Request, request => request.auto)
     request: Request[]
+
+    @Column({nullable: true})
+    imagePath?: string
 
 }

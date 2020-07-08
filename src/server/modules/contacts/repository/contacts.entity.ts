@@ -9,8 +9,8 @@ export class Contacts {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column({nullable: true, type: "bigint"})
-    phoneNumber?: number
+    @Column({nullable: true})
+    phoneNumber?: string
 
     @Column({nullable: true})
     website?: string

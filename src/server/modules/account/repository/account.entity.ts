@@ -1,4 +1,4 @@
-import {Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Token} from "../../jwt-token/repository/token.entity";
 import {StatusEnum} from "../../../../common/enum/account/status.enum";
 import {SubAccount} from "../../subaccount/repository/subaccount.entity";

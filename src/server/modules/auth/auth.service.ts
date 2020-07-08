@@ -1,4 +1,4 @@
-import {BadRequestException, Injectable, Logger, UnauthorizedException} from '@nestjs/common';
+import {BadRequestException, HttpService, Injectable, Logger, UnauthorizedException} from '@nestjs/common';
 import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";
 import {AccountService} from "../account/account.service";
 import {SignInDto} from "../../../common/dto/auth/sign-in.dto";
@@ -9,13 +9,12 @@ import * as _ from "lodash";
 import * as bcrypt from 'bcrypt'
 import {CreateAccountTokenDto} from "../../../common/dto/auth/create-account-token.dto";
 import {JwtTokenService} from "../jwt-token/jwt-token.service";
-import moment = require("moment");
 import {ConfigService} from "@nestjs/config";
 import {Account} from "../account/repository/account.entity";
 import {MailService} from "../mail/mail.service";
 import {ITokenPayload} from "./interfaces/token-payload.interface";
 import {StatusEnum} from "../../../common/enum/account/status.enum";
-import {UpdateResult} from "typeorm";
+import moment = require("moment");
 
 
 @Injectable()
@@ -27,7 +26,8 @@ export class AuthService {
         private readonly jwtService: JwtService,
         private readonly tokenService: JwtTokenService,
         private readonly configService: ConfigService,
-        private readonly mailService: MailService
+        private readonly mailService: MailService,
+        private readonly httpService: HttpService
     ) {
         this.clientAppUrl = configService.get<string>('CLIENT_APP_URL')
     }
@@ -115,6 +115,19 @@ export class AuthService {
 
     private async saveToken(createUserTokenDto: CreateAccountTokenDto) {
         return await this.tokenService.create(createUserTokenDto)
+    }
+
+    getIp(req: any) {
+        return (req.headers['x-forwarded-for'] || '').split(',').pop() ||
+            req.connection.remoteAddress ||
+            req.socket.remoteAddress ||
+            req.connection.socket.remoteAddress
+    }
+
+    cityByIp(ip: any) {
+        return this.httpService
+            .get(`https://suggestions.dadata.ru/suggestions/api/4_1/rs/iplocate/address?ip=${ip}`)
+            .toPromise()
     }
 
     //TODO: Реализовать

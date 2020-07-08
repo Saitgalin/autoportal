@@ -1,4 +1,9 @@
 import { Module } from '@nestjs/common';
+import { AutopartService } from './autopart.service';
 
-@Module({})
-export class AutopartModule {}
+@Module({
+  providers: [AutopartService]
+})
+export class AutopartModule {
+
+}
