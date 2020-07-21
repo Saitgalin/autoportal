@@ -5,8 +5,7 @@ import {ApiTags} from "@nestjs/swagger";
 @Controller('/')
 export class AppController {
 	@Get([''])
-	@Render('layout')
 	pages() {
-
+		return "ну, тут ничего нет"
 	}
 }

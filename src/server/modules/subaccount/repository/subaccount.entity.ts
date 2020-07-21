@@ -31,18 +31,18 @@ export class SubAccount {
     @Column({nullable: true})
     description?: string
 
-    @ManyToOne(type => Category, category => category.subAccounts)
+    @ManyToOne(type => Category, category => category.subAccounts, {persistence: true, eager: true})
     category: Category
 
-    @ManyToMany(type => Services, {cascade: true})
+    @ManyToMany(type => Services, {cascade: true, eager: true})
     @JoinTable()
     services: Services[]
 
-    @OneToOne(type => Contacts, contacts => contacts.subAccount, {cascade: true})
+    @OneToOne(type => Contacts, contacts => contacts.subAccount, {cascade: true, eager: true})
     @JoinColumn()
     contacts: Contacts
 
-    @OneToMany(type => SubAccountPhoto, photo => photo.subAccount, {nullable: true})
+    @OneToMany(type => SubAccountPhoto, photo => photo.subAccount, {nullable: true, eager: true})
     @JoinColumn()
     photos: SubAccountPhoto[]
 

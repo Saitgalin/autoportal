@@ -34,7 +34,6 @@ export class AccountService {
         )
     }
 
-
     private async hashPassword(password: string): Promise<string> {
         const salt = await bcrypt.genSalt(this.saltRounds)
         return await bcrypt.hash(password, salt)

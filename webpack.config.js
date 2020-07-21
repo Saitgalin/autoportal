@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     mode: "production",
-    entry: './src/client/App.tsx',
+    entry: './src/client/index.js',
     output: {
         path: path.resolve(__dirname, 'dist/public'),
         filename: 'bundle.js'
@@ -13,7 +13,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts(x?)$/,
+                test: /\.js(x?)$/,
                 exclude: /node_modules/,
                 use: [
                     {

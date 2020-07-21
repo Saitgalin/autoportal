@@ -16,6 +16,7 @@ export class ServicesController {
         return await this.servicesService.all()
     }
 
+
     @Get('/category')
     async services(@Query(new ValidationPipe()) categoryId: number): Promise<IReadableServices[]> {
         return await this.servicesService.services(categoryId)

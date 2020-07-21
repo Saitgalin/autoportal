@@ -37,4 +37,17 @@ export class ServicesService {
         return await this.servicesRepository.save(service)
     }
 
+    async transformServiceTitlesToServices(serviceTitles: Array<string>) {
+        const services = []
+        for (const service of serviceTitles) {
+            if (service === "") {
+                continue
+            }
+            const findedService = await this.servicesRepository.findOne({title: service})
+            services.push(findedService)
+        }
+
+        return services
+    }
+
 }

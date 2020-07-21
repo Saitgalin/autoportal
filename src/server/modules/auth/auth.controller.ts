@@ -15,12 +15,12 @@ export class AuthController {
     ) {}
 
     @Post('/signUp')
-    async signUp(@Body(new ValidationPipe()) createUserDto: CreateAccountDto): Promise<boolean> {
+    async signUp(@Body(ValidationPipe) createUserDto: CreateAccountDto): Promise<boolean> {
         return await this.authService.signUp(createUserDto)
     }
 
     @Get('/confirm')
-    async emailConfirm(@Query(new ValidationPipe()) query: ConfirmAccountDto): Promise<any> {
+    async emailConfirm(@Query(ValidationPipe) query: ConfirmAccountDto): Promise<any> {
         return await this.authService.emailConfirm(query.token)
     }
 
