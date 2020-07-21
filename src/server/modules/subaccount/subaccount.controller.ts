@@ -19,8 +19,9 @@ import {AuthenticationGuard} from "../jwt-token/authorization.guard";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {SubAccountPhoto} from "../subaccount-photo/repository/subaccount-photo.entity";
 import {LoadPriceListDto} from "../../../common/dto/subaccount/load-price-list.dto";
-import {Pagination} from "nestjs-typeorm-paginate/index";
+import {Pagination} from "nestjs-typeorm-paginate";
 import {ConfigService} from "@nestjs/config";
+import {FilterSubAccountDto} from "../../../common/dto/subaccount/filter-subaccount-byservices.dto";
 
 
 @ApiTags('subAccount')
@@ -46,14 +47,25 @@ export class SubAccountController {
     }
 
     @Get('/all')
-    async all() {
+    async all(): Promise<SubAccount[]> {
         return await this.subAccountService.all()
+    }
+
+    @Get('/selectWithQuery')
+    async selectWithQuery(
+        @Query(new ValidationPipe({ transform: true })) filter: FilterSubAccountDto
+    ): Promise<Pagination<SubAccount>> {
+        return await this.subAccountService.paginateSearch(filter.conditions, filter.services, {
+            page: Number(filter.page),
+            limit: Number(filter.limit),
+            route: `${this.clientAppUrl}/subAccount`
+        })
     }
 
     @Get('')
     async index(
         @Query('page') page: number = 1,
-        @Query('limit') limit: number = 10
+        @Query('limit') limit: number = 12
     ): Promise<Pagination<SubAccount>> {
         limit = limit > 100 ? 100 : limit
         return this.subAccountService.paginate({
@@ -68,15 +80,13 @@ export class SubAccountController {
         return await this.subAccountService.findByCities(city)
     }
 
-
-
     @UseGuards(AuthenticationGuard)
     @Post('/loadPriceList')
     @UseInterceptors(FileInterceptor('file'))
     @ApiConsumes('multipart/form-data')
     @ApiBody({
         description: 'Загрузить прайс-лист магазина',
-        type: LoadPriceListDto,
+        type: LoadPriceListDto
     })
     async loadPriceList(
         @AuthAccount() account: Account,

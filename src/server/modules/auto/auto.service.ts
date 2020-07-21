@@ -1,4 +1,4 @@
-import {Inject, Injectable, NotFoundException } from '@nestjs/common';
+import {Inject, Injectable, NotFoundException} from '@nestjs/common';
 import {Repository} from "typeorm";
 import {Auto} from "./repository/auto.entity";
 import {Response} from "express";

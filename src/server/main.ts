@@ -10,7 +10,7 @@ async function bootstrap() {
   const options = new DocumentBuilder()
       .addBearerAuth()
       .setTitle('Автопортал')
-      .setDescription('API Документация')
+      .setDescription('Документация API')
       .setVersion('1.0')
       .build()
 
@@ -21,6 +21,8 @@ async function bootstrap() {
   app.setBaseViewsDir(path.join(__dirname, 'views'))
   app.set('view engine', 'js')
   app.engine('js', require('express-react-views').createEngine())
-  await app.listen(3000)
+
+  app.enableCors()
+  await app.listen(3999)
 }
 bootstrap();

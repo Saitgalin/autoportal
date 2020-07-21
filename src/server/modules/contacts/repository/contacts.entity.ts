@@ -18,7 +18,7 @@ export class Contacts {
     @OneToOne(type => SubAccount, subaccount => subaccount.contacts)
     subAccount: SubAccount
 
-    @OneToMany(type => Address, address => address.contacts, {cascade: true})
+    @OneToMany(type => Address, address => address.contacts, {cascade: true, eager: true})
     addresses: Address[]
 
     @OneToOne(type => Social, social => social.contacts, {cascade: true})
