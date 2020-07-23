@@ -29,9 +29,9 @@ export class AutoController {
     async uploadAutoIcon(
         @UploadedFile() file,
         @Body() request
-    ): Promise<Auto> {
+    ): Promise<Auto[]> {
         return this.autoService.uploadAutoIcon(
-            file, parseInt(request.autoId)
+            file, request.autoTitle
         )
     }
 
@@ -39,6 +39,6 @@ export class AutoController {
     async getAutoIcon(
         @Query(new ValidationPipe()) getAutoIconDto: GetAutoIconDto, @Res() res
     ) {
-        await this.autoService.getAutoIcon(getAutoIconDto.autoId, res)
+        await this.autoService.getAutoIcon(getAutoIconDto.autoTitle, res)
     }
 }

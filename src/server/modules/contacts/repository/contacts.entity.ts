@@ -21,7 +21,7 @@ export class Contacts {
     @OneToMany(type => Address, address => address.contacts, {cascade: true, eager: true})
     addresses: Address[]
 
-    @OneToOne(type => Social, social => social.contacts, {cascade: true})
+    @OneToOne(type => Social, social => social.contacts, {cascade: true, eager: true})
     @JoinColumn()
     social: Social
 

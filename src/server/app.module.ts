@@ -18,6 +18,7 @@ import {AutopartModule} from './modules/autopart/autopart.module';
 import {SubAccountRequestModule} from './modules/subaccount-request/subaccount-request.module';
 import {SubAccountPhotoModule} from './modules/subaccount-photo/subaccount-photo.module';
 import {PriceListModule} from './modules/price-list/price-list.module';
+import { AutostoreModule } from './modules/autostore/autostore.module';
 
 
 @Module({
@@ -40,6 +41,7 @@ import {PriceListModule} from './modules/price-list/price-list.module';
     SubAccountRequestModule,
     SubAccountPhotoModule,
     PriceListModule,
+    AutostoreModule,
   ],
   controllers: [AppController],
   /*providers: [

@@ -24,21 +24,31 @@ export class AutoService {
         })
     }
 
-    async uploadAutoIcon(file: any, autoId: number): Promise<Auto> {
-        const auto = await this.findAuto(autoId)
-
-        auto.imagePath = file.filename
-        return await this.autoRepository.save(auto)
+    async uploadAutoIcon(file: any, autoTitle: string): Promise<Auto[]> {
+        const autos: Auto[] = await this.findAutoByTitle(autoTitle)
+        for (const auto of autos) {
+            auto.imagePath = file.filename
+            await this.autoRepository.save(auto)
+        }
+        return autos;
     }
 
-    async getAutoIcon(autoId: number, res: Response): Promise<void> {
-        const auto = await this.findAuto(autoId)
-        const imagePath = path.resolve(`./files/autoIcons/${auto.imagePath}`)
+    async getAutoIcon(autoTitle: string, res: Response): Promise<void> {
+        const auto = await this.findAutoByTitle(autoTitle)
+        const imagePath = path.resolve(`./files/autoIcons/${auto[0].imagePath}`)
         res.sendFile(imagePath)
     }
 
+    private async findAutoByTitle(auto: string): Promise<Auto[]> {
+        const findedAuto = await this.autoRepository.find({make: auto})
+        if (auto === undefined) {
+            throw new NotFoundException(`Не был найден автомобиль ${auto}`)
+        }
+
+        return findedAuto
+    }
     //TODO: подобные методы лучше перенести в репозиторий
-    private async findAuto(autoId: number): Promise<Auto> {
+    private async findAutoById(autoId: number): Promise<Auto> {
         const auto = await this.autoRepository.findOne(autoId)
         if (auto === undefined) {
             throw new NotFoundException(`Не был найден автомобиль с id ${autoId}`)

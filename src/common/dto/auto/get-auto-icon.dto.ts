@@ -1,11 +1,11 @@
 import {ApiProperty} from "@nestjs/swagger";
-import {IsNotEmpty, IsNumberString} from "class-validator";
+import {IsNotEmpty, IsNumberString, IsString} from "class-validator";
 
 export class GetAutoIconDto {
 
   @ApiProperty()
   @IsNotEmpty()
-  @IsNumberString()
-  autoId: number
+  @IsString()
+  autoTitle: string
 
 }
