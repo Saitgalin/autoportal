@@ -24,15 +24,15 @@ import {configModule} from "../../configure.root";
       dest: './files/subAccountFiles'
     }),
     PriceListModule,
-    configModule,
-  ],
+    configModule],
   providers: [
     SubAccountService,
     ...subAccountProviders
   ],
   controllers: [SubAccountController],
   exports: [
-      SubAccountService
+    SubAccountService
   ]
 })
-export class SubAccountModule {}
+export class SubAccountModule {
+}

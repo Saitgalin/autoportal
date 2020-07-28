@@ -1,17 +1,6 @@
-import {IsArray, IsEmail, IsNotEmpty, IsObject, IsPhoneNumber, IsString} from "class-validator";
-import {ApiBody, ApiConsumes, ApiProperty, ApiQuery} from "@nestjs/swagger";
+import {IsEmail, IsNotEmpty, IsNumberString, IsString} from "class-validator";
+import {ApiProperty} from "@nestjs/swagger";
 import {CreateAutopartDto} from "./create-autopart.dto";
-import {Transform} from "class-transformer";
-import {ApiModelProperty} from "@nestjs/swagger/dist/decorators/api-model-property.decorator";
-import {UploadedFile} from "@nestjs/common";
-
-const transformAutoparts = autoparts => {
-    if (Array.isArray(autoparts)) {
-        return autoparts.map(autopart => ({name: autopart}))
-    } else {
-        return autoparts;
-    }
-}
 
 export class CreateRequestDto {
 
@@ -30,11 +19,11 @@ export class CreateRequestDto {
 
     @ApiProperty()
     @IsString()
-    readonly name?: string
+    readonly name: string
 
     @ApiProperty()
-    @IsPhoneNumber('RU')
-    readonly phoneNumber?: string
+    @IsNumberString()
+    readonly phoneNumber: string
 
     @ApiProperty()
     @IsEmail()

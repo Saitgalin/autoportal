@@ -34,6 +34,6 @@ export class Request {
     createdAt: Date
 
     @OneToMany(type => SubAccountRequest, subAccountRequest => subAccountRequest.request)
-    subAccountRequest: SubAccountRequest
+    subAccountRequests: SubAccountRequest[]
     
 }

@@ -15,6 +15,7 @@ import {Services} from "../../services/repository/services.entity";
 import {Contacts} from "../../contacts/repository/contacts.entity";
 import {SubAccountPhoto} from "../../subaccount-photo/repository/subaccount-photo.entity";
 import {PriceList} from "../../price-list/repository/price-list.entity";
+import {SubAccountRequest} from "../../subaccount-request/repository/subaccount-request.entity";
 
 @Entity()
 export class SubAccount {
@@ -50,5 +51,7 @@ export class SubAccount {
     @JoinColumn()
     priceList: PriceList
 
+    @OneToMany(type => SubAccountRequest, subAccountRequest => subAccountRequest.subAccount, {eager: true})
+    subAccountRequests: SubAccountRequest[]
 
 }

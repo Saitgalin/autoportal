@@ -5,6 +5,10 @@ import { RequestController } from './request.controller';
 import { RequestService } from './request.service';
 import {AutoModule} from "../auto/auto.module";
 import {MulterModule} from "@nestjs/platform-express";
+import {SubAccountModule} from "../subaccount/subaccount.module";
+import {ServicesService} from "../services/services.service";
+import {ServicesModule} from "../services/services.module";
+import {SubAccountRequestModule} from "../subaccount-request/subaccount-request.module";
 
 @Module({
     imports: [
@@ -12,7 +16,10 @@ import {MulterModule} from "@nestjs/platform-express";
         AutoModule,
         MulterModule.register({
             dest: './files/requestImages'
-        })
+        }),
+        SubAccountModule,
+        ServicesModule,
+        SubAccountRequestModule
     ],
     providers: [
         ...requestProviders,

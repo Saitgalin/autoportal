@@ -20,7 +20,8 @@ export class RequestController {
         return this.requestService.create(createRequestDto)
     }
 
-    //Закрыть роут
+
+    //Закрыть роут, как и многие остальные, вообщем-та
     @Post('/uploadRequestImage')
     @UseInterceptors(FileInterceptor('file'))
     @ApiConsumes('multipart/form-data')

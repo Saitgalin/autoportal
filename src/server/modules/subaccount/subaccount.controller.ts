@@ -32,7 +32,7 @@ export class SubAccountController {
 
     constructor(
         private readonly subAccountService: SubAccountService,
-        private readonly configService: ConfigService,
+        private readonly configService: ConfigService
     ) {
         this.clientAppUrl = configService.get<string>('CLIENT_APP_URL')
     }
@@ -55,7 +55,10 @@ export class SubAccountController {
     async selectWithQuery(
         @Query(new ValidationPipe({ transform: true })) filter: FilterSubAccountDto
     ): Promise<Pagination<SubAccount>> {
-        return await this.subAccountService.paginateSearch(filter.conditions, filter.services, {
+        return await this.subAccountService.paginateSearch(
+            filter.subAccountCategory,
+            filter.conditions, filter.services,
+            {
             page: Number(filter.page),
             limit: Number(filter.limit),
             route: `${this.clientAppUrl}/subAccount`

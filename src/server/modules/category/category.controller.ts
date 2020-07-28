@@ -2,6 +2,7 @@ import {Controller, Get} from '@nestjs/common';
 import {CategoryService} from "./category.service";
 import {ApiTags} from "@nestjs/swagger";
 import {IReadableCategory} from "../../../common/readable/category/IReadableCategory";
+import {Category} from "./repository/category.entity";
 
 @ApiTags('category')
 @Controller('category')
@@ -15,4 +16,6 @@ export class CategoryController {
     async all(): Promise<IReadableCategory[]> {
         return await this.categoryService.all()
     }
+
+
 }

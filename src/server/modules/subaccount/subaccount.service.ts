@@ -1,6 +1,6 @@
-import {BadRequestException, Inject, Injectable, Logger, NotFoundException} from '@nestjs/common';
+import {BadRequestException, Inject, Injectable, NotFoundException} from '@nestjs/common';
 import {SubAccount} from "./repository/subaccount.entity";
-import {Like, Repository} from "typeorm";
+import {In, Like, Repository} from "typeorm";
 import {CreateSubAccountDto} from "../../../common/dto/subaccount/create-subaccount.dto";
 import {Account} from "../account/repository/account.entity";
 import {ContactsService} from "../contacts/contacts.service";
@@ -11,7 +11,6 @@ import {SubAccountCategoryEnum} from "../../../common/enum/subaccount/subaccount
 import {PriceList} from "../price-list/repository/price-list.entity";
 import {PriceListService} from "../price-list/price-list.service";
 import {IPaginationOptions, paginate, Pagination} from "nestjs-typeorm-paginate";
-import {SubAccountReadable} from "../../../common/readable/subaccount/subaccount.readable";
 import {Services} from "../services/repository/services.entity";
 
 @Injectable()
@@ -36,14 +35,21 @@ export class SubAccountService {
   }
 
   //FIXME: help
-  async paginateSearch(conditions: string, serviceTitles: Array<string>, paginationOptions: IPaginationOptions): Promise<Pagination<SubAccount>> {
+  async paginateSearch(
+      subAccountCategory: SubAccountCategoryEnum,
+      conditions: string,
+      serviceTitles: Array<string>,
+      paginationOptions: IPaginationOptions
+  ): Promise<Pagination<SubAccount>> {
+    const category = await this.categoryService.findByName(subAccountCategory)
     const subAccounts = await paginate<SubAccount>(this.subAccountRepository, paginationOptions, {
       where: {
-        title: Like(`%${conditions}%`)
+        title: Like(`%${conditions}%`),
+        category: category
       },
     })
 
-    if (serviceTitles === undefined || serviceTitles === null || serviceTitles.length === 0) {
+    if (serviceTitles == null || serviceTitles.length === 0 || serviceTitles[0] === "") {
       return subAccounts
     }
 
@@ -98,7 +104,7 @@ export class SubAccountService {
     subAccount.services = await this.servicesService.findByIds(createSubAccountDto.services)
     subAccount.contacts = await this.contactsService.create(createSubAccountDto)
 
-    return this.subAccountRepository.save(subAccount);
+    return this.subAccountRepository.save(subAccount)
   }
 
   async subAccount(subAccountId: number): Promise<SubAccount> {
@@ -120,12 +126,26 @@ export class SubAccountService {
         subAccount => subAccount.id === subAccountId
     )
 
-    if (subAccount === undefined) {
+    if (subAccount == null) {
       throw new BadRequestException(`У аккаунта нет магазина с id ${subAccountId}`)
     }
 
     return subAccount
   }
+
+  async autoShopsWithCertainService(service: Services): Promise<SubAccount[]> {
+    const subAccounts = await this.subAccountRepository.find()
+
+    return subAccounts.filter(subAccount =>
+        subAccount.category.title === SubAccountCategoryEnum.saleAutoParts
+        && subAccount.services.filter(serv => serv.id === service.id).length !== 0
+    )
+  }
+
+  async save(subAccount: SubAccount): Promise<SubAccount> {
+    return this.subAccountRepository.save(subAccount)
+  }
+
 
   private async getCategory(categoryFromDto: SubAccountCategoryEnum): Promise<Category> {
     const category = await this.categoryService.findByName(categoryFromDto)
@@ -134,8 +154,5 @@ export class SubAccountService {
 
     return category
   }
-
-
-
 
 }
