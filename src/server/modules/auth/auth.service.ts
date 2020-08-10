@@ -1,4 +1,11 @@
-import {BadRequestException, HttpService, Injectable, Logger, UnauthorizedException} from '@nestjs/common';
+import {
+    BadRequestException,
+    ConflictException,
+    HttpService,
+    Injectable,
+    Logger,
+    UnauthorizedException
+} from '@nestjs/common';
 import {CreateAccountDto} from "../../../common/dto/auth/create-account.dto";
 import {AccountService} from "../account/account.service";
 import {SignInDto} from "../../../common/dto/auth/sign-in.dto";
@@ -14,6 +21,8 @@ import {Account} from "../account/repository/account.entity";
 import {MailService} from "../mail/mail.service";
 import {ITokenPayload} from "./interfaces/token-payload.interface";
 import {StatusEnum} from "../../../common/enum/account/status.enum";
+import {SmsService} from "../sms/sms.service";
+import {randomInteger} from "../../utils/rand";
 import moment = require("moment");
 
 
@@ -27,14 +36,15 @@ export class AuthService {
         private readonly tokenService: JwtTokenService,
         private readonly configService: ConfigService,
         private readonly mailService: MailService,
-        private readonly httpService: HttpService
+        private readonly httpService: HttpService,
+        private readonly smsService: SmsService
     ) {
         this.clientAppUrl = configService.get<string>('CLIENT_APP_URL')
     }
 
     async signUp(createAccountDto: CreateAccountDto): Promise<boolean> {
         const account = await this.accountService.create(createAccountDto)
-        await this.sendEmailConfirmation(account)
+        await this.sendSmsConfirmation(account)
         return true
     }
 
@@ -63,11 +73,47 @@ export class AuthService {
 
             return _.omit<any>(readableUser) as IReadableAccount
         }
-        throw new BadRequestException('Invalid credentials')
+        throw new BadRequestException('Логин или пароль неверны, пожалуйста попробуйте снова')
     }
 
     private async generateToken(data, options?: SignOptions): Promise<string> {
         return this.jwtService.sign(data, options)
+    }
+
+    async smsTest(): Promise<Boolean> {
+        return await this.smsService.authTest()
+    }
+
+    async sendSmsConfirmation(account: Account) {
+        const generatedSmsCode = randomInteger(100000, 999999)
+        const success = await this.smsService.sendSms(Number(account.phone), generatedSmsCode)
+        Logger.debug(success)
+        account.smsCode = generatedSmsCode
+        await this.accountService.update(account)
+    }
+
+    async smsCodeConfirm(account: Account, code: number): Promise<boolean> {
+        if (account.status !== StatusEnum.phoneNumberPending || account.smsCode == null) {
+            throw new BadRequestException('Аккаунт не нуждается в подтверждении номера телефона')
+        }
+        if (account.smsCode !== code)
+            throw new ConflictException('Неверный код')
+
+        account.status = StatusEnum.confirmRulesPending
+        await this.accountService.update(account)
+        return true
+    }
+
+    async rulesConfirm(account: Account): Promise<boolean> {
+        if (account.status !== StatusEnum.confirmRulesPending) {
+            throw new BadRequestException('Аккаунт не нуждается в подтверждении правил')
+        }
+
+        account.status = StatusEnum.emailPending
+        await this.accountService.update(account)
+        await this.sendEmailConfirmation(account)
+
+        return true
     }
 
     async sendEmailConfirmation(account: Account) {

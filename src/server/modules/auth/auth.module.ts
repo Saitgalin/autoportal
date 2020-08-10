@@ -9,6 +9,7 @@ import {configModule} from "../../configure.root";
 import {MailModule} from "../mail/mail.module";
 import {JwtStrategy} from "./jwt.strategy";
 import {AuthenticationGuard} from "../jwt-token/authorization.guard";
+import {SmsModule} from "../sms/sms.module";
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import {AuthenticationGuard} from "../jwt-token/authorization.guard";
       JwtTokenModule,
       configModule,
       MailModule,
+      SmsModule,
       HttpModule.register({
         headers: {
           'Accept': 'application/json',

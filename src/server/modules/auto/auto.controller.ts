@@ -19,6 +19,16 @@ export class AutoController {
         return await this.autoService.all()
     }
 
+    @Get('/makes')
+    async makes(): Promise<string[]> {
+        return await this.autoService.makes()
+    }
+
+    @Get('/makeModels')
+    async makeModels(@Query('makeTitle') makeTitle: string): Promise<string[]> {
+        return await this.autoService.makeModels(makeTitle)
+    }
+
     @Post('/uploadAutoIcon')
     @UseInterceptors(FileInterceptor('file'))
     @ApiConsumes('multipart/form-data')

@@ -35,7 +35,9 @@ export class RequestService {
         request.autopart = this.createAutoparts(request, createRequestDto.autoparts)
         request.email = createRequestDto.email
         request.name = createRequestDto.name
-        request.vin = createRequestDto.vin
+        if (createRequestDto.vin) {
+            request.vin = createRequestDto.vin
+        }
         request.phoneNumber = createRequestDto.phoneNumber
 
         const service = await this.servicesService.findByMakeAndType(request.auto.make, request.auto.type)
@@ -45,18 +47,17 @@ export class RequestService {
 
         for (const subAccount of subAccountWithRequestServices) {
             const subAccountRequest = new SubAccountRequest()
-            subAccountRequest.request = request
             subAccountRequest.subAccount = subAccount
+
             const savedSubAccountRequest = await this.subAccountRequestService.save(subAccountRequest)
             savedSubAccountRequests.push(savedSubAccountRequest)
-
-            subAccount.subAccountRequests.push(savedSubAccountRequest)
             await this.subAccountService.save(subAccount)
         }
 
         request.subAccountRequests = savedSubAccountRequests
+        await this.requestRepository.save(request)
 
-        return await this.requestRepository.save(request)
+        return request
     }
 
     async uploadRequestImage(file: any, requestId: number): Promise<boolean>  {
@@ -74,8 +75,8 @@ export class RequestService {
 
         createAutopartDto.forEach((autopartDto) => {
             const autopart = new Autopart()
-            autopart.title = autopartDto.title
-            autopart.type = autopartDto.autopartType
+            autopart.title = autopartDto.autoPartTitle
+            autopart.type = autopartDto.autoPartType
             autoparts.push(autopart)
         })
 

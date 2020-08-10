@@ -1,4 +1,4 @@
-import {Body, Controller, Post, UploadedFile, UseInterceptors, ValidationPipe} from '@nestjs/common';
+import {Body, Controller, Logger, Post, UploadedFile, UseInterceptors, ValidationPipe} from '@nestjs/common';
 import {Request} from "./repository/request.entity";
 import {CreateRequestDto} from "../../../common/dto/request/create-request.dto";
 import {RequestService} from "./request.service";
@@ -33,6 +33,7 @@ export class RequestController {
         @UploadedFile() file,
         @Body() request
     ): Promise<Boolean> {
+        Logger.error(file)
         return this.requestService.uploadRequestImage(file, parseInt(request.requestId))
     }
 

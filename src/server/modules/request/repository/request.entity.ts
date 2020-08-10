@@ -15,8 +15,8 @@ export class Request {
     @ManyToOne(type => Auto, auto => auto.request)
     auto: Auto
 
-    @Column()
-    vin: string
+    @Column({nullable: true})
+    vin?: string
 
     @Column({nullable: true})
     vinpic: string

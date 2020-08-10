@@ -14,6 +14,7 @@ export class Auto {
     @Column({enum: AutoTypeEnum, default: AutoTypeEnum.passenger})
     type: AutoTypeEnum
 
+    //TODO: привести к нормальной форме, вынести модельку в новую табличку
     @Column()
     model: string
 

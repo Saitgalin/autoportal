@@ -19,6 +19,7 @@ import {SubAccountRequestModule} from './modules/subaccount-request/subaccount-r
 import {SubAccountPhotoModule} from './modules/subaccount-photo/subaccount-photo.module';
 import {PriceListModule} from './modules/price-list/price-list.module';
 import {AutostoreModule} from './modules/autostore/autostore.module';
+import { SmsModule } from './modules/sms/sms.module';
 
 
 @Module({
@@ -41,7 +42,8 @@ import {AutostoreModule} from './modules/autostore/autostore.module';
     SubAccountRequestModule,
     SubAccountPhotoModule,
     PriceListModule,
-    AutostoreModule
+    AutostoreModule,
+    SmsModule
   ],
   controllers: [AppController]
   /*providers: [

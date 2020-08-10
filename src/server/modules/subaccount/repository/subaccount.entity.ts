@@ -47,11 +47,11 @@ export class SubAccount {
     @JoinColumn()
     photos: SubAccountPhoto[]
 
-    @OneToOne(type => PriceList, priceList => priceList.subAccount, {nullable: true})
+    @OneToOne(type => PriceList, priceList => priceList.subAccount, {nullable: true, eager: true})
     @JoinColumn()
     priceList: PriceList
 
-    @OneToMany(type => SubAccountRequest, subAccountRequest => subAccountRequest.subAccount, {eager: true})
+    @OneToMany(type => SubAccountRequest, subAccountRequest => subAccountRequest.subAccount)
     subAccountRequests: SubAccountRequest[]
 
 }

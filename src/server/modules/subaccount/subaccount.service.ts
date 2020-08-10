@@ -12,6 +12,7 @@ import {PriceList} from "../price-list/repository/price-list.entity";
 import {PriceListService} from "../price-list/price-list.service";
 import {IPaginationOptions, paginate, Pagination} from "nestjs-typeorm-paginate";
 import {Services} from "../services/repository/services.entity";
+import * as path from 'path'
 
 @Injectable()
 export class SubAccountService {
@@ -107,6 +108,12 @@ export class SubAccountService {
     return this.subAccountRepository.save(subAccount)
   }
 
+  async editSubAccountDescription(account: Account, description: string, subAccountId: number): Promise<SubAccount> {
+    let subAccount = await this.subAccountOfTheOwner(account, subAccountId)
+    subAccount.description = description
+    return await this.subAccountRepository.save(subAccount)
+  }
+
   async subAccount(subAccountId: number): Promise<SubAccount> {
     const subAccount = await this.subAccountRepository.findOne(subAccountId)
     if (subAccount === undefined) {
@@ -116,15 +123,12 @@ export class SubAccountService {
   }
 
   async subAccountOfTheOwner(account: Account, subAccountId: number): Promise<SubAccount> {
-    const subAccounts = await this.subAccountRepository.find({
+    const subAccount = await this.subAccountRepository.findOne({
       where: {
-        account: account
+        account: account,
+        id: subAccountId
       }
     })
-
-    const subAccount = subAccounts.find(
-        subAccount => subAccount.id === subAccountId
-    )
 
     if (subAccount == null) {
       throw new BadRequestException(`У аккаунта нет магазина с id ${subAccountId}`)
@@ -146,7 +150,6 @@ export class SubAccountService {
     return this.subAccountRepository.save(subAccount)
   }
 
-
   private async getCategory(categoryFromDto: SubAccountCategoryEnum): Promise<Category> {
     const category = await this.categoryService.findByName(categoryFromDto)
     if (category === undefined)
@@ -155,4 +158,19 @@ export class SubAccountService {
     return category
   }
 
+
+  async priceList(subAccountId: number, response) {
+    const subAccount = await this.getSubAccountById(subAccountId)
+    const priceListPath = path.resolve(`./files/subAccountFiles/${subAccount.priceList.path}`)
+    response.sendFile(priceListPath)
+  }
+
+  private async getSubAccountById(subAccountId: number): Promise<SubAccount> {
+    const subAccount = this.subAccountRepository.findOne(subAccountId)
+    if (subAccount === undefined) {
+      throw new BadRequestException(`Не был найден субаккаунт с id ${subAccountId}`)
+    }
+
+    return subAccount
+  }
 }

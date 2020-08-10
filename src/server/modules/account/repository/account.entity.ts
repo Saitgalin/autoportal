@@ -28,12 +28,12 @@ export class Account {
     jwtToken: Token[]
 
     //TODO: change to phonePending
-    @Column({enum: StatusEnum, default: StatusEnum.emailPending})
+    @Column({enum: StatusEnum, default: StatusEnum.phoneNumberPending})
     status: StatusEnum
-
-    @Column({default: false})
-    hasSubAccounts: boolean
 
     @OneToMany(type => SubAccount, subaccount => subaccount.account, {cascade: true})
     subAccounts: SubAccount[]
+
+    @Column({nullable: true})
+    smsCode: number
 }

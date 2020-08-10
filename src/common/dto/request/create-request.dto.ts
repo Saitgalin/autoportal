@@ -32,6 +32,5 @@ export class CreateRequestDto {
     //TODO: add vin validation
     @ApiProperty()
     @IsString()
-    @IsNotEmpty()
     readonly vin: string
 }

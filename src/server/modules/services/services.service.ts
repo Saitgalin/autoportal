@@ -30,6 +30,7 @@ export class ServicesService {
         }
     )
 
+
     if (service == null) {
       throw new BadRequestException('Не была найдена услуга/автомобиль')
     }
