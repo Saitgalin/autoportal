@@ -1,4 +1,4 @@
-import {HttpModule, Module} from '@nestjs/common';
+import {forwardRef, HttpModule, Module} from '@nestjs/common';
 import {AuthService} from './auth.service';
 import {AuthController} from './auth.controller';
 import {PassportModule} from '@nestjs/passport';
@@ -13,30 +13,29 @@ import {SmsModule} from "../sms/sms.module";
 
 @Module({
   imports: [
-      PassportModule.register({ defaultStrategy: 'jwt'}),
-      JwtModule.register({
-          secret: 'secretJwtToken',
-          signOptions: { expiresIn:  '1d' },
-      }),
-      AccountModule,
-      JwtTokenModule,
-      configModule,
-      MailModule,
-      SmsModule,
-      HttpModule.register({
-        headers: {
-          'Accept': 'application/json',
-          'Authorization': 'Token e7cbf2b216a036fa53fc48f642455e7a3e5896ec'
-        }
-      })
+    PassportModule.register({defaultStrategy: 'jwt'}),
+    JwtModule.register({
+      secret: 'secretJwtToken',
+      signOptions: {expiresIn: '1d'},
+    }),
+    forwardRef(() => AccountModule),
+    JwtTokenModule,
+    configModule,
+    MailModule,
+    SmsModule,
+    HttpModule.register({
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Token e7cbf2b216a036fa53fc48f642455e7a3e5896ec'
+      }
+    })
   ],
   providers: [
-      AuthService,
-      JwtStrategy,
-      AuthenticationGuard
+    AuthService,
+    JwtStrategy,
+    AuthenticationGuard
   ],
-  controllers: [AuthController]
+  controllers: [AuthController],
+  exports: [AuthService]
 })
-export class AuthModule {
-
-}
+export class AuthModule {}

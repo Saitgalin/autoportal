@@ -1,13 +1,27 @@
 import {ApiProperty} from "@nestjs/swagger";
-import {IsEmail, IsNotEmpty, IsPhoneNumber, IsString, Matches} from "class-validator";
+import {IsDate, IsDateString, IsEmail, IsNotEmpty, IsPhoneNumber, IsString, Matches} from "class-validator";
 import {UniqueOnDatabase} from "../../../server/utils/unique-validation";
 import {Account} from "../../../server/modules/account/repository/account.entity";
 
 export class CreateAccountDto {
     @ApiProperty()
     @IsString()
-    @IsNotEmpty({message: 'Фио должно быть заполнено'})
-    readonly fio: string
+    @IsNotEmpty({message: 'Имя должно быть заполнено'})
+    readonly firstName: string
+
+    @ApiProperty()
+    @IsString()
+    @IsNotEmpty({message: 'Фамилия должна быть заполнена'})
+    readonly lastName: string
+
+    @ApiProperty()
+    @IsString()
+    @IsNotEmpty({message: 'Отчество должно быть заполнено'})
+    readonly middleName: string
+
+    @ApiProperty()
+    @IsDateString()
+    readonly birthDate: Date
 
     @ApiProperty()
     @IsPhoneNumber('RU', {message: 'Введите реальный номер телефона'})

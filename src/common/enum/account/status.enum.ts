@@ -1,7 +1,7 @@
 export enum StatusEnum {
     emailPending = 'emailPending',
     phoneNumberPending = 'phoneNumberPending',
-    confirmRulesPending = 'confirmRulesPending',
+    emailAndPhonePending = 'emailAndPhonePending',
     active = 'active',
     blocked = 'blocked'
 }

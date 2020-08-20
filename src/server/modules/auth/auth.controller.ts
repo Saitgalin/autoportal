@@ -36,7 +36,7 @@ export class AuthController {
 
     @Get('/confirm')
     async emailConfirm(@Query(ValidationPipe) query: ConfirmAccountDto): Promise<any> {
-        return await this.authService.emailConfirm(query.token)
+        return await this.authService.registrationEmailConfirm(query.token)
     }
 
     @Post('/signIn')
@@ -56,7 +56,7 @@ export class AuthController {
         @AuthAccount() account: Account,
         @Body(new ValidationPipe()) confirmSmsCodeDto: ConfirmSmscodeDto
     ): Promise<boolean> {
-        return await this.authService.smsCodeConfirm(account, Number(confirmSmsCodeDto.smsCode))
+        return await this.authService.registrationSmsConfirm(account, Number(confirmSmsCodeDto.smsCode))
     }
 
     @ApiBearerAuth()
@@ -65,7 +65,7 @@ export class AuthController {
     async confirmRules(
         @AuthAccount() account: Account
     ): Promise<boolean> {
-        return await this.authService.rulesConfirm(account)
+        return await this.authService.registrationRulesConfirm(account)
     }
 
     @Get('/getIp')

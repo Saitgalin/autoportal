@@ -1946,6 +1946,11 @@
         "signature": "ab09efcd6e603673d4e662c72b435bf6847d652a4c1669bc640b85b1a1ca6f47",
         "affectsGlobalScope": false
       },
+      "./src/common/dto/auth/confirm-smscode.dto.ts": {
+        "version": "e917230af06aaf0920d5e7165311dc9f171f26d2f2edbf036d0332de2981a567",
+        "signature": "7c1707c42756ee1a830a2051b47588fc1e2e216d047f097cbbd457baf13894f5",
+        "affectsGlobalScope": false
+      },
       "./node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts": {
         "version": "222ebf19b1260582fd2023a65c5b7da77f730021f05afb9c4ead4b0b339a8c98",
         "signature": "222ebf19b1260582fd2023a65c5b7da77f730021f05afb9c4ead4b0b339a8c98",
@@ -3212,8 +3217,8 @@
         "affectsGlobalScope": false
       },
       "./src/common/enum/account/status.enum.ts": {
-        "version": "e2507916b08143e453e153d6c556801f0d1b06b3f8bf55536a263d7ec26dd6ba",
-        "signature": "2d81353ff87e63183c0d1324e781ee1813853396374f90968ed6b8f977ea9f53",
+        "version": "5f6a29139e39c56f9357196e2a7ce890246aede95e438e5e9fb9ebc97a32fdc1",
+        "signature": "20db1dd0e4c325b2da4b63554367b0525b39e975ebc889e683ebea4f09738031",
         "affectsGlobalScope": false
       },
       "./src/common/enum/subaccount/subaccount-category.enum.ts": {
@@ -3221,9 +3226,14 @@
         "signature": "18cd0adc6b6cadfa7abe197310714ab698684c7e5f48cb10b85e2ecc543ea7e7",
         "affectsGlobalScope": false
       },
+      "./src/common/enum/auto/auto-type.enum.ts": {
+        "version": "4fd17b7086248613f958a2658925a32aa5e613401cce613ba9b11db5fa0a540a",
+        "signature": "40a38608dbccecde199ef99ffc8a02c27798f248e00a0b89e968401a9c2c9e4a",
+        "affectsGlobalScope": false
+      },
       "./src/server/modules/services/repository/services.entity.ts": {
-        "version": "23184680038bd9d9b166ff3571340bcdc25f5f22eedcf83fe1fb199e27ad9c35",
-        "signature": "e304231230f7c16cc75e8573b6e2840e026062a495bad19d781292f58c49b857",
+        "version": "ec743d6df89895e3c14740f7794dcfb2c8351e981767695c119c89c1590b155c",
+        "signature": "c8b2fdaf78ce78f2586cb7e4473c3488de105eac76fb5c92bba7628a1d9c767f",
         "affectsGlobalScope": false
       },
       "./src/server/modules/category/repository/category.entity.ts": {
@@ -3252,7 +3262,7 @@
         "affectsGlobalScope": false
       },
       "./src/server/modules/contacts/repository/contacts.entity.ts": {
-        "version": "f46f4e50378ded98d6ea35f0d36f9c8300a5263608e93869d9ae369d83230cf6",
+        "version": "cd82cf1b80a9bb228b1a6969541c3b09b63427d84813d0789bb675e89555064f",
         "signature": "459e320f742255afcac6051e65a50b5e6ce27bf769c3a6f1d05148a1e09bc59d",
         "affectsGlobalScope": false
       },
@@ -3266,14 +3276,44 @@
         "signature": "2860de3585e8fd9ab447359c18955a818ac429a4b5b2e1c6bec04217251f4e05",
         "affectsGlobalScope": false
       },
+      "./src/common/enum/request/autopart-type.enum.ts": {
+        "version": "5f39b8cbaa8363cb95d1d0927637f21873e6a228390efff830e9bd0e80f53a09",
+        "signature": "6f77d9e3dbae21657912764382677a29d8d14e44caed74d2934bbe478178cebd",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/autopart/repository/autopart.entity.ts": {
+        "version": "61b328061c3f66edc5c02768808e041877f87929c37ca629f8ab8a5d8ddd2467",
+        "signature": "111b11a9bcc13c2908487666973ce4609d9644f4e56d41295e1c070bb2de4090",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/auto/repository/auto.entity.ts": {
+        "version": "ede7fb9061c8eceb218a0596418a5b2b570842f62f59d1d487ccf32f0cfecfa4",
+        "signature": "c99bb70627d83a7cecf547183947fbe12588d2f4784e6e4e952bd012aab9808d",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/request/repository/request.entity.ts": {
+        "version": "357660364b1f924c0fbce652cffdd2de049de2ecf02662119293e994424fa7a7",
+        "signature": "128a478b94b1fcf1f0e993925e82a05079ffe0f781248a239a7ff4bc748b5764",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts": {
+        "version": "c584ec518f79bfbac5a8f9613bdc4517b8209a96360a1ad83c9efc117c7fa35e",
+        "signature": "56973cab865ca88509efb9d6e6104f7bbe8a1e11a11c7d0d45ea957b25a3dc38",
+        "affectsGlobalScope": false
+      },
       "./src/server/modules/subaccount/repository/subaccount.entity.ts": {
-        "version": "7d702445f3f5f179c69ab4128b24e0b2702d6af3a068c8ca4400190530d69526",
-        "signature": "391715e5ade3d182e505640daf5ca34102f2b306e9cffe49dc517a58f37230e5",
+        "version": "7490464409527215c753dc09152129f3420d878755ea17c0d689930478f5aeb9",
+        "signature": "f734a505dfa6c8a3f71dcf9e9aaa5e35f4ba334a6b52a4725d632c870c1fcb18",
+        "affectsGlobalScope": false
+      },
+      "./src/common/enum/account/registration-status.enum.ts": {
+        "version": "c084ad070f22af5ba5248037f1514250f949496bfeae1466840a3371e8f01bb8",
+        "signature": "ab077444bc40675ff6196f7c2779e738240fdd760d1898127487fd2b70f95959",
         "affectsGlobalScope": false
       },
       "./src/server/modules/account/repository/account.entity.ts": {
-        "version": "3168942f661b3f666f4be638298b6a92d5757cb1493d503a897f73cbc9bb760d",
-        "signature": "76a143dcc25e0971b63e2c07cbda8a62b8241bea284bd8200f3673e561293880",
+        "version": "df54df5812af0a3eacf7c0428a1656367a2ad7712ce938a60fff569f6d926498",
+        "signature": "e91d95aaca984b1c35355240ba23c4841612a7edea7f30e8f039ad31a7071b66",
         "affectsGlobalScope": false
       },
       "./src/common/dto/auth/create-account-token.dto.ts": {
@@ -3281,9 +3321,19 @@
         "signature": "2b22fafb383f2cfd63eb7607a25fee7b5fee58cbf05a3a7638ce1f7da5d4f774",
         "affectsGlobalScope": false
       },
+      "./src/server/utils/unique-validation.ts": {
+        "version": "8de6a140b7aa6e19bfd10b025003c9dd021fc66e2d5e69cd84d06142a81bf727",
+        "signature": "a6efd5c0374755826148142fb6f48d7c893368af54578646c1b1ab9abeef0214",
+        "affectsGlobalScope": false
+      },
       "./src/common/dto/auth/create-account.dto.ts": {
-        "version": "fc396e3cbab2ed6403f825e6a82f72821d6a25c551543ba3d68b6777a833cab8",
-        "signature": "cd840b1fa848d383ed290e3dedbea22dc3c0e7efc898235fd7ec5676538ed3f4",
+        "version": "ee14ad27594f7e9c7a5e070b5d342aa6a1b65dc4b3d39be96568ae2f3377911e",
+        "signature": "69bc9243ffbdc2847b5924517cc1afaa636d6c509c4092ecabc1546fb2ab8207",
+        "affectsGlobalScope": false
+      },
+      "./src/common/dto/auth/edit-account.dto.ts": {
+        "version": "028eb9dbb5ccacec09df40bab6c401d5aa79bd8e2f5dbe00ddd267772d4f2fde",
+        "signature": "585a67e04b672eeb02b09395619d2706f78ce697359964a44695941671c1cdb9",
         "affectsGlobalScope": false
       },
       "./src/common/dto/auth/sign-in.dto.ts": {
@@ -3292,8 +3342,8 @@
         "affectsGlobalScope": false
       },
       "./src/common/dto/auto/get-auto-icon.dto.ts": {
-        "version": "5533658d9da62ef1010708eceaa9cc1934f449e59434cf429400517a334e72bf",
-        "signature": "a794b56c8805c5350ee9dd667d2a568519bc15ad1c7bece7eb49ab02c1d3a96e",
+        "version": "2d75e3a5b5366f6e4e3f5a2e3be074bd6418d54f09d650874a2d6554debb8eac",
+        "signature": "e4a647318b0edcb691a7c96b19d9f49fc861bfb2946712edb1f9fd40973a35f4",
         "affectsGlobalScope": false
       },
       "./src/common/dto/file/file-upload.dto.ts": {
@@ -3302,18 +3352,43 @@
         "affectsGlobalScope": false
       },
       "./src/common/dto/auto/load-auto-image.dto.ts": {
-        "version": "e3207796951cc227d0ade50a145a9c7afe5f8ef2cf47f40e87b3f5ba4658801f",
-        "signature": "cd821740dfed26f5a35dd1e0480723ee53657f208313292c82ea2fd553cd4725",
-        "affectsGlobalScope": false
-      },
-      "./src/common/enum/request/autopart-type.enum.ts": {
-        "version": "8e20077448a3a712394f98c86c5ce42e2d361f1d2a5cdcb9308412839f7f970a",
-        "signature": "dc903ddf639a8dec70b73d86e046e4efeac2ca6bd4a3e7887bc0648d786572d5",
+        "version": "91162311c3474b8628ad53d377b989e13ef58b6152452a0097340d1b6c5e8376",
+        "signature": "9319bdbb8de71aea2e2eb8d948f146a7c35ad8c35a1206d40aebc89ced62b895",
         "affectsGlobalScope": false
       },
       "./src/common/dto/request/create-autopart.dto.ts": {
-        "version": "3876e34fb1ce767dae3a383c1c69cb12191bde37cb6bf68ebb3fca61c18a1421",
-        "signature": "2a6b585da79d1f6d69fb97f2f063c7b6333590b36135510ab9a998f171dc4b0d",
+        "version": "988f6a522c1813b724365bd0ba7b34762c2bf3e9f31cb37a17c31637941857d1",
+        "signature": "852718d0343ad4c8158881b4206dd7bb35c8a0e0bf0acc80d4a5cc938c48a231",
+        "affectsGlobalScope": false
+      },
+      "./src/common/dto/request/create-request.dto.ts": {
+        "version": "7689f0a3ffdc9701e12ca61c3a071563061dbf93847ae288a882a7f4eb74cf0d",
+        "signature": "feaa8836a361f290abf8c8659f3ad37206b874cb562897ef619db6d546fabf7b",
+        "affectsGlobalScope": false
+      },
+      "./src/common/dto/request/request-file-upload.dto.ts": {
+        "version": "2baa51f6e0c8990b7278d220cd3238060b43f30c52ce32d63f31136c05dd04d2",
+        "signature": "d9254f804dba6eabd37442a8ad412e5de50cfe634a70b17aea933b8d22d2d283",
+        "affectsGlobalScope": false
+      },
+      "./src/common/dto/services/create-service.dto.ts": {
+        "version": "d295e02e54439e1b82733e2427ce8819a04c5162d1456d8b81933c7e9d8c42cb",
+        "signature": "a18d3e28c240ff596dd5893e99862d8aa6bf69ce9acc2cfde9df172fedf8e3d6",
+        "affectsGlobalScope": false
+      },
+      "./src/common/dto/services/find-by-categories.dto.ts": {
+        "version": "606f49471df8070616eadf83273090f21385fec8cee28c47dc4125c8ce1e9788",
+        "signature": "a396bbd4f7c18cfe1ae405eb15678e7ac7e8f1e95f6672d9a8e2cfe5379ccab2",
+        "affectsGlobalScope": false
+      },
+      "./src/common/dto/social/social.dto.ts": {
+        "version": "5748b9252c0aca86a2c4a105664300edb4a7559ee682fd4e53ce0583d8a8f6d7",
+        "signature": "1634279d40a9b8769515e573ee9e3fcc74c5b2cfbdf0f61e348ee73fa5c1c466",
+        "affectsGlobalScope": false
+      },
+      "./src/common/dto/subaccount/create-subaccount.dto.ts": {
+        "version": "ed886b03bf5449708aef12b237d5efc46886f7c9f4d9eff38d91c122dc2f43a2",
+        "signature": "854cd91700579cab8b537cd9be5bafaa7d22d16ef63c57b8f551a16a7a03cc8b",
         "affectsGlobalScope": false
       },
       "./node_modules/class-transformer/classtransformoptions.d.ts": {
@@ -3351,39 +3426,14 @@
         "signature": "097d4bf3331df1e138ffdcf92e1117f6841bc8337170d927fd955d5ee8a1674b",
         "affectsGlobalScope": false
       },
-      "./node_modules/@nestjs/swagger/dist/decorators/api-model-property.decorator.d.ts": {
-        "version": "b923bafce31ba28c956485071e07bec29f5286138418f9768cc6a7bb1684b9d8",
-        "signature": "b923bafce31ba28c956485071e07bec29f5286138418f9768cc6a7bb1684b9d8",
-        "affectsGlobalScope": false
-      },
-      "./src/common/dto/request/create-request.dto.ts": {
-        "version": "8d443abb77bd42dc7dc7995f038e07a640c2f54b24ae605ab055dee9224f35e0",
-        "signature": "a9eb35aac70fbce77de2959177216b1bfbecbdd9085e7dea7e763c14006045f3",
-        "affectsGlobalScope": false
-      },
-      "./src/common/dto/request/request-file-upload.dto.ts": {
-        "version": "1451e7730d6e33202348d66fdd63edb73682df6f2409a78e18fd29bcf8bb4d52",
-        "signature": "d9254f804dba6eabd37442a8ad412e5de50cfe634a70b17aea933b8d22d2d283",
-        "affectsGlobalScope": false
-      },
-      "./src/common/dto/services/create-service.dto.ts": {
-        "version": "500cbcaac31b2fdd00a186006591fc50204bd8791ce8053f82a4e567a2168228",
-        "signature": "7ff4d29693daa0c50dc881d9bac32f8c41508444a153c28b6f4ef1a8ab3e6d0e",
-        "affectsGlobalScope": false
-      },
-      "./src/common/dto/social/social.dto.ts": {
-        "version": "5748b9252c0aca86a2c4a105664300edb4a7559ee682fd4e53ce0583d8a8f6d7",
-        "signature": "1634279d40a9b8769515e573ee9e3fcc74c5b2cfbdf0f61e348ee73fa5c1c466",
-        "affectsGlobalScope": false
-      },
-      "./src/common/dto/subaccount/create-subaccount.dto.ts": {
-        "version": "ed886b03bf5449708aef12b237d5efc46886f7c9f4d9eff38d91c122dc2f43a2",
-        "signature": "854cd91700579cab8b537cd9be5bafaa7d22d16ef63c57b8f551a16a7a03cc8b",
-        "affectsGlobalScope": false
-      },
       "./src/common/dto/subaccount/filter-subaccount-byservices.dto.ts": {
-        "version": "cee1b0d8df05c03ba81cc367f0ca060aff7da14abcdc271cf52938ac6bfadfa1",
-        "signature": "27b6d1afa248dc1bddd80d3099c42fd8dc6b287fb2bcd5936ec05c5693cdf65e",
+        "version": "103cad40c250193ec971f0d70cea2a58ab81e9b79bd9a8159ced26c8dedc9cdc",
+        "signature": "2593cd76bef6ac3dd5f18ca67c452ea817084ea72300e2a3225e11c77d568a03",
+        "affectsGlobalScope": false
+      },
+      "./src/common/dto/subaccount/get-price-list.dto.ts": {
+        "version": "89d475b07560543e00443315b142478396a92224bb35cc5320c9150bcdae9da7",
+        "signature": "bbdf10917ed2710e563199943ceefa05a52d9ee359c99d655911a3d129165f6f",
         "affectsGlobalScope": false
       },
       "./src/common/dto/subaccount/get-subaccount-photos.ts": {
@@ -3406,14 +3456,24 @@
         "signature": "5e4ea44272c26855b94a7b4d2eabe541ce40981ec7cb980c5fdaf5bb71bcde09",
         "affectsGlobalScope": false
       },
+      "./src/common/dto/subaccount/autostore/edit-autostore-services.dto.ts": {
+        "version": "09c294e6365807147b73d666c08345297435731f001b377015c4f2a2f6cd5d33",
+        "signature": "0bcd8a858c39dad741a881b648baf0c94c61346c2a9eb691dacb993a34694749",
+        "affectsGlobalScope": false
+      },
+      "./src/common/dto/subaccount/edit/edit-description.dto.ts": {
+        "version": "f45d4fb491f555aaac0b8a48b0d72525562f663e0ac23d7e0a71f443536da764",
+        "signature": "fb02463ba3d20ca61b0e9400e30f060841d5cc4ccfb5755c05f7376ffde780b7",
+        "affectsGlobalScope": false
+      },
       "./src/common/enum/account/role.enum.ts": {
         "version": "dba062b7e5e2e6e97c1b4449242163734c2c0485d36e1a65f34f550de96a75f0",
         "signature": "d94fba99ec6236105f17c11b9102ce74a89e63e8dcaa5bd5ca83078aa33860bc",
         "affectsGlobalScope": false
       },
       "./src/common/readable/account/ireadableaccount.ts": {
-        "version": "e28f8d8f486003db93ba2814f7cc20528f5c9b6812bf3613ffedf24338b7905e",
-        "signature": "33a340158cc9f6334704b8cbb13889838aeb2621109772f4c617f0d8def8d4f0",
+        "version": "eaae5c957e6fede6ea9adc4b6561453ab7ea187397a53f296799ce20a01d4dcf",
+        "signature": "fac04950bb9e7ac9bd9dfdac7ae51cac41b6a6addcb3aceb1c28d6641f3b8d84",
         "affectsGlobalScope": false
       },
       "./src/common/readable/category/ireadablecategory.ts": {
@@ -3449,71 +3509,6 @@
       "./src/server/modules/account/repository/account.repository.ts": {
         "version": "9036e54b72db7910f54bec99c9a2fe94983d30acc10e9556f91fab95501cae55",
         "signature": "2fa172170abba3ade416d8febe6575210f5612835ae63c8e626453390f5eafb5",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/account/account.service.ts": {
-        "version": "578e64b29a8f74e5744a0d4ea0b4e154904da5c44a3a895685f38d09f5ce17e5",
-        "signature": "13180dbc4af2bf6400d6f0b80558eb1ae8415799f4982cd823bbbdd12409581e",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/account/repository/account.providers.ts": {
-        "version": "77103325e4c73ce4a307fdab620eb396b8096df4d77a1de3b03acd9f62ca09d5",
-        "signature": "c8575ce9bd2545a5fc80b96fa7792918b19a87defd40c0d8600dcc9cc2431e0e",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/db/database.providers.ts": {
-        "version": "8bcc2238a40cf90dea2c947c2a3f4db0276198ad4b17ebc46a22603b08cc9ea1",
-        "signature": "df938d9951c144f670a325bfffa8393ed8ba66bcb406ee98db3db04efe9b6a0c",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/db/database.module.ts": {
-        "version": "4b90adc5be98f053c51a4178bfd23652a7c05a786e37ed1e74e0df9f1539ac86",
-        "signature": "012ca69dacdbff2b4621a9a43ccfba38fabd3511b3a084afb4b12446140989d3",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@nestjs/core/helpers/execution-context-host.d.ts": {
-        "version": "2a899aef0c6c94cc3537fe93ec8047647e77a3f52ee7cacda95a8c956d3623fb",
-        "signature": "2a899aef0c6c94cc3537fe93ec8047647e77a3f52ee7cacda95a8c956d3623fb",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/account/decorators/account.decorator.ts": {
-        "version": "4113b11424afb1590927c21fccc6d82ce3c77b2ea634b0faf900fb4519ccdbab",
-        "signature": "238b33eb7aae8c3e87d523296a69cb15b8bd3e294428dbf17eeacbfae23a6bf1",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/jwt-token/repository/token.repository.ts": {
-        "version": "20d855f732fe8e71c8f4ca41d5b643fc178c6fc303153829c1f53146da5097e6",
-        "signature": "866f6e022636283b5a5b2cae57f840f62170e6a44655469864a185fd91a424c1",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/jwt-token/jwt-token.service.ts": {
-        "version": "5aa1c03e0174067577d78823ae08b7f9679e1e38d04f3662e1bf31ef6982720c",
-        "signature": "45824732bc5601c5385d56ed26675ebd52ff9231298e28804936be577127e4f2",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/jwt-token/authorization.guard.ts": {
-        "version": "53fe12c864e31c379f92f292383213224bc4b0475f1fac3a96de6212a820fe61",
-        "signature": "1bbb4a669beebe8142fa3c942b4d2ec08e1bab13beb5325a0153917277866414",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/account/account.controller.ts": {
-        "version": "a10374b0bef25689404c81412edc0de997928e816780aace3b114495da73c5bc",
-        "signature": "b36081ef89a2e58bb7c8f48ffdc68a8b53cc5f9e28fd7e692d910fba3dd7da63",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/jwt-token/repository/token.providers.ts": {
-        "version": "f7c6969f0a18737f994edd1ac887a4af10ca4b170d8ef8375033fc74bba932eb",
-        "signature": "4d9f1f78081911e7e7a1742e8cbd6f8fc6c7e4f7fcb8571fd37b090f8165431f",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/jwt-token/jwt-token.module.ts": {
-        "version": "57ab19eff78470906c387bff892926cc24e4707f472ff67f610a9460a4736ef2",
-        "signature": "eb4dcfd5d56fc61dadd18c45b7a23687005377734aadc0c4b375d2b8e84a0e4d",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/account/account.module.ts": {
-        "version": "518174497345df2b4130a865dec0ddd37d390da3b5cb6d6d7094602dc3f5c75b",
-        "signature": "5dca972e1047709adf5566a809d8f6db3e7eb1b2e4836cddae9f8237b7773903",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/node/globals.d.ts": {
@@ -3806,6 +3801,16 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
+      "./src/server/modules/jwt-token/repository/token.repository.ts": {
+        "version": "20d855f732fe8e71c8f4ca41d5b643fc178c6fc303153829c1f53146da5097e6",
+        "signature": "866f6e022636283b5a5b2cae57f840f62170e6a44655469864a185fd91a424c1",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/jwt-token/jwt-token.service.ts": {
+        "version": "d077bbd7c2e8930b02ed5c03c2ba86acc2fc9d09675fa1906738b5293ed32200",
+        "signature": "45824732bc5601c5385d56ed26675ebd52ff9231298e28804936be577127e4f2",
+        "affectsGlobalScope": false
+      },
       "./node_modules/@nestjs/config/dist/types/config.type.d.ts": {
         "version": "839d15098cc51d756b67acda281788779645cbf8e95571897951afb52ea6535a",
         "signature": "839d15098cc51d756b67acda281788779645cbf8e95571897951afb52ea6535a",
@@ -3881,19 +3886,69 @@
         "signature": "74c2c8c7669820198ddfd33e75a1ae05a59782341b24a68a312f497a40ef02f0",
         "affectsGlobalScope": false
       },
+      "./src/server/modules/sms/sms.service.ts": {
+        "version": "76ed391ba7fef84f28b1b8b7759f07ea6b777c5d33f7710c6642a9c985fe1115",
+        "signature": "d85a72731c7d0052b374e0d4c9c3c40ae96a2553dce20b2e822723520638a9d6",
+        "affectsGlobalScope": false
+      },
+      "./src/server/utils/rand.ts": {
+        "version": "465293bc4870d73bc1ab2916851fb8da0fb54fe299391ca12fd79f2ffd902b34",
+        "signature": "2f2c5063452694485c4446cdecc6638a9bf0cb7d762d9a036f065784222bbca5",
+        "affectsGlobalScope": false
+      },
       "./node_modules/moment/ts3.1-typings/moment.d.ts": {
         "version": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
         "signature": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
         "affectsGlobalScope": false
       },
       "./src/server/modules/auth/auth.service.ts": {
-        "version": "638bdc89ed184ff0df8ca922bf37efc73c884de4ee684d7f35416972f803248c",
-        "signature": "fd7528171b061313f7bba495e32d03828a420ca9a579e5eaee19877eb5266d6a",
+        "version": "9e9475311cc919aa933d93722fcf14462203e06834739e03373c8e0a1832eb25",
+        "signature": "3221f33618e44ba7878053304c741fa6b159d1d365575a1c92dffff323a20c2d",
         "affectsGlobalScope": false
       },
-      "./src/server/modules/auth/auth.controller.ts": {
-        "version": "544f465aeeb498c9ffe06bebd8a844fa881594037eb1b7004ff25ba7f9c731d5",
-        "signature": "99834bca637fe853be89e8c8d19f043eb08dff115b58c7fbeff9e5cb87028ae6",
+      "./src/server/utils/utils.ts": {
+        "version": "62988c0d5c5c55bb1a2729529f983ccb42d318668f7d94a2eb2176e40c23188f",
+        "signature": "e63a1eb4137aed671900bfe89c03fe8e77f8f6831c2efa832eef33e4e5d812c4",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/account/account.service.ts": {
+        "version": "5813cf4274b5808fd68b346e61492cdc11e78af80a0216a53c0e26c91d04ae58",
+        "signature": "0f46824ca3d8a55b4002f5b7dea29654d0e02900d9d375028170f64b255493fa",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/account/repository/account.providers.ts": {
+        "version": "77103325e4c73ce4a307fdab620eb396b8096df4d77a1de3b03acd9f62ca09d5",
+        "signature": "c8575ce9bd2545a5fc80b96fa7792918b19a87defd40c0d8600dcc9cc2431e0e",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/db/database.providers.ts": {
+        "version": "8bcc2238a40cf90dea2c947c2a3f4db0276198ad4b17ebc46a22603b08cc9ea1",
+        "signature": "df938d9951c144f670a325bfffa8393ed8ba66bcb406ee98db3db04efe9b6a0c",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/db/database.module.ts": {
+        "version": "4b90adc5be98f053c51a4178bfd23652a7c05a786e37ed1e74e0df9f1539ac86",
+        "signature": "012ca69dacdbff2b4621a9a43ccfba38fabd3511b3a084afb4b12446140989d3",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@nestjs/core/helpers/execution-context-host.d.ts": {
+        "version": "2a899aef0c6c94cc3537fe93ec8047647e77a3f52ee7cacda95a8c956d3623fb",
+        "signature": "2a899aef0c6c94cc3537fe93ec8047647e77a3f52ee7cacda95a8c956d3623fb",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/account/decorators/account.decorator.ts": {
+        "version": "4113b11424afb1590927c21fccc6d82ce3c77b2ea634b0faf900fb4519ccdbab",
+        "signature": "238b33eb7aae8c3e87d523296a69cb15b8bd3e294428dbf17eeacbfae23a6bf1",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/jwt-token/authorization.guard.ts": {
+        "version": "53fe12c864e31c379f92f292383213224bc4b0475f1fac3a96de6212a820fe61",
+        "signature": "1bbb4a669beebe8142fa3c942b4d2ec08e1bab13beb5325a0153917277866414",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/account/account.controller.ts": {
+        "version": "b89ba3937e8d6e90f61d74e6f7fcac077a5821ed870a8a95aa8869f227bfcebf",
+        "signature": "69c15da796ecaaf13497910a57a76e668986c9655da46d5d63bd23b3a09b1c53",
         "affectsGlobalScope": false
       },
       "./node_modules/@nestjs/passport/dist/abstract.strategy.d.ts": {
@@ -3991,8 +4046,23 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
+      "./src/server/modules/auth/auth.controller.ts": {
+        "version": "25989630241ca897e297f5b05080113be95ec672b02987600a8c7525686bdaf7",
+        "signature": "da8de774d3727ce2db95f4d3af6d43f034c1eff445a71debc7d220a16aa0cd76",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/jwt-token/repository/token.providers.ts": {
+        "version": "f7c6969f0a18737f994edd1ac887a4af10ca4b170d8ef8375033fc74bba932eb",
+        "signature": "4d9f1f78081911e7e7a1742e8cbd6f8fc6c7e4f7fcb8571fd37b090f8165431f",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/jwt-token/jwt-token.module.ts": {
+        "version": "bae5bd6cd54667e1baab95e3d7e4b5c7f8387088e1a68a3826eede745e72f550",
+        "signature": "eb4dcfd5d56fc61dadd18c45b7a23687005377734aadc0c4b375d2b8e84a0e4d",
+        "affectsGlobalScope": false
+      },
       "./src/server/configure.root.ts": {
-        "version": "b1a3e68e44ff09fe01f77a8e41fcc8dcd0b8f1d3e5c10816e1e935ea20e12a21",
+        "version": "6c9aff96b444e7d501e26865f07f9227519adb27badd7b66ddecbd6f8c7605a4",
         "signature": "94b465f72e3702295ff6cd29fa9832cf257bde1d069cf384f58903a57e9db792",
         "affectsGlobalScope": false
       },
@@ -4016,9 +4086,19 @@
         "signature": "7d3504e6436b7b153b4a16f6e43057b8d235d03f9da9a50f69419f0fd665618e",
         "affectsGlobalScope": false
       },
+      "./src/server/modules/sms/sms.module.ts": {
+        "version": "cfa0ef29854c7b5766d52d3685f98bdcba49fd5c704c37b78453e3617863f445",
+        "signature": "3210d2fda58b5aff638b5b382045dad4b5568c0e31e4d7cbb308d15e88e438dc",
+        "affectsGlobalScope": false
+      },
       "./src/server/modules/auth/auth.module.ts": {
-        "version": "77f88e07f2d34725b6f9c10816a7ba53decfd1c4684a52c5e3415b58ee3d2d57",
+        "version": "c43330e8fcfacad39b74c3da9bc2f3b911dcc4cee09620ab58e5afaeb459650f",
         "signature": "2e5d258cf85349b02b015c3f1b8873c152d182c3819a7ccc3aff16fc3037a5fc",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/account/account.module.ts": {
+        "version": "cb0b07feef700d0025ead2271baf0529598bddbecf4909cae205785032906d25",
+        "signature": "5dca972e1047709adf5566a809d8f6db3e7eb1b2e4836cddae9f8237b7773903",
         "affectsGlobalScope": false
       },
       "./src/server/modules/city/city.service.ts": {
@@ -4047,8 +4127,8 @@
         "affectsGlobalScope": false
       },
       "./src/server/modules/services/services.service.ts": {
-        "version": "68db604a37cdd84cc7f122e9b73746ceca2e55f466e0e7b174199af550fe5450",
-        "signature": "58eeffd7cea6a55ed5a3ae01ea51abc921c20c683bc612c9606d189a26c13fff",
+        "version": "110bcb8993c2038f1a64cb145d0f2ce57a977abd10a716d472d8910099eae8b0",
+        "signature": "cc21a4bf48da960512f0af44397a71675bc94bbfe1953f055cdd93beb74955a3",
         "affectsGlobalScope": false
       },
       "./src/server/modules/price-list/price-list.service.ts": {
@@ -4077,8 +4157,8 @@
         "affectsGlobalScope": false
       },
       "./src/server/modules/subaccount/subaccount.service.ts": {
-        "version": "ee4c4258d309e010ca0bd482a3b1866e1411b8de1d627a4443fd530afe7840a1",
-        "signature": "1acef546c8fd48e862a410007ca6cb624dcd4197c6d2ef7a07f6bf7fe0597729",
+        "version": "143870d6831b76d78ebb8c84f6ffb13a43e234ee0c2a93d9b0c1739ba7c1d238",
+        "signature": "f4d652c5c33f6a9ba8e546bdfb746470b8295a7be9b74aeeb8c260b61c27a0d8",
         "affectsGlobalScope": false
       },
       "./node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -4167,8 +4247,8 @@
         "affectsGlobalScope": false
       },
       "./src/server/modules/subaccount/subaccount.controller.ts": {
-        "version": "8b23b18add5aab9823574c98db7970cf692ecbc02220f2bb134e45df97c8cb7b",
-        "signature": "e0874b5af85a69f471f66051c9398267db9a01e3c457db650256026bda0cd74c",
+        "version": "9d9f5754d3304df6f7b35e1f1ebeed1633c1942c46ce3daacb5bed1ab2337add",
+        "signature": "28474012cb75504e01f380f88246bc9a1170ec847ef40d7048f94130c5f0a99c",
         "affectsGlobalScope": false
       },
       "./src/server/modules/subaccount/repository/subaccount.providers.ts": {
@@ -4227,7 +4307,7 @@
         "affectsGlobalScope": false
       },
       "./src/server/modules/category/category.controller.ts": {
-        "version": "3b974a0c916f557fb5c3a13d4ae4982cf340eabc684e7b1dd1099e543e217ac6",
+        "version": "a78df02e20ab8ba237075f53c1787e53440d57d5e279428daec92f77dcb3118b",
         "signature": "04aa2eb24fa97a9953821c015be893992f38b9ed8b0b97961c3d2fcce7769ce3",
         "affectsGlobalScope": false
       },
@@ -4242,8 +4322,8 @@
         "affectsGlobalScope": false
       },
       "./src/server/modules/services/services.controller.ts": {
-        "version": "4c5e42858ac0c82f0a1e7c85644edfe2d366550fb595862cefc44dfe5e9738e6",
-        "signature": "cae65597e2a61dee17e222c77e76281568abf9b4810f0bf86e9ea1c990a1eb51",
+        "version": "8570003cd34b1205fb0d56edde655b6d196bf688cc149a7409451a774df5928e",
+        "signature": "c1a388e45266d293c4e2145dada691ceea2dbe540bdb946b865804306167f3ac",
         "affectsGlobalScope": false
       },
       "./src/server/modules/services/services.module.ts": {
@@ -4262,28 +4342,8 @@
         "affectsGlobalScope": false
       },
       "./src/server/modules/subaccount/subaccount.module.ts": {
-        "version": "f6319bbec7e2a8469c039aff35cdc2b29a556601cb35543b016ac5abf28b5dc4",
+        "version": "359b261aa36eca2dcba20a3eb417ac5ba81ddebd1f3a3e0161d884386dbef236",
         "signature": "ca3a9a916fb3c278b4d32e5e7f980937f555f0733d8fd1424eb059a95ac27280",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/autopart/repository/autopart.entity.ts": {
-        "version": "61b328061c3f66edc5c02768808e041877f87929c37ca629f8ab8a5d8ddd2467",
-        "signature": "111b11a9bcc13c2908487666973ce4609d9644f4e56d41295e1c070bb2de4090",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts": {
-        "version": "35eb5a96705894a7d69397f388c87589f3efac11ab4f103aec6ea0de43e645b6",
-        "signature": "644f6474f6dfd97f9da2bc46a57faf68f29df2d34183d170d5a7cded7a35eb8d",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/request/repository/request.entity.ts": {
-        "version": "70dd089c806a41bc2ddd022c68f548ff3e42654c285a36fa31a6f1de0cbe0a7b",
-        "signature": "70242c2a9ce16c2bd7b34c454099e33561add5618a1c4bfe23d3165de409511c",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/auto/repository/auto.entity.ts": {
-        "version": "6dccc96a175aa7cc6c17a7632056371555a8759504aa50ef9a26b278b20cdf17",
-        "signature": "c7d02890db3b999f22ad91ee6ae5259bfed10ee18b5bb07668764f4482599fb1",
         "affectsGlobalScope": false
       },
       "./src/server/modules/auto/repository/auto.providers.ts": {
@@ -4292,13 +4352,13 @@
         "affectsGlobalScope": false
       },
       "./src/server/modules/auto/auto.service.ts": {
-        "version": "66315330d93d9723449b597e44c3775c6a0710541e86e5588e559e72e17b8270",
-        "signature": "514ce07a667e0bde3809faee8bcd219c0926e1e46af29732b1aa72442b2cff08",
+        "version": "f403c4a79f997e00d3307fa648c6597d48385b0f5271ff6f23df0b0a9d17a4e0",
+        "signature": "46ea081204be1368883a3e094cf6ced3c8731c14d3262f548da732638208a5ec",
         "affectsGlobalScope": false
       },
       "./src/server/modules/auto/auto.controller.ts": {
-        "version": "4667c21a8bf709b9b482f3297ba6c27ef5035c4fa2e2a767a617600cf4ea74e2",
-        "signature": "2e0ddbc525400d75e9248a3325edb298cc223c4569c0820661f533fe6a65e5a0",
+        "version": "1f3265cf66d72921bed207f53d24d9c87b1429c962443ff6d5057766674793ce",
+        "signature": "ee68d1b8ff54211a1ab5057fd9a9a2d80d6ed597da0acc1cc0b79590082460ea",
         "affectsGlobalScope": false
       },
       "./src/server/modules/auto/auto.module.ts": {
@@ -4311,18 +4371,33 @@
         "signature": "2dca8c23d057164e7d88de92152009c44e22d2a5cfc62258b5067a087697db01",
         "affectsGlobalScope": false
       },
+      "./src/server/modules/subaccount-request/subaccount-request.service.ts": {
+        "version": "cad9c333be7b65402bec8d1ed6c6fed7c88347c65b80d092a9b9926c9b2e3a06",
+        "signature": "8c410424f9c6bc2a30c1bbdbf2d136bb2e7cd780f645ab4dc8959ac53735b1c0",
+        "affectsGlobalScope": false
+      },
       "./src/server/modules/request/request.service.ts": {
-        "version": "3376c526c45c6405c5429e8bedee90b9b832f2856f39208276f98e68023f77fd",
-        "signature": "9024e9aafcbbfb6817e90c3e5eeffdc13c2f2e009fc6a21aeee2042f0f3ba848",
+        "version": "ff32a7a667a42e1abbdcb9d0d1cb98e8f745a968c7deb2db8308f275017740e9",
+        "signature": "5e67da86e8fe491c8cef567f11750036a1c43b883b53cf9c50425399ea4b8afd",
         "affectsGlobalScope": false
       },
       "./src/server/modules/request/request.controller.ts": {
-        "version": "cbec19a95326a9634ddc3df201d75e124f02d7fc1efc19733cc9b8e5b6f770ac",
+        "version": "a0708547407466200c8b06c0529e88e3b4ca89c0ba68aa1dafb775d0c3138b64",
         "signature": "f63e1236d9bbfbe376889f974e783fa63cea279b8c5dd3d37003c5a18742f076",
         "affectsGlobalScope": false
       },
+      "./src/server/modules/subaccount-request/repository/subaccount-request.providers.ts": {
+        "version": "3ca670b04bbb9ca7863aa58bcf3303e443988a4e6408cb3391e6447e0e9b4fe5",
+        "signature": "6d3ba13707759510a63118dd7f93189b13465a2e901abafa0503a0a6c057e0c3",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/subaccount-request/subaccount-request.module.ts": {
+        "version": "e10e9f72b69bb25674a26459425a5f3e67f93211297c0247da19c4771d7fbe7a",
+        "signature": "d66331b854b1ce04cf86f83ad77b3b12b2a6bb3e903284bffe6a0dd74133fdb8",
+        "affectsGlobalScope": false
+      },
       "./src/server/modules/request/request.module.ts": {
-        "version": "3e964ec5ca98a4eb6e463370e64e5d377d6fd511fcefb3a7abcef7f0fc9a25bb",
+        "version": "a76905aca28b0f1e6d3a7133625e11783c5dc6fc16025705f345fd1e4ed8bef7",
         "signature": "dbd02864ff11299a01a065c7bf4f000880153d83fad0d0448a456f7f47a4a7dd",
         "affectsGlobalScope": false
       },
@@ -4334,11 +4409,6 @@
       "./src/server/modules/autopart/autopart.module.ts": {
         "version": "fc1a55f6b96ae7b4af598eebe782c7b6c0eb82cd614bd086ff0d11323c85cc1c",
         "signature": "d1181f0f5492d2e4180109d8d653f7e2eb4ac5a17a12ccd67cad2d71494163ce",
-        "affectsGlobalScope": false
-      },
-      "./src/server/modules/subaccount-request/subaccount-request.module.ts": {
-        "version": "eeb26cfdd683471c6ca747dcbfe7a83c9e7ab29dbe8e15c8c361002a82dff009",
-        "signature": "d66331b854b1ce04cf86f83ad77b3b12b2a6bb3e903284bffe6a0dd74133fdb8",
         "affectsGlobalScope": false
       },
       "./src/server/modules/subaccount-photo/repository/subaccount-photo.providers.ts": {
@@ -4361,8 +4431,28 @@
         "signature": "860e3dc6661b404d81d7333028d1572d3f10bd5d0b95b244fa4d722d929313e1",
         "affectsGlobalScope": false
       },
+      "./src/server/modules/autostore/autostore.interface.ts": {
+        "version": "39e4719a4635fb9857700d572004ea6e45ae88f2daf1104065cfd03b14c1fcad",
+        "signature": "557f26ff63a76f868fcd5a9706171f750ea7a4252d198b623e2025810d613471",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/autostore/autostore.service.ts": {
+        "version": "364f9336b492f3ff9f37e726625e2f6e2098c9c6ae1a8a1ac5369fe7b778cb77",
+        "signature": "de4605b734acbb656d98570bf9783a4d5b197320bf479835991d57c6b698a03f",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/autostore/autostore.controller.ts": {
+        "version": "94cff6efc36d6302b74623293105029ea772366df365a8c1bcb9a68b840690a7",
+        "signature": "a90b20606107109a0cb2e1af80093313f90a3514ea52fa708a30df5dba091d45",
+        "affectsGlobalScope": false
+      },
+      "./src/server/modules/autostore/autostore.module.ts": {
+        "version": "006a34f07a38e5e7414a5a0660e9aad9ba30c1ebdcc0bb107998da77425f14f9",
+        "signature": "f79315f0e6c7e9ebcc9edf19deb0f1fbb22cadc924741eb46b4c1acaa81bbcea",
+        "affectsGlobalScope": false
+      },
       "./src/server/app.module.ts": {
-        "version": "62ab457a6e3b37886cb1247e6304fea99194132c6ae92928e47c9e4fcced1577",
+        "version": "02814478b0f9b53dca39ee91693713a6bdce8be1ca23e7c6f149b902165be8a9",
         "signature": "9fc7f7b6ad854404973b8cba8e6d883f758237991968e9a3965d716d46f1da88",
         "affectsGlobalScope": false
       },
@@ -4542,7 +4632,7 @@
         "affectsGlobalScope": false
       },
       "./src/server/main.ts": {
-        "version": "fa44d639cbe2ee59186254174a185d563a208c93979d6cff1b01affedb03aeff",
+        "version": "2b4dcdf7ba319b52c2f3e16474c0a602129fb23bc655b63cdb9f16ffcc041007",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
@@ -6832,14 +6922,6 @@
         "./node_modules/@types/node/util.d.ts"
       ],
       "./node_modules/@nestjs/swagger/dist/decorators/api-hide-property.decorator.d.ts": [
-        "./node_modules/@types/graceful-fs/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@nestjs/swagger/dist/decorators/api-model-property.decorator.d.ts": [
-        "./node_modules/@nestjs/swagger/dist/interfaces/schema-object-metadata.interface.d.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -12658,6 +12740,15 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/class-validator/types/index.d.ts"
       ],
+      "./src/common/dto/auth/confirm-smscode.dto.ts": [
+        "./node_modules/@nestjs/swagger/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/class-validator/types/index.d.ts"
+      ],
       "./src/common/dto/auth/create-account-token.dto.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -12674,7 +12765,20 @@
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
-        "./node_modules/class-validator/types/index.d.ts"
+        "./node_modules/class-validator/types/index.d.ts",
+        "./src/server/modules/account/repository/account.entity.ts",
+        "./src/server/utils/unique-validation.ts"
+      ],
+      "./src/common/dto/auth/edit-account.dto.ts": [
+        "./node_modules/@nestjs/swagger/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/class-validator/types/index.d.ts",
+        "./src/server/modules/account/repository/account.entity.ts",
+        "./src/server/utils/unique-validation.ts"
       ],
       "./src/common/dto/auth/sign-in.dto.ts": [
         "./node_modules/@nestjs/swagger/index.d.ts",
@@ -12723,15 +12827,12 @@
         "./src/common/enum/request/autopart-type.enum.ts"
       ],
       "./src/common/dto/request/create-request.dto.ts": [
-        "./node_modules/@nestjs/common/index.d.ts",
-        "./node_modules/@nestjs/swagger/dist/decorators/api-model-property.decorator.d.ts",
         "./node_modules/@nestjs/swagger/index.d.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
-        "./node_modules/class-transformer/index.d.ts",
         "./node_modules/class-validator/types/index.d.ts",
         "./src/common/dto/request/create-autopart.dto.ts"
       ],
@@ -12753,6 +12854,17 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/class-validator/types/index.d.ts",
+        "./src/common/enum/auto/auto-type.enum.ts",
+        "./src/common/enum/subaccount/subaccount-category.enum.ts"
+      ],
+      "./src/common/dto/services/find-by-categories.dto.ts": [
+        "./node_modules/@nestjs/swagger/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/class-validator/types/index.d.ts",
         "./src/common/enum/subaccount/subaccount-category.enum.ts"
       ],
       "./src/common/dto/social/social.dto.ts": [
@@ -12763,6 +12875,16 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/class-validator/types/index.d.ts"
+      ],
+      "./src/common/dto/subaccount/autostore/edit-autostore-services.dto.ts": [
+        "./node_modules/@nestjs/swagger/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/class-validator/types/index.d.ts",
+        "./src/common/enum/auto/auto-type.enum.ts"
       ],
       "./src/common/dto/subaccount/create-subaccount.dto.ts": [
         "./node_modules/@nestjs/swagger/index.d.ts",
@@ -12777,8 +12899,16 @@
         "./src/common/dto/subaccount/weekday.enum.ts",
         "./src/common/enum/subaccount/subaccount-category.enum.ts"
       ],
+      "./src/common/dto/subaccount/edit/edit-description.dto.ts": [
+        "./node_modules/@nestjs/swagger/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/class-validator/types/index.d.ts"
+      ],
       "./src/common/dto/subaccount/filter-subaccount-byservices.dto.ts": [
-        "./node_modules/@nestjs/common/index.d.ts",
         "./node_modules/@nestjs/swagger/index.d.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -12786,6 +12916,16 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/class-transformer/index.d.ts",
+        "./node_modules/class-validator/types/index.d.ts",
+        "./src/common/enum/subaccount/subaccount-category.enum.ts"
+      ],
+      "./src/common/dto/subaccount/get-price-list.dto.ts": [
+        "./node_modules/@nestjs/swagger/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
         "./node_modules/class-validator/types/index.d.ts"
       ],
       "./src/common/dto/subaccount/get-subaccount-photos.ts": [
@@ -12833,6 +12973,13 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./src/common/enum/account/registration-status.enum.ts": [
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
       "./src/common/enum/account/role.enum.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -12841,6 +12988,13 @@
         "./node_modules/@types/node/util.d.ts"
       ],
       "./src/common/enum/account/status.enum.ts": [
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./src/common/enum/auto/auto-type.enum.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -12929,6 +13083,7 @@
         "./src/server/modules/auth/auth.module.ts",
         "./src/server/modules/auto/auto.module.ts",
         "./src/server/modules/autopart/autopart.module.ts",
+        "./src/server/modules/autostore/autostore.module.ts",
         "./src/server/modules/category/category.module.ts",
         "./src/server/modules/city/city.module.ts",
         "./src/server/modules/contacts/contacts.module.ts",
@@ -12937,6 +13092,7 @@
         "./src/server/modules/price-list/price-list.module.ts",
         "./src/server/modules/request/request.module.ts",
         "./src/server/modules/services/services.module.ts",
+        "./src/server/modules/sms/sms.module.ts",
         "./src/server/modules/social/social.module.ts",
         "./src/server/modules/subaccount-photo/subaccount-photo.module.ts",
         "./src/server/modules/subaccount-request/subaccount-request.module.ts",
@@ -12955,6 +13111,7 @@
         "./node_modules/@nestjs/core/index.d.ts",
         "./node_modules/@nestjs/platform-express/index.d.ts",
         "./node_modules/@nestjs/swagger/index.d.ts",
+        "./node_modules/@types/body-parser/index.d.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/path.d.ts",
@@ -12971,9 +13128,13 @@
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
+        "./src/common/dto/auth/confirm-account.dto.ts",
+        "./src/common/dto/auth/confirm-smscode.dto.ts",
+        "./src/common/dto/auth/edit-account.dto.ts",
         "./src/common/readable/account/ireadableaccount.ts",
         "./src/server/modules/account/account.service.ts",
         "./src/server/modules/account/decorators/account.decorator.ts",
+        "./src/server/modules/account/repository/account.entity.ts",
         "./src/server/modules/jwt-token/authorization.guard.ts"
       ],
       "./src/server/modules/account/account.module.ts": [
@@ -12986,6 +13147,8 @@
         "./src/server/modules/account/account.controller.ts",
         "./src/server/modules/account/account.service.ts",
         "./src/server/modules/account/repository/account.providers.ts",
+        "./src/server/modules/auth/auth.module.ts",
+        "./src/server/modules/auth/jwt.strategy.ts",
         "./src/server/modules/db/database.module.ts",
         "./src/server/modules/jwt-token/authorization.guard.ts",
         "./src/server/modules/jwt-token/jwt-token.module.ts"
@@ -12998,9 +13161,15 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/common/dto/auth/create-account.dto.ts",
+        "./src/common/dto/auth/edit-account.dto.ts",
+        "./src/common/enum/account/status.enum.ts",
+        "./src/common/readable/account/ireadableaccount.ts",
         "./src/server/modules/account/repository/account.entity.ts",
         "./src/server/modules/account/repository/account.repository.ts",
-        "./src/server/modules/jwt-token/repository/token.entity.ts"
+        "./src/server/modules/auth/auth.service.ts",
+        "./src/server/modules/jwt-token/jwt-token.service.ts",
+        "./src/server/modules/jwt-token/repository/token.entity.ts",
+        "./src/server/utils/utils.ts"
       ],
       "./src/server/modules/account/decorators/account.decorator.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
@@ -13018,6 +13187,7 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/typeorm/index.d.ts",
+        "./src/common/enum/account/registration-status.enum.ts",
         "./src/common/enum/account/status.enum.ts",
         "./src/server/modules/jwt-token/repository/token.entity.ts",
         "./src/server/modules/subaccount/repository/subaccount.entity.ts"
@@ -13086,6 +13256,7 @@
       ],
       "./src/server/modules/auth/auth.controller.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
+        "./node_modules/@nestjs/passport/index.d.ts",
         "./node_modules/@nestjs/swagger/index.d.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -13093,10 +13264,14 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/common/dto/auth/confirm-account.dto.ts",
+        "./src/common/dto/auth/confirm-smscode.dto.ts",
         "./src/common/dto/auth/create-account.dto.ts",
         "./src/common/dto/auth/sign-in.dto.ts",
         "./src/common/readable/account/ireadableaccount.ts",
-        "./src/server/modules/auth/auth.service.ts"
+        "./src/server/modules/account/decorators/account.decorator.ts",
+        "./src/server/modules/account/repository/account.entity.ts",
+        "./src/server/modules/auth/auth.service.ts",
+        "./src/server/modules/jwt-token/authorization.guard.ts"
       ],
       "./src/server/modules/auth/auth.module.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
@@ -13114,7 +13289,8 @@
         "./src/server/modules/auth/jwt.strategy.ts",
         "./src/server/modules/jwt-token/authorization.guard.ts",
         "./src/server/modules/jwt-token/jwt-token.module.ts",
-        "./src/server/modules/mail/mail.module.ts"
+        "./src/server/modules/mail/mail.module.ts",
+        "./src/server/modules/sms/sms.module.ts"
       ],
       "./src/server/modules/auth/auth.service.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
@@ -13130,13 +13306,15 @@
         "./src/common/dto/auth/create-account-token.dto.ts",
         "./src/common/dto/auth/create-account.dto.ts",
         "./src/common/dto/auth/sign-in.dto.ts",
-        "./src/common/enum/account/status.enum.ts",
+        "./src/common/enum/account/registration-status.enum.ts",
         "./src/common/readable/account/ireadableaccount.ts",
         "./src/server/modules/account/account.service.ts",
         "./src/server/modules/account/repository/account.entity.ts",
         "./src/server/modules/auth/interfaces/token-payload.interface.ts",
         "./src/server/modules/jwt-token/jwt-token.service.ts",
-        "./src/server/modules/mail/mail.service.ts"
+        "./src/server/modules/mail/mail.service.ts",
+        "./src/server/modules/sms/sms.service.ts",
+        "./src/server/utils/rand.ts"
       ],
       "./src/server/modules/auth/interfaces/token-payload.interface.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
@@ -13203,6 +13381,7 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/typeorm/index.d.ts",
+        "./src/common/enum/auto/auto-type.enum.ts",
         "./src/server/modules/request/repository/request.entity.ts"
       ],
       "./src/server/modules/auto/repository/auto.providers.ts": [
@@ -13241,6 +13420,58 @@
         "./src/common/enum/request/autopart-type.enum.ts",
         "./src/server/modules/request/repository/request.entity.ts"
       ],
+      "./src/server/modules/autostore/autostore.controller.ts": [
+        "./node_modules/@nestjs/common/index.d.ts",
+        "./node_modules/@nestjs/swagger/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/common/dto/subaccount/autostore/edit-autostore-services.dto.ts",
+        "./src/server/modules/account/decorators/account.decorator.ts",
+        "./src/server/modules/account/repository/account.entity.ts",
+        "./src/server/modules/autostore/autostore.interface.ts",
+        "./src/server/modules/autostore/autostore.service.ts",
+        "./src/server/modules/jwt-token/authorization.guard.ts",
+        "./src/server/modules/subaccount/subaccount.service.ts"
+      ],
+      "./src/server/modules/autostore/autostore.interface.ts": [
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/server/modules/contacts/repository/contacts.entity.ts",
+        "./src/server/modules/services/repository/services.entity.ts",
+        "./src/server/modules/subaccount-photo/repository/subaccount-photo.entity.ts"
+      ],
+      "./src/server/modules/autostore/autostore.module.ts": [
+        "./node_modules/@nestjs/common/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/server/modules/autostore/autostore.controller.ts",
+        "./src/server/modules/autostore/autostore.service.ts",
+        "./src/server/modules/services/services.module.ts",
+        "./src/server/modules/subaccount/subaccount.module.ts"
+      ],
+      "./src/server/modules/autostore/autostore.service.ts": [
+        "./node_modules/@nestjs/common/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/common/enum/auto/auto-type.enum.ts",
+        "./src/server/modules/autostore/autostore.interface.ts",
+        "./src/server/modules/services/repository/services.entity.ts",
+        "./src/server/modules/services/services.service.ts",
+        "./src/server/modules/subaccount/repository/subaccount.entity.ts",
+        "./src/server/modules/subaccount/subaccount.service.ts"
+      ],
       "./src/server/modules/category/category.controller.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
         "./node_modules/@nestjs/swagger/index.d.ts",
@@ -13250,7 +13481,8 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/common/readable/category/ireadablecategory.ts",
-        "./src/server/modules/category/category.service.ts"
+        "./src/server/modules/category/category.service.ts",
+        "./src/server/modules/category/repository/category.entity.ts"
       ],
       "./src/server/modules/category/category.module.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
@@ -13430,6 +13662,8 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/server/modules/account/account.module.ts",
+        "./src/server/modules/account/account.service.ts",
+        "./src/server/modules/auth/auth.module.ts",
         "./src/server/modules/db/database.module.ts",
         "./src/server/modules/jwt-token/jwt-token.service.ts",
         "./src/server/modules/jwt-token/repository/token.providers.ts"
@@ -13588,7 +13822,11 @@
         "./src/server/modules/db/database.module.ts",
         "./src/server/modules/request/repository/request.provider.ts",
         "./src/server/modules/request/request.controller.ts",
-        "./src/server/modules/request/request.service.ts"
+        "./src/server/modules/request/request.service.ts",
+        "./src/server/modules/services/services.module.ts",
+        "./src/server/modules/services/services.service.ts",
+        "./src/server/modules/subaccount-request/subaccount-request.module.ts",
+        "./src/server/modules/subaccount/subaccount.module.ts"
       ],
       "./src/server/modules/request/request.service.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
@@ -13602,7 +13840,11 @@
         "./src/common/dto/request/create-request.dto.ts",
         "./src/server/modules/auto/auto.service.ts",
         "./src/server/modules/autopart/repository/autopart.entity.ts",
-        "./src/server/modules/request/repository/request.entity.ts"
+        "./src/server/modules/request/repository/request.entity.ts",
+        "./src/server/modules/services/services.service.ts",
+        "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts",
+        "./src/server/modules/subaccount-request/subaccount-request.service.ts",
+        "./src/server/modules/subaccount/subaccount.service.ts"
       ],
       "./src/server/modules/services/repository/services.entity.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
@@ -13611,6 +13853,7 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/typeorm/index.d.ts",
+        "./src/common/enum/auto/auto-type.enum.ts",
         "./src/server/modules/category/repository/category.entity.ts"
       ],
       "./src/server/modules/services/repository/services.providers.ts": [
@@ -13631,6 +13874,7 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/common/dto/services/create-service.dto.ts",
+        "./src/common/dto/services/find-by-categories.dto.ts",
         "./src/common/readable/services/ireadableservices.ts",
         "./src/server/modules/services/repository/services.entity.ts",
         "./src/server/modules/services/services.service.ts"
@@ -13656,9 +13900,30 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/typeorm/index.d.ts",
+        "./src/common/dto/services/create-service.dto.ts",
+        "./src/common/enum/auto/auto-type.enum.ts",
         "./src/common/enum/subaccount/subaccount-category.enum.ts",
         "./src/server/modules/category/category.service.ts",
         "./src/server/modules/services/repository/services.entity.ts"
+      ],
+      "./src/server/modules/sms/sms.module.ts": [
+        "./node_modules/@nestjs/common/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/server/configure.root.ts",
+        "./src/server/modules/sms/sms.service.ts"
+      ],
+      "./src/server/modules/sms/sms.service.ts": [
+        "./node_modules/@nestjs/common/index.d.ts",
+        "./node_modules/@nestjs/config/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
       ],
       "./src/server/modules/social/repository/social.entity.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
@@ -13774,7 +14039,17 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/typeorm/index.d.ts",
-        "./src/server/modules/request/repository/request.entity.ts"
+        "./src/server/modules/request/repository/request.entity.ts",
+        "./src/server/modules/subaccount/repository/subaccount.entity.ts"
+      ],
+      "./src/server/modules/subaccount-request/repository/subaccount-request.providers.ts": [
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/typeorm/index.d.ts",
+        "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts"
       ],
       "./src/server/modules/subaccount-request/subaccount-request.module.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
@@ -13783,7 +14058,19 @@
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
-        "./src/server/modules/db/database.module.ts"
+        "./src/server/modules/db/database.module.ts",
+        "./src/server/modules/subaccount-request/repository/subaccount-request.providers.ts",
+        "./src/server/modules/subaccount-request/subaccount-request.service.ts"
+      ],
+      "./src/server/modules/subaccount-request/subaccount-request.service.ts": [
+        "./node_modules/@nestjs/common/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/typeorm/index.d.ts",
+        "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts"
       ],
       "./src/server/modules/subaccount/repository/subaccount.entity.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
@@ -13797,7 +14084,8 @@
         "./src/server/modules/contacts/repository/contacts.entity.ts",
         "./src/server/modules/price-list/repository/price-list.entity.ts",
         "./src/server/modules/services/repository/services.entity.ts",
-        "./src/server/modules/subaccount-photo/repository/subaccount-photo.entity.ts"
+        "./src/server/modules/subaccount-photo/repository/subaccount-photo.entity.ts",
+        "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts"
       ],
       "./src/server/modules/subaccount/repository/subaccount.providers.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
@@ -13820,7 +14108,9 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/nestjs-typeorm-paginate/dist/index.d.ts",
         "./src/common/dto/subaccount/create-subaccount.dto.ts",
+        "./src/common/dto/subaccount/edit/edit-description.dto.ts",
         "./src/common/dto/subaccount/filter-subaccount-byservices.dto.ts",
+        "./src/common/dto/subaccount/get-price-list.dto.ts",
         "./src/common/dto/subaccount/load-price-list.dto.ts",
         "./src/server/modules/account/decorators/account.decorator.ts",
         "./src/server/modules/account/repository/account.entity.ts",
@@ -13853,6 +14143,7 @@
         "./node_modules/@nestjs/common/index.d.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/path.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -13860,7 +14151,6 @@
         "./node_modules/typeorm/index.d.ts",
         "./src/common/dto/subaccount/create-subaccount.dto.ts",
         "./src/common/enum/subaccount/subaccount-category.enum.ts",
-        "./src/common/readable/subaccount/subaccount.readable.ts",
         "./src/server/modules/account/repository/account.entity.ts",
         "./src/server/modules/category/category.service.ts",
         "./src/server/modules/category/repository/category.entity.ts",
@@ -13874,6 +14164,29 @@
       "./src/server/roles.guard.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
         "./node_modules/@nestjs/core/index.d.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./src/server/utils/rand.ts": [
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./src/server/utils/unique-validation.ts": [
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/class-validator/types/index.d.ts",
+        "./node_modules/typeorm/index.d.ts"
+      ],
+      "./src/server/utils/utils.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -15888,14 +16201,6 @@
         "./node_modules/@types/node/util.d.ts"
       ],
       "./node_modules/@nestjs/swagger/dist/decorators/api-hide-property.decorator.d.ts": [
-        "./node_modules/@types/graceful-fs/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@nestjs/swagger/dist/decorators/api-model-property.decorator.d.ts": [
-        "./node_modules/@nestjs/swagger/dist/interfaces/schema-object-metadata.interface.d.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -21712,12 +22017,22 @@
         "./src/common/dto/file/file-upload.dto.ts"
       ],
       "./src/common/dto/services/create-service.dto.ts": [
+        "./src/common/enum/auto/auto-type.enum.ts",
         "./src/common/enum/subaccount/subaccount-category.enum.ts"
+      ],
+      "./src/common/dto/services/find-by-categories.dto.ts": [
+        "./src/common/enum/subaccount/subaccount-category.enum.ts"
+      ],
+      "./src/common/dto/subaccount/autostore/edit-autostore-services.dto.ts": [
+        "./src/common/enum/auto/auto-type.enum.ts"
       ],
       "./src/common/dto/subaccount/create-subaccount.dto.ts": [
         "./src/common/dto/address/create-address.dto.ts",
         "./src/common/dto/social/social.dto.ts",
         "./src/common/dto/subaccount/weekday.enum.ts",
+        "./src/common/enum/subaccount/subaccount-category.enum.ts"
+      ],
+      "./src/common/dto/subaccount/filter-subaccount-byservices.dto.ts": [
         "./src/common/enum/subaccount/subaccount-category.enum.ts"
       ],
       "./src/common/dto/subaccount/load-price-list.dto.ts": [
@@ -21735,20 +22050,29 @@
         "./node_modules/@nestjs/common/index.d.ts"
       ],
       "./src/server/modules/account/account.controller.ts": [
+        "./src/common/dto/auth/confirm-account.dto.ts",
+        "./src/common/dto/auth/confirm-smscode.dto.ts",
+        "./src/common/dto/auth/edit-account.dto.ts",
         "./src/common/readable/account/ireadableaccount.ts",
-        "./src/server/modules/account/account.service.ts"
+        "./src/server/modules/account/account.service.ts",
+        "./src/server/modules/account/repository/account.entity.ts"
       ],
       "./src/server/modules/account/account.service.ts": [
         "./node_modules/typeorm/index.d.ts",
         "./src/common/dto/auth/create-account.dto.ts",
+        "./src/common/dto/auth/edit-account.dto.ts",
+        "./src/common/readable/account/ireadableaccount.ts",
         "./src/server/modules/account/repository/account.entity.ts",
         "./src/server/modules/account/repository/account.repository.ts",
+        "./src/server/modules/auth/auth.service.ts",
+        "./src/server/modules/jwt-token/jwt-token.service.ts",
         "./src/server/modules/jwt-token/repository/token.entity.ts"
       ],
       "./src/server/modules/account/decorators/account.decorator.ts": [
         "./node_modules/@nestjs/common/index.d.ts"
       ],
       "./src/server/modules/account/repository/account.entity.ts": [
+        "./src/common/enum/account/registration-status.enum.ts",
         "./src/common/enum/account/status.enum.ts",
         "./src/server/modules/jwt-token/repository/token.entity.ts",
         "./src/server/modules/subaccount/repository/subaccount.entity.ts"
@@ -21778,9 +22102,11 @@
       ],
       "./src/server/modules/auth/auth.controller.ts": [
         "./src/common/dto/auth/confirm-account.dto.ts",
+        "./src/common/dto/auth/confirm-smscode.dto.ts",
         "./src/common/dto/auth/create-account.dto.ts",
         "./src/common/dto/auth/sign-in.dto.ts",
         "./src/common/readable/account/ireadableaccount.ts",
+        "./src/server/modules/account/repository/account.entity.ts",
         "./src/server/modules/auth/auth.service.ts"
       ],
       "./src/server/modules/auth/auth.service.ts": [
@@ -21793,8 +22119,10 @@
         "./src/common/readable/account/ireadableaccount.ts",
         "./src/server/modules/account/account.service.ts",
         "./src/server/modules/account/repository/account.entity.ts",
+        "./src/server/modules/auth/interfaces/token-payload.interface.ts",
         "./src/server/modules/jwt-token/jwt-token.service.ts",
-        "./src/server/modules/mail/mail.service.ts"
+        "./src/server/modules/mail/mail.service.ts",
+        "./src/server/modules/sms/sms.service.ts"
       ],
       "./src/server/modules/auth/jwt.strategy.ts": [
         "./node_modules/@nestjs/config/index.d.ts",
@@ -21812,6 +22140,7 @@
         "./src/server/modules/auto/repository/auto.entity.ts"
       ],
       "./src/server/modules/auto/repository/auto.entity.ts": [
+        "./src/common/enum/auto/auto-type.enum.ts",
         "./src/server/modules/request/repository/request.entity.ts"
       ],
       "./src/server/modules/auto/repository/auto.providers.ts": [
@@ -21821,6 +22150,26 @@
       "./src/server/modules/autopart/repository/autopart.entity.ts": [
         "./src/common/enum/request/autopart-type.enum.ts",
         "./src/server/modules/request/repository/request.entity.ts"
+      ],
+      "./src/server/modules/autostore/autostore.controller.ts": [
+        "./src/common/dto/subaccount/autostore/edit-autostore-services.dto.ts",
+        "./src/server/modules/account/repository/account.entity.ts",
+        "./src/server/modules/autostore/autostore.interface.ts",
+        "./src/server/modules/autostore/autostore.service.ts",
+        "./src/server/modules/subaccount/repository/subaccount.entity.ts",
+        "./src/server/modules/subaccount/subaccount.service.ts"
+      ],
+      "./src/server/modules/autostore/autostore.interface.ts": [
+        "./src/server/modules/contacts/repository/contacts.entity.ts",
+        "./src/server/modules/services/repository/services.entity.ts",
+        "./src/server/modules/subaccount-photo/repository/subaccount-photo.entity.ts"
+      ],
+      "./src/server/modules/autostore/autostore.service.ts": [
+        "./src/common/enum/auto/auto-type.enum.ts",
+        "./src/server/modules/autostore/autostore.interface.ts",
+        "./src/server/modules/services/services.service.ts",
+        "./src/server/modules/subaccount/repository/subaccount.entity.ts",
+        "./src/server/modules/subaccount/subaccount.service.ts"
       ],
       "./src/server/modules/category/category.controller.ts": [
         "./src/common/readable/category/ireadablecategory.ts",
@@ -21936,9 +22285,13 @@
         "./node_modules/typeorm/index.d.ts",
         "./src/common/dto/request/create-request.dto.ts",
         "./src/server/modules/auto/auto.service.ts",
-        "./src/server/modules/request/repository/request.entity.ts"
+        "./src/server/modules/request/repository/request.entity.ts",
+        "./src/server/modules/services/services.service.ts",
+        "./src/server/modules/subaccount-request/subaccount-request.service.ts",
+        "./src/server/modules/subaccount/subaccount.service.ts"
       ],
       "./src/server/modules/services/repository/services.entity.ts": [
+        "./src/common/enum/auto/auto-type.enum.ts",
         "./src/server/modules/category/repository/category.entity.ts"
       ],
       "./src/server/modules/services/repository/services.providers.ts": [
@@ -21947,15 +22300,21 @@
       ],
       "./src/server/modules/services/services.controller.ts": [
         "./src/common/dto/services/create-service.dto.ts",
+        "./src/common/dto/services/find-by-categories.dto.ts",
         "./src/common/readable/services/ireadableservices.ts",
         "./src/server/modules/services/repository/services.entity.ts",
         "./src/server/modules/services/services.service.ts"
       ],
       "./src/server/modules/services/services.service.ts": [
         "./node_modules/typeorm/index.d.ts",
+        "./src/common/dto/services/create-service.dto.ts",
+        "./src/common/enum/auto/auto-type.enum.ts",
         "./src/common/enum/subaccount/subaccount-category.enum.ts",
         "./src/server/modules/category/category.service.ts",
         "./src/server/modules/services/repository/services.entity.ts"
+      ],
+      "./src/server/modules/sms/sms.service.ts": [
+        "./node_modules/@nestjs/config/index.d.ts"
       ],
       "./src/server/modules/social/repository/social.entity.ts": [
         "./src/server/modules/contacts/repository/contacts.entity.ts"
@@ -21992,7 +22351,16 @@
         "./src/server/modules/subaccount/subaccount.service.ts"
       ],
       "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts": [
-        "./src/server/modules/request/repository/request.entity.ts"
+        "./src/server/modules/request/repository/request.entity.ts",
+        "./src/server/modules/subaccount/repository/subaccount.entity.ts"
+      ],
+      "./src/server/modules/subaccount-request/repository/subaccount-request.providers.ts": [
+        "./node_modules/typeorm/index.d.ts",
+        "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts"
+      ],
+      "./src/server/modules/subaccount-request/subaccount-request.service.ts": [
+        "./node_modules/typeorm/index.d.ts",
+        "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts"
       ],
       "./src/server/modules/subaccount/repository/subaccount.entity.ts": [
         "./src/server/modules/account/repository/account.entity.ts",
@@ -22000,7 +22368,8 @@
         "./src/server/modules/contacts/repository/contacts.entity.ts",
         "./src/server/modules/price-list/repository/price-list.entity.ts",
         "./src/server/modules/services/repository/services.entity.ts",
-        "./src/server/modules/subaccount-photo/repository/subaccount-photo.entity.ts"
+        "./src/server/modules/subaccount-photo/repository/subaccount-photo.entity.ts",
+        "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts"
       ],
       "./src/server/modules/subaccount/repository/subaccount.providers.ts": [
         "./node_modules/typeorm/index.d.ts",
@@ -22010,7 +22379,9 @@
         "./node_modules/@nestjs/config/index.d.ts",
         "./node_modules/nestjs-typeorm-paginate/dist/index.d.ts",
         "./src/common/dto/subaccount/create-subaccount.dto.ts",
+        "./src/common/dto/subaccount/edit/edit-description.dto.ts",
         "./src/common/dto/subaccount/filter-subaccount-byservices.dto.ts",
+        "./src/common/dto/subaccount/get-price-list.dto.ts",
         "./src/server/modules/account/repository/account.entity.ts",
         "./src/server/modules/subaccount-photo/repository/subaccount-photo.entity.ts",
         "./src/server/modules/subaccount/repository/subaccount.entity.ts",
@@ -22020,17 +22391,22 @@
         "./node_modules/nestjs-typeorm-paginate/dist/index.d.ts",
         "./node_modules/typeorm/index.d.ts",
         "./src/common/dto/subaccount/create-subaccount.dto.ts",
+        "./src/common/enum/subaccount/subaccount-category.enum.ts",
         "./src/server/modules/account/repository/account.entity.ts",
         "./src/server/modules/category/category.service.ts",
         "./src/server/modules/contacts/contacts.service.ts",
         "./src/server/modules/price-list/price-list.service.ts",
         "./src/server/modules/price-list/repository/price-list.entity.ts",
+        "./src/server/modules/services/repository/services.entity.ts",
         "./src/server/modules/services/services.service.ts",
         "./src/server/modules/subaccount/repository/subaccount.entity.ts"
       ],
       "./src/server/roles.guard.ts": [
         "./node_modules/@nestjs/common/index.d.ts",
         "./node_modules/@nestjs/core/index.d.ts"
+      ],
+      "./src/server/utils/unique-validation.ts": [
+        "./node_modules/class-validator/types/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -22257,7 +22633,6 @@
       "./node_modules/@nestjs/swagger/dist/decorators/api-extra-models.decorator.d.ts",
       "./node_modules/@nestjs/swagger/dist/decorators/api-header.decorator.d.ts",
       "./node_modules/@nestjs/swagger/dist/decorators/api-hide-property.decorator.d.ts",
-      "./node_modules/@nestjs/swagger/dist/decorators/api-model-property.decorator.d.ts",
       "./node_modules/@nestjs/swagger/dist/decorators/api-oauth2.decorator.d.ts",
       "./node_modules/@nestjs/swagger/dist/decorators/api-operation.decorator.d.ts",
       "./node_modules/@nestjs/swagger/dist/decorators/api-param.decorator.d.ts",
@@ -22884,8 +23259,10 @@
       "./node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
       "./src/common/dto/address/create-address.dto.ts",
       "./src/common/dto/auth/confirm-account.dto.ts",
+      "./src/common/dto/auth/confirm-smscode.dto.ts",
       "./src/common/dto/auth/create-account-token.dto.ts",
       "./src/common/dto/auth/create-account.dto.ts",
+      "./src/common/dto/auth/edit-account.dto.ts",
       "./src/common/dto/auth/sign-in.dto.ts",
       "./src/common/dto/auto/get-auto-icon.dto.ts",
       "./src/common/dto/auto/load-auto-image.dto.ts",
@@ -22894,16 +23271,22 @@
       "./src/common/dto/request/create-request.dto.ts",
       "./src/common/dto/request/request-file-upload.dto.ts",
       "./src/common/dto/services/create-service.dto.ts",
+      "./src/common/dto/services/find-by-categories.dto.ts",
       "./src/common/dto/social/social.dto.ts",
+      "./src/common/dto/subaccount/autostore/edit-autostore-services.dto.ts",
       "./src/common/dto/subaccount/create-subaccount.dto.ts",
+      "./src/common/dto/subaccount/edit/edit-description.dto.ts",
       "./src/common/dto/subaccount/filter-subaccount-byservices.dto.ts",
+      "./src/common/dto/subaccount/get-price-list.dto.ts",
       "./src/common/dto/subaccount/get-subaccount-photos.ts",
       "./src/common/dto/subaccount/load-price-list.dto.ts",
       "./src/common/dto/subaccount/photo-by-path.dto.ts",
       "./src/common/dto/subaccount/subaccount-file-upload.dto.ts",
       "./src/common/dto/subaccount/weekday.enum.ts",
+      "./src/common/enum/account/registration-status.enum.ts",
       "./src/common/enum/account/role.enum.ts",
       "./src/common/enum/account/status.enum.ts",
+      "./src/common/enum/auto/auto-type.enum.ts",
       "./src/common/enum/request/autopart-type.enum.ts",
       "./src/common/enum/subaccount/subaccount-category.enum.ts",
       "./src/common/readable/account/ireadableaccount.ts",
@@ -22940,6 +23323,10 @@
       "./src/server/modules/autopart/autopart.module.ts",
       "./src/server/modules/autopart/autopart.service.ts",
       "./src/server/modules/autopart/repository/autopart.entity.ts",
+      "./src/server/modules/autostore/autostore.controller.ts",
+      "./src/server/modules/autostore/autostore.interface.ts",
+      "./src/server/modules/autostore/autostore.module.ts",
+      "./src/server/modules/autostore/autostore.service.ts",
       "./src/server/modules/category/category.controller.ts",
       "./src/server/modules/category/category.module.ts",
       "./src/server/modules/category/category.service.ts",
@@ -22979,6 +23366,8 @@
       "./src/server/modules/services/services.controller.ts",
       "./src/server/modules/services/services.module.ts",
       "./src/server/modules/services/services.service.ts",
+      "./src/server/modules/sms/sms.module.ts",
+      "./src/server/modules/sms/sms.service.ts",
       "./src/server/modules/social/repository/social.entity.ts",
       "./src/server/modules/social/repository/social.providers.ts",
       "./src/server/modules/social/social.module.ts",
@@ -22989,13 +23378,18 @@
       "./src/server/modules/subaccount-photo/subaccount-photo.module.ts",
       "./src/server/modules/subaccount-photo/subaccount-photo.service.ts",
       "./src/server/modules/subaccount-request/repository/subaccount-request.entity.ts",
+      "./src/server/modules/subaccount-request/repository/subaccount-request.providers.ts",
       "./src/server/modules/subaccount-request/subaccount-request.module.ts",
+      "./src/server/modules/subaccount-request/subaccount-request.service.ts",
       "./src/server/modules/subaccount/repository/subaccount.entity.ts",
       "./src/server/modules/subaccount/repository/subaccount.providers.ts",
       "./src/server/modules/subaccount/subaccount.controller.ts",
       "./src/server/modules/subaccount/subaccount.module.ts",
       "./src/server/modules/subaccount/subaccount.service.ts",
       "./src/server/roles.guard.ts",
+      "./src/server/utils/rand.ts",
+      "./src/server/utils/unique-validation.ts",
+      "./src/server/utils/utils.ts",
       "./src/server/views/layout.tsx"
     ]
   },

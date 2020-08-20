@@ -1,7 +1,9 @@
 import {
     BadRequestException,
     ConflictException,
+    forwardRef,
     HttpService,
+    Inject,
     Injectable,
     Logger,
     UnauthorizedException
@@ -20,17 +22,17 @@ import {ConfigService} from "@nestjs/config";
 import {Account} from "../account/repository/account.entity";
 import {MailService} from "../mail/mail.service";
 import {ITokenPayload} from "./interfaces/token-payload.interface";
-import {StatusEnum} from "../../../common/enum/account/status.enum";
 import {SmsService} from "../sms/sms.service";
 import {randomInteger} from "../../utils/rand";
+import {RegistrationStatusEnum} from "../../../common/enum/account/registration-status.enum";
 import moment = require("moment");
-
 
 @Injectable()
 export class AuthService {
     private readonly clientAppUrl: string
 
     constructor(
+        @Inject(forwardRef(() => AccountService))
         private readonly accountService: AccountService,
         private readonly jwtService: JwtService,
         private readonly tokenService: JwtTokenService,
@@ -54,7 +56,7 @@ export class AuthService {
         if (account && (await bcrypt.compare(password, account.password))) {
             const tokenPayload: ITokenPayload = {
                 id: account.id,
-                fio: account.fio,
+                fio: account.firstName + ' ' + account.middleName + ' ' + account.lastName,
                 email: account.email
             }
             const token = await this.generateToken(tokenPayload)
@@ -80,47 +82,49 @@ export class AuthService {
         return this.jwtService.sign(data, options)
     }
 
+    //TODO: Убрать после тестов
     async smsTest(): Promise<Boolean> {
         return await this.smsService.authTest()
     }
 
+    //TODO: Методы по отправке подтверждения, и подобные ему вынести в другой модуль
     async sendSmsConfirmation(account: Account) {
         const generatedSmsCode = randomInteger(100000, 999999)
-        const success = await this.smsService.sendSms(Number(account.phone), generatedSmsCode)
-        Logger.debug(success)
+        //TODO: fix sendSMS
+        //await this.smsService.sendSms(Number(account.phone), generatedSmsCode)
         account.smsCode = generatedSmsCode
         await this.accountService.update(account)
     }
 
-    async smsCodeConfirm(account: Account, code: number): Promise<boolean> {
-        if (account.status !== StatusEnum.phoneNumberPending || account.smsCode == null) {
+    async registrationSmsConfirm(account: Account, code: number): Promise<boolean> {
+        if ((account.registrationStatus !== RegistrationStatusEnum.phoneNumberPending) || account.smsCode == null)
             throw new BadRequestException('Аккаунт не нуждается в подтверждении номера телефона')
-        }
         if (account.smsCode !== code)
             throw new ConflictException('Неверный код')
 
-        account.status = StatusEnum.confirmRulesPending
+        account.registrationStatus = RegistrationStatusEnum.confirmRulesPending
         await this.accountService.update(account)
         return true
     }
 
-    async rulesConfirm(account: Account): Promise<boolean> {
-        if (account.status !== StatusEnum.confirmRulesPending) {
+    async registrationRulesConfirm(account: Account): Promise<boolean> {
+        if (account.registrationStatus !== RegistrationStatusEnum.confirmRulesPending)
             throw new BadRequestException('Аккаунт не нуждается в подтверждении правил')
-        }
 
-        account.status = StatusEnum.emailPending
+        account.registrationStatus = RegistrationStatusEnum.emailPending
         await this.accountService.update(account)
-        await this.sendEmailConfirmation(account)
 
+        //TODO: ДОБАВИТЬ СТРОЧКУ СНИЗУ НА ПРОД
+        //await this.sendEmailConfirmation(account)
         return true
     }
 
+    //TODO: in future send confirmation
     async sendEmailConfirmation(account: Account) {
         const expiresIn = 60 * 60 * 24 //24 hours
         const tokenPayload: ITokenPayload = {
             id: account.id,
-            fio: account.fio,
+            fio: account.firstName + ' ' + account.middleName + ' ' + account.lastName,
             email: account.email
         }
         const expiresAt = moment().add(1, 'day').toDate()
@@ -134,14 +138,14 @@ export class AuthService {
             to: account.email,
             subject: 'Подтверждение пользователя',
             html: `
-          <h3>Здравствуйте ${account.fio}</h3>
+          <h3>Здравствуйте ${account.firstName}</h3>
           <p>Пожалуйста используйте эту ссылку <a href="${confirmLink}">link</a> для подтверждения вашего аккаунта.</p>
         `,
         })
         Logger.debug(response)
     }
 
-    async emailConfirm(token: string): Promise<boolean> {
+    async registrationEmailConfirm(token: string): Promise<boolean> {
         const data = this.jwtService.verify(token) as ITokenPayload
         const account = await this.accountService.findById(data.id)
         const tokenExists = await this.tokenService.exists(account, token)
@@ -151,13 +155,18 @@ export class AuthService {
 
         await this.tokenService.delete(account, token)
 
-        if (!account || account.status !== StatusEnum.emailPending)
-            throw new BadRequestException('Confirmation error')
+        if (!account || (account.registrationStatus !== RegistrationStatusEnum.emailPending))
+            throw new BadRequestException('Аккаунт не нуждается в подтверждении email')
 
-        account.status = StatusEnum.active
+        account.registrationStatus = RegistrationStatusEnum.registered
         await this.accountService.update(account)
         return true
     }
+
+    async verifyToken(token: string): Promise<ITokenPayload> {
+        return await this.jwtService.verify(token) as ITokenPayload
+    }
+
 
     private async saveToken(createUserTokenDto: CreateAccountTokenDto) {
         return await this.tokenService.create(createUserTokenDto)

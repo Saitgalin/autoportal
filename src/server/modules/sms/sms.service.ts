@@ -23,13 +23,18 @@ export class SmsService {
     })
   }
 
-  async sendSms(phoneNumber: number, smsCode: number): Promise<boolean> {
-    return await smsc.send_sms({
+  async sendSms(phoneNumber: number, smsCode: number): Promise<void> {
+    //TODO: message is denied
+    //FIX: sending to smsc
+    smsc.send_sms({
       phones: [`${phoneNumber}`],
       mes: `Ваш код подтверждения ${smsCode}`,
       cost: 1
     }, function (data, raw, err, code) {
-      if (err) return console.log(err, 'code: ' + code)
+      if (err) {
+        Logger.error(smsCode)
+        return console.log(err, 'code: ' + code)
+      }
       Logger.debug(smsCode)
     })
   }

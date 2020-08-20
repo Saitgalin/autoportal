@@ -3,22 +3,24 @@ import {AccountService} from './account.service';
 import {accountProviders} from './repository/account.providers';
 import {DatabaseModule} from "../db/database.module";
 import {AccountController} from './account.controller';
-import {JwtTokenModule} from "../jwt-token/jwt-token.module";
 import {AuthenticationGuard} from "../jwt-token/authorization.guard";
+import {AuthModule} from "../auth/auth.module";
+import {JwtTokenModule} from "../jwt-token/jwt-token.module";
+import {JwtStrategy} from "../auth/jwt.strategy";
 
 @Module({
   imports: [
-      DatabaseModule,
-      forwardRef(() => JwtTokenModule)
+    DatabaseModule,
+    forwardRef(() => JwtTokenModule),
+    forwardRef(() => AuthModule)
   ],
   providers: [
-      AccountService,
+    AccountService,
     ...accountProviders,
-      AuthenticationGuard
+    AuthenticationGuard
   ],
-  exports: [
-      AccountService
-  ],
-  controllers: [AccountController]
+  controllers: [AccountController],
+  exports: [AccountService]
 })
-export class AccountModule {}
+export class AccountModule {
+}
