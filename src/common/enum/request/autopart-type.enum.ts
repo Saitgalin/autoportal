@@ -1,6 +1,6 @@
 export enum AutopartTypeEnum {
-    all= 'all',
-    original = 'original',
-    analogues = 'analogues',
-    notChina = 'notChina'
+    all= 'Все производители',
+    original = 'Только оригиналы',
+    analogues = 'Оригиналы и аналоги',
+    notChina = 'Все, кроме Китая'
 }

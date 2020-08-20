@@ -1,7 +1,7 @@
 import {ApiProperty} from "@nestjs/swagger";
-import {IsArray, IsNotEmpty, IsNumber, IsOptional, IsString} from "class-validator";
-import {Query} from "@nestjs/common";
+import {IsArray, IsOptional, IsString} from "class-validator";
 import {Transform, Type} from "class-transformer";
+import {SubAccountCategoryEnum} from "../../enum/subaccount/subaccount-category.enum";
 
 export class FilterSubAccountDto {
 
@@ -26,5 +26,9 @@ export class FilterSubAccountDto {
   @Transform((value: string) => value.split(','))
   @IsArray()
   services?: string[]
+
+  @ApiProperty({enum: SubAccountCategoryEnum})
+  @IsString()
+  readonly subAccountCategory: SubAccountCategoryEnum
 
 }

@@ -19,6 +19,16 @@ export class AutoController {
         return await this.autoService.all()
     }
 
+    @Get('/makes')
+    async makes(): Promise<string[]> {
+        return await this.autoService.makes()
+    }
+
+    @Get('/makeModels')
+    async makeModels(@Query('makeTitle') makeTitle: string): Promise<string[]> {
+        return await this.autoService.makeModels(makeTitle)
+    }
+
     @Post('/uploadAutoIcon')
     @UseInterceptors(FileInterceptor('file'))
     @ApiConsumes('multipart/form-data')
@@ -29,9 +39,9 @@ export class AutoController {
     async uploadAutoIcon(
         @UploadedFile() file,
         @Body() request
-    ): Promise<Auto> {
+    ): Promise<Auto[]> {
         return this.autoService.uploadAutoIcon(
-            file, parseInt(request.autoId)
+            file, request.autoTitle
         )
     }
 
@@ -39,6 +49,6 @@ export class AutoController {
     async getAutoIcon(
         @Query(new ValidationPipe()) getAutoIconDto: GetAutoIconDto, @Res() res
     ) {
-        await this.autoService.getAutoIcon(getAutoIconDto.autoId, res)
+        await this.autoService.getAutoIcon(getAutoIconDto.autoTitle, res)
     }
 }

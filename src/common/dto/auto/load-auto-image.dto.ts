@@ -7,6 +7,6 @@ export class LoadAutoImageDto extends FileUploadDto{
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  autoId: string
+  autoTitle: string
 
 }

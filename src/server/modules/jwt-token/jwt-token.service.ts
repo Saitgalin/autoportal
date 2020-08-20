@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@nestjs/common';
+import {forwardRef, Inject, Injectable} from '@nestjs/common';
 import {CreateAccountTokenDto} from "../../../common/dto/auth/create-account-token.dto";
 import {Token} from "./repository/token.entity";
 import {TokenRepository} from "./repository/token.repository";
@@ -11,6 +11,7 @@ export class JwtTokenService {
     constructor(
         @Inject('TOKEN_REPOSITORY')
         private readonly tokenRepository: TokenRepository,
+        @Inject(forwardRef(() => AccountService))
         private readonly accountService: AccountService
     ) {}
 

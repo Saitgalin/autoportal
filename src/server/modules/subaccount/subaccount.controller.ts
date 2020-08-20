@@ -3,7 +3,7 @@ import {
     Controller,
     Get,
     Post,
-    Query,
+    Query, Res,
     UploadedFile,
     UseGuards,
     UseInterceptors,
@@ -22,6 +22,8 @@ import {LoadPriceListDto} from "../../../common/dto/subaccount/load-price-list.d
 import {Pagination} from "nestjs-typeorm-paginate";
 import {ConfigService} from "@nestjs/config";
 import {FilterSubAccountDto} from "../../../common/dto/subaccount/filter-subaccount-byservices.dto";
+import {GetPriceListDto} from "../../../common/dto/subaccount/get-price-list.dto";
+import {EditSubAccountDescriptionDto} from "../../../common/dto/subaccount/edit/edit-description.dto";
 
 
 @ApiTags('subAccount')
@@ -32,7 +34,7 @@ export class SubAccountController {
 
     constructor(
         private readonly subAccountService: SubAccountService,
-        private readonly configService: ConfigService,
+        private readonly configService: ConfigService
     ) {
         this.clientAppUrl = configService.get<string>('CLIENT_APP_URL')
     }
@@ -55,7 +57,10 @@ export class SubAccountController {
     async selectWithQuery(
         @Query(new ValidationPipe({ transform: true })) filter: FilterSubAccountDto
     ): Promise<Pagination<SubAccount>> {
-        return await this.subAccountService.paginateSearch(filter.conditions, filter.services, {
+        return await this.subAccountService.paginateSearch(
+            filter.subAccountCategory,
+            filter.conditions, filter.services,
+            {
             page: Number(filter.page),
             limit: Number(filter.limit),
             route: `${this.clientAppUrl}/subAccount`
@@ -78,6 +83,27 @@ export class SubAccountController {
     @Get('/byCity')
     async byCity(@Query('city') city: string) {
         return await this.subAccountService.findByCities(city)
+    }
+
+    @Get('/getPriceList')
+    async getPriceList(
+        @Query(new ValidationPipe()) getPriceListDto: GetPriceListDto,
+        @Res() response
+    ) {
+        return await this.subAccountService.priceList(getPriceListDto.subAccountId, response)
+    }
+
+    @UseGuards(AuthenticationGuard)
+    @Post('/editSubAccountDescription')
+    async editSubAccountDescription(
+        @AuthAccount() account: Account,
+        @Body(new ValidationPipe()) editSubAccountDescriptionDto: EditSubAccountDescriptionDto
+    ) {
+        return await this.subAccountService.editSubAccountDescription(
+            account,
+            editSubAccountDescriptionDto.description,
+            Number(editSubAccountDescriptionDto.subAccountId)
+        )
     }
 
     @UseGuards(AuthenticationGuard)

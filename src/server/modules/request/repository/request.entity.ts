@@ -15,8 +15,8 @@ export class Request {
     @ManyToOne(type => Auto, auto => auto.request)
     auto: Auto
 
-    @Column()
-    vin: string
+    @Column({nullable: true})
+    vin?: string
 
     @Column({nullable: true})
     vinpic: string
@@ -34,6 +34,6 @@ export class Request {
     createdAt: Date
 
     @OneToMany(type => SubAccountRequest, subAccountRequest => subAccountRequest.request)
-    subAccountRequest: SubAccountRequest
+    subAccountRequests: SubAccountRequest[]
     
 }

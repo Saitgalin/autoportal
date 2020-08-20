@@ -6,10 +6,10 @@ export class CreateAutopartDto {
     @ApiProperty()
     @IsString()
     @IsNotEmpty()
-    readonly title: string
+    readonly autoPartTitle: string
 
     @ApiProperty({enum: AutopartTypeEnum})
     @IsString()
     @IsNotEmpty()
-    readonly autopartType: AutopartTypeEnum
+    readonly autoPartType: AutopartTypeEnum
 }

@@ -18,6 +18,8 @@ import {AutopartModule} from './modules/autopart/autopart.module';
 import {SubAccountRequestModule} from './modules/subaccount-request/subaccount-request.module';
 import {SubAccountPhotoModule} from './modules/subaccount-photo/subaccount-photo.module';
 import {PriceListModule} from './modules/price-list/price-list.module';
+import {AutostoreModule} from './modules/autostore/autostore.module';
+import { SmsModule } from './modules/sms/sms.module';
 
 
 @Module({
@@ -40,8 +42,10 @@ import {PriceListModule} from './modules/price-list/price-list.module';
     SubAccountRequestModule,
     SubAccountPhotoModule,
     PriceListModule,
+    AutostoreModule,
+    SmsModule
   ],
-  controllers: [AppController],
+  controllers: [AppController]
   /*providers: [
     {
       provide: APP_GUARD,
@@ -50,4 +54,5 @@ import {PriceListModule} from './modules/price-list/price-list.module';
   ],
    */
 })
-export class AppModule {}
+export class AppModule {
+}

@@ -1,4 +1,4 @@
-import {Body, Controller, Post, UploadedFile, UseInterceptors, ValidationPipe} from '@nestjs/common';
+import {Body, Controller, Logger, Post, UploadedFile, UseInterceptors, ValidationPipe} from '@nestjs/common';
 import {Request} from "./repository/request.entity";
 import {CreateRequestDto} from "../../../common/dto/request/create-request.dto";
 import {RequestService} from "./request.service";
@@ -20,7 +20,8 @@ export class RequestController {
         return this.requestService.create(createRequestDto)
     }
 
-    //Закрыть роут
+
+    //Закрыть роут, как и многие остальные, вообщем-та
     @Post('/uploadRequestImage')
     @UseInterceptors(FileInterceptor('file'))
     @ApiConsumes('multipart/form-data')
@@ -32,6 +33,7 @@ export class RequestController {
         @UploadedFile() file,
         @Body() request
     ): Promise<Boolean> {
+        Logger.error(file)
         return this.requestService.uploadRequestImage(file, parseInt(request.requestId))
     }
 

@@ -1,16 +1,20 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {Request} from "../../request/repository/request.entity";
+import {SubAccount} from "../../subaccount/repository/subaccount.entity";
 
 @Entity()
 export class SubAccountRequest {
 
-    @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number
 
-    @Column()
-    viewed: boolean
+  @Column({default: false})
+  viewed: boolean
 
-    @ManyToOne(type => Request, request => request.subAccountRequest)
-    request: Request
+  @ManyToOne(type => Request, request => request.subAccountRequests, {cascade: true})
+  request: Request
+
+  @ManyToOne(type => SubAccount, subAccount => subAccount.subAccountRequests, {cascade: true})
+  subAccount: SubAccount
 
 }
