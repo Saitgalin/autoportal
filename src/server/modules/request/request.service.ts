@@ -48,6 +48,7 @@ export class RequestService {
         for (const subAccount of subAccountWithRequestServices) {
             const subAccountRequest = new SubAccountRequest()
             subAccountRequest.subAccount = subAccount
+            subAccountRequest.request = request
 
             const savedSubAccountRequest = await this.subAccountRequestService.save(subAccountRequest)
             savedSubAccountRequests.push(savedSubAccountRequest)

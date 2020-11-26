@@ -179,7 +179,7 @@ export class AuthService {
             req.connection.socket.remoteAddress
     }
 
-    cityByIp(ip: any) {
+    cityByIp(ip: any): any {
         return this.httpService
             .get(`https://suggestions.dadata.ru/suggestions/api/4_1/rs/iplocate/address?ip=${ip}`)
             .toPromise()

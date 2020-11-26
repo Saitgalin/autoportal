@@ -81,8 +81,18 @@ export class SubAccountController {
     }
 
     @Get('/byCity')
-    async byCity(@Query('city') city: string) {
+    async byCity(
+        @Query('city') city: string
+    ) {
         return await this.subAccountService.findByCities(city)
+    }
+
+    @UseGuards(AuthenticationGuard)
+    @Get('/byAccount')
+    async byAccount(
+        @AuthAccount() account: Account,
+    ): Promise<SubAccount[]> {
+        return account.subAccounts
     }
 
     @Get('/getPriceList')

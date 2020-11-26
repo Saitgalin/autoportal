@@ -20,7 +20,6 @@ export class CreateAccountDto {
     readonly middleName: string
 
     @ApiProperty()
-    @IsDateString()
     readonly birthDate: Date
 
     @ApiProperty()

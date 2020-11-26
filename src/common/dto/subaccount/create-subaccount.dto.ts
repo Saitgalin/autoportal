@@ -51,6 +51,4 @@ export class CreateSubAccountDto {
     @ApiProperty()
     readonly socials: SocialDto
 
-
-
 }

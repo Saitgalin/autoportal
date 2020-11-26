@@ -38,6 +38,35 @@ export class ServicesService {
     return service
   }
 
+  async trucks(): Promise<Services[]> {
+    const services = await this.servicesRepository.find({
+      where: {
+        autoType: AutoTypeEnum.truck
+      }
+    })
+
+    if (services == null) {
+      throw new BadRequestException('Не была найдена услуга/автомобиль')
+    }
+
+    return services
+  }
+
+  async passengers(): Promise<Services[]> {
+    const services = await this.servicesRepository.find({
+      where: {
+        autoType: AutoTypeEnum.passenger
+      }
+    })
+
+    if (services == null) {
+      throw new BadRequestException('Не была найдена услуга/автомобиль')
+    }
+
+    return services
+  }
+
+
   async findByCategoryTitle(categoryTitle: SubAccountCategoryEnum): Promise<Services[]> {
     const category = await this.categoryService.findByName(categoryTitle)
     return await this.servicesRepository.find(
