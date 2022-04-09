@@ -41,7 +41,7 @@
     "express-react-views": "^0.11.0",
     "lodash": "^4.17.15",
     "mailgun-js": "^0.22.0",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "mysql": "^2.18.1",
     "nestjs-typeorm-paginate": "^2.0.3",
     "passport": "^0.4.1",
